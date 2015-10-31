@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0A65CE091BE40CE300BBD286 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE081BE40CE300BBD286 /* AppDelegate.swift */; };
-		0A65CE0B1BE40CE300BBD286 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE0A1BE40CE300BBD286 /* ViewController.swift */; };
 		0A65CE0E1BE40CE300BBD286 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A65CE0C1BE40CE300BBD286 /* Main.storyboard */; };
 		0A65CE101BE40CE300BBD286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A65CE0F1BE40CE300BBD286 /* Assets.xcassets */; };
 		0A65CE131BE40CE300BBD286 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A65CE111BE40CE300BBD286 /* LaunchScreen.storyboard */; };
 		0A65CE1E1BE40CE300BBD286 /* OmageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE1D1BE40CE300BBD286 /* OmageTests.swift */; };
 		0A65CE291BE40CE300BBD286 /* OmageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE281BE40CE300BBD286 /* OmageUITests.swift */; };
+		0A65CE371BE40E4500BBD286 /* OmageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE361BE40E4500BBD286 /* OmageViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0A65CE391BE415A800BBD286 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE381BE415A800BBD286 /* CameraButton.swift */; settings = {ASSET_TAGS = (); }; };
+		0A65CE3B1BE4162300BBD286 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE3A1BE4162300BBD286 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
+		0A65CE421BE4297B00BBD286 /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE411BE4297B00BBD286 /* OpenCV.mm */; settings = {ASSET_TAGS = (); }; };
+		0A65CE441BE42C5000BBD286 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A65CE431BE42C5000BBD286 /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
+		0A65CE461BE4330D00BBD286 /* PhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE451BE4330D00BBD286 /* PhotoButton.swift */; settings = {ASSET_TAGS = (); }; };
+		0A65CE481BE43E9000BBD286 /* SimpleImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* Begin PBXFileReference section */
 		0A65CE051BE40CE300BBD286 /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A65CE081BE40CE300BBD286 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A65CE0A1BE40CE300BBD286 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A65CE0D1BE40CE300BBD286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A65CE0F1BE40CE300BBD286 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A65CE121BE40CE300BBD286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,15 @@
 		0A65CE241BE40CE300BBD286 /* OmageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A65CE281BE40CE300BBD286 /* OmageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmageUITests.swift; sourceTree = "<group>"; };
 		0A65CE2A1BE40CE300BBD286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A65CE361BE40E4500BBD286 /* OmageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmageViewController.swift; sourceTree = "<group>"; };
+		0A65CE381BE415A800BBD286 /* CameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
+		0A65CE3A1BE4162300BBD286 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0A65CE3F1BE4297A00BBD286 /* Omage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omage-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A65CE401BE4297B00BBD286 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
+		0A65CE411BE4297B00BBD286 /* OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCV.mm; sourceTree = "<group>"; };
+		0A65CE431BE42C5000BBD286 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Omage/opencv2.framework; sourceTree = "<group>"; };
+		0A65CE451BE4330D00BBD286 /* PhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoButton.swift; sourceTree = "<group>"; };
+		0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A65CE441BE42C5000BBD286 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 				0A65CE1C1BE40CE300BBD286 /* OmageTests */,
 				0A65CE271BE40CE300BBD286 /* OmageUITests */,
 				0A65CE061BE40CE300BBD286 /* Products */,
+				0A65CE3E1BE4292100BBD286 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +114,18 @@
 			isa = PBXGroup;
 			children = (
 				0A65CE081BE40CE300BBD286 /* AppDelegate.swift */,
-				0A65CE0A1BE40CE300BBD286 /* ViewController.swift */,
+				0A65CE381BE415A800BBD286 /* CameraButton.swift */,
+				0A65CE451BE4330D00BBD286 /* PhotoButton.swift */,
+				0A65CE401BE4297B00BBD286 /* OpenCV.h */,
+				0A65CE411BE4297B00BBD286 /* OpenCV.mm */,
+				0A65CE3A1BE4162300BBD286 /* Settings.swift */,
 				0A65CE0C1BE40CE300BBD286 /* Main.storyboard */,
+				0A65CE361BE40E4500BBD286 /* OmageViewController.swift */,
+				0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */,
 				0A65CE0F1BE40CE300BBD286 /* Assets.xcassets */,
 				0A65CE111BE40CE300BBD286 /* LaunchScreen.storyboard */,
 				0A65CE141BE40CE300BBD286 /* Info.plist */,
+				0A65CE3F1BE4297A00BBD286 /* Omage-Bridging-Header.h */,
 			);
 			path = Omage;
 			sourceTree = "<group>";
@@ -123,6 +146,14 @@
 				0A65CE2A1BE40CE300BBD286 /* Info.plist */,
 			);
 			path = OmageUITests;
+			sourceTree = "<group>";
+		};
+		0A65CE3E1BE4292100BBD286 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				0A65CE431BE42C5000BBD286 /* opencv2.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +218,7 @@
 		0A65CDFD1BE40CE200BBD286 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Wenzheng Li";
 				TargetAttributes = {
@@ -255,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A65CE0B1BE40CE300BBD286 /* ViewController.swift in Sources */,
+				0A65CE481BE43E9000BBD286 /* SimpleImageProcessor.swift in Sources */,
+				0A65CE371BE40E4500BBD286 /* OmageViewController.swift in Sources */,
+				0A65CE421BE4297B00BBD286 /* OpenCV.mm in Sources */,
+				0A65CE461BE4330D00BBD286 /* PhotoButton.swift in Sources */,
+				0A65CE391BE415A800BBD286 /* CameraButton.swift in Sources */,
 				0A65CE091BE40CE300BBD286 /* AppDelegate.swift in Sources */,
+				0A65CE3B1BE4162300BBD286 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +435,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Omage",
+				);
 				INFOPLIST_FILE = Omage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -409,10 +455,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Omage",
+				);
 				INFOPLIST_FILE = Omage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
 			};
 			name = Release;
 		};
