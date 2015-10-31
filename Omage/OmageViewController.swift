@@ -31,12 +31,14 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                 backgroundImageView!.backgroundColor = UIColor.clearColor()
                 backgroundImageView!.image = newValue
                 imageViewContainer.addSubview(backgroundImageView!)
-//                if handwrittingImageView != nil {
-//                    imageViewContainer.bringSubviewToFront(handwrittingImageView!)
-//                }
+                if handwrittingImageView != nil {
+                    imageViewContainer.bringSubviewToFront(handwrittingImageView!)
+                }
             }
         }
     }
+    
+    private var opencvImage: UIImage?
 
     // MARK - handwritting image
     private var handwrittingImageView: UIImageView?
@@ -97,8 +99,8 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
             image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }
         if picker.sourceType == .Camera {
-            let opencvImage = OpenCV.magicallyExtractChar(image)
-            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage.CGImage!)
+            opencvImage = OpenCV.magicallyExtractChar(image)
+            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!)
             handwrittingImage = transparentImage
             makeRoomForImage(handwrittingImageView)
         } else {
@@ -158,8 +160,9 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         switch sender.state {
         case .Ended: fallthrough
         case .Changed:
-            if let image = handwrittingImage {
-                handwrittingImageView?.image = OpenCV.invertImage(image)
+            if handwrittingImage != nil {
+                opencvImage = OpenCV.invertImage(opencvImage)
+                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!)
             }
         default: break
         }
@@ -182,6 +185,30 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
     }
 
+    @IBAction func share() {
+        let savingImage = clipImageForRect((backgroundImageView?.bounds)!, inView: imageViewContainer)
+        UIImageWriteToSavedPhotosAlbum(savingImage!, nil, nil, nil)
+        // Notify users saved successfully
+        let alert = UIAlertController(title: nil, message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        let delay = 1.5 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        })
+    }
+    
+    // MARK - clip a region of view into an image
+    func clipImageForRect(clipRect: CGRect, inView: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(clipRect.size, false, CGFloat(1.0))
+        let ctx = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(ctx, -clipRect.origin.x, -clipRect.origin.y)
+        inView.layer.renderInContext(ctx!)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
     
 }
 

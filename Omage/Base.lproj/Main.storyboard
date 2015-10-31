@@ -109,7 +109,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Omage" id="zA7-T8-yxK">
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="97l-QR-jqc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="97l-QR-jqc">
+                            <connections>
+                                <action selector="share" destination="BYZ-38-t0r" id="q1D-dB-AS3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="tMr-od-bLh" id="IXF-dF-fkp"/>
