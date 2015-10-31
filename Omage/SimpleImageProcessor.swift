@@ -27,7 +27,7 @@ class SimpleImageProcessor {
         return context
     }
     
-    static func makeTransparent(imageRef : CGImageRef) -> UIImage? {
+    static func makeTransparent(imageRef : CGImageRef, isBlack: Bool) -> UIImage? {
         let context = self.createARGBBitmapContext(imageRef)
         let width:Int  = Int(CGImageGetWidth(imageRef))
         let height:Int = Int(CGImageGetHeight(imageRef))
@@ -38,7 +38,7 @@ class SimpleImageProcessor {
         let data: UnsafeMutablePointer<Void> = CGBitmapContextGetData(context)
         let dataType = UnsafeMutablePointer<UInt8>(data)
         
-        var alpha, red, green, blue:UInt8
+        var red, green, blue:UInt8
         var base, offset:Int
         
         for y in 0...(height - 1) {
@@ -48,7 +48,7 @@ class SimpleImageProcessor {
                 
                 offset = base + x * 4
                 
-                alpha = dataType[offset]
+//                alpha = dataType[offset]
                 red   = dataType[offset + 1]
                 green = dataType[offset + 2]
                 blue  = dataType[offset + 3]
@@ -60,6 +60,13 @@ class SimpleImageProcessor {
                     dataType[offset + 2] = 0
                     dataType[offset + 3] = 0
                     dataType[offset] = 0
+                } else {
+                    if !isBlack {
+                        dataType[offset + 1] = 255
+                        dataType[offset + 2] = 255
+                        dataType[offset + 3] = 255
+                        dataType[offset] = 255
+                    }
                 }
             }
         }

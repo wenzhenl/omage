@@ -17,6 +17,10 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var cameraButton: CameraButton!
     
+    @IBOutlet weak var colorButton: ColorButton!
+    
+    @IBOutlet weak var eraserButton: EraserButton!
+    
     // MARK - background image
     private var backgroundImageView: UIImageView?
     private var backgroundImage: UIImage? {
@@ -39,6 +43,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     }
     
     private var opencvImage: UIImage?
+    private var isBlack: Bool = true
 
     // MARK - handwritting image
     private var handwrittingImageView: UIImageView?
@@ -65,6 +70,8 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.view.bringSubviewToFront(photoButton)
         self.view.bringSubviewToFront(cameraButton)
+        self.view.bringSubviewToFront(colorButton)
+        self.view.bringSubviewToFront(eraserButton)
     }
     
     
@@ -100,7 +107,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
         if picker.sourceType == .Camera {
             opencvImage = OpenCV.magicallyExtractChar(image)
-            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!)
+            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, isBlack: true)
             handwrittingImage = transparentImage
             makeRoomForImage(handwrittingImageView)
         } else {
@@ -161,8 +168,9 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         case .Ended: fallthrough
         case .Changed:
             if handwrittingImage != nil {
-                opencvImage = OpenCV.invertImage(opencvImage)
-                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!)
+//                opencvImage = OpenCV.invertImage(opencvImage)
+                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, isBlack: isBlack)
+                isBlack = !isBlack
             }
         default: break
         }

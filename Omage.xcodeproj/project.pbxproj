@@ -20,6 +20,8 @@
 		0A65CE441BE42C5000BBD286 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A65CE431BE42C5000BBD286 /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
 		0A65CE461BE4330D00BBD286 /* PhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE451BE4330D00BBD286 /* PhotoButton.swift */; settings = {ASSET_TAGS = (); }; };
 		0A65CE481BE43E9000BBD286 /* SimpleImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */; settings = {ASSET_TAGS = (); }; };
+		0A918AE71BE535B900D56A1B /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918AE61BE535B900D56A1B /* ColorButton.swift */; settings = {ASSET_TAGS = (); }; };
+		0A918AE91BE5369000D56A1B /* EraserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918AE81BE5369000D56A1B /* EraserButton.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		0A65CE431BE42C5000BBD286 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Omage/opencv2.framework; sourceTree = "<group>"; };
 		0A65CE451BE4330D00BBD286 /* PhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoButton.swift; sourceTree = "<group>"; };
 		0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageProcessor.swift; sourceTree = "<group>"; };
+		0A918AE61BE535B900D56A1B /* ColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		0A918AE81BE5369000D56A1B /* EraserButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EraserButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				0A65CE411BE4297B00BBD286 /* OpenCV.mm */,
 				0A65CE3A1BE4162300BBD286 /* Settings.swift */,
 				0A65CE0C1BE40CE300BBD286 /* Main.storyboard */,
+				0A918AE61BE535B900D56A1B /* ColorButton.swift */,
+				0A918AE81BE5369000D56A1B /* EraserButton.swift */,
 				0A65CE361BE40E4500BBD286 /* OmageViewController.swift */,
 				0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */,
 				0A65CE0F1BE40CE300BBD286 /* Assets.xcassets */,
@@ -292,8 +298,10 @@
 				0A65CE421BE4297B00BBD286 /* OpenCV.mm in Sources */,
 				0A65CE461BE4330D00BBD286 /* PhotoButton.swift in Sources */,
 				0A65CE391BE415A800BBD286 /* CameraButton.swift in Sources */,
+				0A918AE91BE5369000D56A1B /* EraserButton.swift in Sources */,
 				0A65CE091BE40CE300BBD286 /* AppDelegate.swift in Sources */,
 				0A65CE3B1BE4162300BBD286 /* Settings.swift in Sources */,
+				0A918AE71BE535B900D56A1B /* ColorButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +545,7 @@
 				0A65CE2F1BE40CE300BBD286 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A65CE301BE40CE300BBD286 /* Build configuration list for PBXNativeTarget "OmageTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +554,7 @@
 				0A65CE321BE40CE300BBD286 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A65CE331BE40CE300BBD286 /* Build configuration list for PBXNativeTarget "OmageUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +563,7 @@
 				0A65CE351BE40CE300BBD286 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
