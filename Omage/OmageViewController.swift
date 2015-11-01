@@ -72,10 +72,10 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         self.view.bringSubviewToFront(cameraButton)
         self.view.bringSubviewToFront(colorButton)
         self.view.bringSubviewToFront(eraserButton)
+        backgroundImage = UIImage(named: "example_background")
     }
     
     override func viewDidLayoutSubviews() {
-        backgroundImage = UIImage(named: "example_background")
         makeRoomForImage(backgroundImageView)
     }
     
@@ -103,6 +103,10 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
     }
         
+    
+    @IBAction func removeNoise() {
+        eraserButton.flipState()
+    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
         var image = info[UIImagePickerControllerEditedImage] as? UIImage
