@@ -104,6 +104,57 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     }
         
     
+    @IBAction func setHandwrittingColor() {
+        if handwrittingImageView == nil {
+            let alert = UIAlertController(title: "无法选择颜色", message: "请先使用相机提取手写字句", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            let delay = 1.5 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue(), {
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            })
+        } else {
+            let colorPanel = UIAlertController(title: "请选择手写字句的颜色", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+            colorPanel.addAction(UIAlertAction(
+                title: "brown",
+                style: .Default)
+                { (action: UIAlertAction) -> Void in
+                    self.handleHandwrittingColorChange(UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0))
+                }
+            )
+            
+            colorPanel.addAction(UIAlertAction(
+                title: "brown",
+                style: .Default)
+                { (action: UIAlertAction) -> Void in
+                   self.handleHandwrittingColorChange(UIColor(red: 0, green: 0.4, blue: 0.6, alpha: 1.0))
+                }
+            )
+            
+            colorPanel.addAction(UIAlertAction(
+                title: "brown",
+                style: .Default)
+                { (action: UIAlertAction) -> Void in
+                    self.handleHandwrittingColorChange(UIColor(red: 1.0, green: 0.4, blue: 0, alpha: 1.0))
+                }
+            )
+            
+            colorPanel.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+            self.presentViewController(colorPanel, animated: true, completion: nil)
+        }
+    }
+    
+    func handleHandwrittingColorChange(color: UIColor) {
+        let transpatentImage = SimpleImageProcessor.makeTransparent((self.opencvImage?.CGImage)!, color: color.CGColor)
+        let currentTransform = handwrittingImageView?.transform
+        handwrittingImage = transpatentImage
+        makeRoomForImage(handwrittingImageView)
+        handwrittingImageView?.transform = currentTransform!
+        
+    }
+    
     @IBAction func removeNoise() {
         eraserButton.flipState()
     }
@@ -115,7 +166,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
         if picker.sourceType == .Camera {
             opencvImage = OpenCV.magicallyExtractChar(image)
-            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, isBlack: true)
+            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, color: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).CGColor)
             handwrittingImage = transparentImage
             makeRoomForImage(handwrittingImageView)
         } else {
@@ -176,8 +227,11 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         case .Ended: fallthrough
         case .Changed:
             if handwrittingImage != nil {
-//                opencvImage = OpenCV.invertImage(opencvImage)
-                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, isBlack: isBlack)
+                if isBlack {
+                    handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).CGColor)
+                } else {
+                    handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).CGColor)
+                }
                 isBlack = !isBlack
             }
         default: break

@@ -27,7 +27,8 @@ class SimpleImageProcessor {
         return context
     }
     
-    static func makeTransparent(imageRef : CGImageRef, isBlack: Bool) -> UIImage? {
+    static func makeTransparent(imageRef : CGImageRef, color: CGColor) -> UIImage? {
+//        let color = UIColor.blueColor().CGColor
         let context = self.createARGBBitmapContext(imageRef)
         let width:Int  = Int(CGImageGetWidth(imageRef))
         let height:Int = Int(CGImageGetHeight(imageRef))
@@ -61,12 +62,16 @@ class SimpleImageProcessor {
                     dataType[offset + 3] = 0
                     dataType[offset] = 0
                 } else {
-                    if !isBlack {
-                        dataType[offset + 1] = 255
-                        dataType[offset + 2] = 255
-                        dataType[offset + 3] = 255
-                        dataType[offset] = 255
-                    }
+//                    let colorspace = CGColorGetColorSpace(color)
+//                    print(colorspace)
+//                    color space for UIColor(red: , green: , blue: , alpha: )
+                    let colorData = CGColorGetComponents(color)
+//                    print(colorData[0], colorData[1], colorData[2], colorData[3])
+                    dataType[offset + 1] = UInt8(colorData[0] * 255)
+                    dataType[offset + 2] = UInt8(colorData[1] * 255)
+                    dataType[offset + 3] = UInt8(colorData[2] * 255)
+                    dataType[offset] = 255
+                    
                 }
             }
         }
