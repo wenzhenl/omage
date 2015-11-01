@@ -74,6 +74,11 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         self.view.bringSubviewToFront(eraserButton)
     }
     
+    override func viewDidLayoutSubviews() {
+        backgroundImage = UIImage(named: "example_background")
+        makeRoomForImage(backgroundImageView)
+    }
+    
     @IBAction func pickImage() {
         
         if UIImagePickerController.isSourceTypeAvailable(.SavedPhotosAlbum) {
