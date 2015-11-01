@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-8Q-W99" customClass="PhotoButton" customModule="Omage" customModuleProvider="target">
-                                <rect key="frame" x="155" y="537" width="65" height="55"/>
+                                <rect key="frame" x="150" y="537" width="65" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="fws-3q-fG0"/>
                                     <constraint firstAttribute="width" constant="65" id="k2p-11-lO5"/>
@@ -29,10 +29,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMZ-Sd-yzH">
-                                <rect key="frame" x="20" y="537" width="127" height="55"/>
+                                <rect key="frame" x="20" y="537" width="122" height="55"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMr-od-bLh" customClass="CameraButton" customModule="Omage" customModuleProvider="target">
-                                <rect key="frame" x="240" y="537" width="55" height="55"/>
+                                <rect key="frame" x="235" y="537" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="2xd-Vx-Oeh"/>
                                     <constraint firstAttribute="width" constant="55" id="haH-kN-vh9"/>
@@ -42,20 +42,20 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-vC-UJE">
-                                <rect key="frame" x="453" y="537" width="127" height="55"/>
+                                <rect key="frame" x="458" y="537" width="122" height="55"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2M-r8-2PM" customClass="ColorButton" customModule="Omage" customModuleProvider="target">
-                                <rect key="frame" x="315" y="537" width="55" height="55"/>
+                                <rect key="frame" x="310" y="537" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="23W-of-e8d"/>
                                     <constraint firstAttribute="height" constant="55" id="sQh-4n-xTM"/>
                                 </constraints>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZy-m8-stU" customClass="EraserButton" customModule="Omage" customModuleProvider="target">
-                                <rect key="frame" x="390" y="537" width="55" height="55"/>
+                                <rect key="frame" x="385" y="537" width="65" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="0nB-rg-S7V"/>
-                                    <constraint firstAttribute="width" constant="55" id="khl-di-Y0x"/>
+                                    <constraint firstAttribute="width" constant="65" id="khl-di-Y0x"/>
                                 </constraints>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRX-2U-BkQ">

@@ -11,16 +11,26 @@ import UIKit
 @IBDesignable
 class EraserButton: UIButton {
     override func drawRect(rect: CGRect) {
-        let color = UIColor(red: 0.88, green: 0.40, blue: 0.49, alpha: 0.8)
-        color.setFill()
-        let border = self.bounds.height * (1 - Settings.RatioOuterRectAndHeightForPhotoButton)
-        let outerRect = UIBezierPath(roundedRect: CGRect(x: self.bounds.minX + border, y: self.bounds.minY + border, width: self.bounds.width - 2 * border, height: self.bounds.height - 2 * border), cornerRadius: Settings.CornerRadiusForPhotoButton)
-        outerRect.fill()
+        let color = UIColor(red: 0.88, green: 0.40, blue: 0.49, alpha: 1.0)
+        color.set()
+        let border = self.bounds.height * (1 - Settings.RatioOuterRectAndHeightForEraserButton)
+    
+        let outline = UIBezierPath()
+        let outTopLeft = CGPoint(x: self.bounds.minX, y: self.bounds.minY + border)
+        let outTopRight = CGPoint(x: self.bounds.maxX, y: self.bounds.minY + border)
+        let outBottomRight = CGPoint(x: self.bounds.maxX, y: self.bounds.maxY - border)
+        let outBottomLeft = CGPoint(x: self.bounds.minX + 0.3 * self.bounds.width, y: self.bounds.maxY - border)
+        let outMidLeft = CGPoint(x: self.bounds.minX, y: self.bounds.midY)
         
-        UIColor.whiteColor().setFill()
-        let innerBorder = self.bounds.height * (1 - Settings.RatioInnerRectAndHeightForPhotoButton)
-        let innerRect = UIBezierPath(roundedRect: CGRect(x: self.bounds.minX + innerBorder, y: self.bounds.minY + innerBorder, width: self.bounds.width - 2 * innerBorder, height: self.bounds.height - 2 * innerBorder), cornerRadius: Settings.CornerRadiusForPhotoButton)
-        innerRect.fill()
+        outline.moveToPoint(outTopLeft)
+        outline.addLineToPoint(outTopRight)
+        outline.addLineToPoint(outBottomRight)
+        outline.addLineToPoint(outBottomLeft)
+        outline.addLineToPoint(outMidLeft)
+        outline.closePath()
+        outline.fill()
+        
+    
     }
     
 }

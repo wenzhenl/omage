@@ -17,6 +17,8 @@ class Settings {
     static let CornerRadiusForPhotoButton = CGFloat(4)
     static let RatioOuterRectAndHeightForPhotoButton = CGFloat(0.9)
     static let RatioInnerRectAndHeightForPhotoButton = CGFloat(0.8)
-    static let IdentifierForPDF = "Show PDF"
-    static let IdentifierForGoBackFromPDF = "Go back from pdf"
+    static let RatioOuterRectAndHeightForEraserButton = CGFloat(0.8)
+    static let RatioInnerRectAndHeightForEraserButton = CGFloat(0.6)
+    static let RatioInnerCircleAndHeightForColorButton = CGFloat(0.7)
+    static let RatioOuterCircleAndHeightForColorButton = CGFloat(0.9)
 }
