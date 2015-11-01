@@ -74,7 +74,6 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         self.view.bringSubviewToFront(eraserButton)
     }
     
-    
     @IBAction func pickImage() {
         
         if UIImagePickerController.isSourceTypeAvailable(.SavedPhotosAlbum) {
