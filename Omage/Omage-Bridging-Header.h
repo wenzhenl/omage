@@ -3,3 +3,4 @@
 //
 
 #import "OpenCV.h"
+#import "WXApi.h"

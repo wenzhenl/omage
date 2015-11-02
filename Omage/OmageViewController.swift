@@ -43,7 +43,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     }
     
     private var opencvImage: UIImage?
-    private var isBlack: Bool = true
+    private var currentColorIndex = 0
 
     // MARK - handwritting image
     private var handwrittingImageView: UIImageView?
@@ -104,9 +104,9 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     }
         
     
-    @IBAction func setHandwrittingColor() {
-        if handwrittingImageView == nil {
-            let alert = UIAlertController(title: "无法选择颜色", message: "请先使用相机提取手写字句", preferredStyle: UIAlertControllerStyle.Alert)
+    @IBAction func saveAndShare() {
+        if handwrittingImageView == nil || backgroundImageView == nil {
+            let alert = UIAlertController(title: "无法分享图片", message: "请先选择图片，然后打开相机提取字句", preferredStyle: UIAlertControllerStyle.Alert)
             self.presentViewController(alert, animated: true, completion: nil)
             
             let delay = 1.5 * Double(NSEC_PER_SEC)
@@ -115,44 +115,80 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                 alert.dismissViewControllerAnimated(true, completion: nil)
             })
         } else {
-            let colorPanel = UIAlertController(title: "请选择手写字句的颜色", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            let avaiableHandwrittingColors = [UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0),
-                UIColor(red: 0, green: 0.4, blue: 0.6, alpha: 1.0),
-                UIColor(red: 1.0, green: 0.4, blue: 0, alpha: 1.0)]
+            let sharePanel = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             
-            colorPanel.addAction(UIAlertAction(
-                title: "红",
+            sharePanel.addAction(UIAlertAction(
+                title: "分享给微信好友",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                    self.handleHandwrittingColorChange(avaiableHandwrittingColors[0])
+                    let message = WXMediaMessage()
+                    let postingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    let imageObject = WXImageObject()
+                    imageObject.imageData = UIImagePNGRepresentation(postingImage!)
+                    message.mediaObject = imageObject
+                    
+                    let width = 240.0 as CGFloat
+                    let height = width * postingImage!.size.height / postingImage!.size.width
+                    UIGraphicsBeginImageContext(CGSizeMake(width, height))
+                    postingImage!.drawInRect(CGRectMake(0, 0, width, height))
+                    message.setThumbImage(UIGraphicsGetImageFromCurrentImageContext())
+                    UIGraphicsEndImageContext()
+                    
+                    let req = SendMessageToWXReq()
+                    req.bText = false
+                    req.message = message
+                    req.scene = Int32(WXSceneSession.rawValue)
+                    WXApi.sendReq(req)
+
                 }
             )
             
-            colorPanel.addAction(UIAlertAction(
-                title: "绿",
+            sharePanel.addAction(UIAlertAction(
+                title: "分享到微信朋友圈",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                   self.handleHandwrittingColorChange(avaiableHandwrittingColors[1])
+                    let message = WXMediaMessage()
+                    let postingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    let imageObject = WXImageObject()
+                    imageObject.imageData = UIImagePNGRepresentation(postingImage!)
+                    message.mediaObject = imageObject
+                    
+                    let width = 240.0 as CGFloat
+                    let height = width * postingImage!.size.height / postingImage!.size.width
+                    UIGraphicsBeginImageContext(CGSizeMake(width, height))
+                    postingImage!.drawInRect(CGRectMake(0, 0, width, height))
+                    message.setThumbImage(UIGraphicsGetImageFromCurrentImageContext())
+                    UIGraphicsEndImageContext()
+                    
+                    let req = SendMessageToWXReq()
+                    req.bText = false
+                    req.message = message
+                    req.scene = Int32(WXSceneTimeline.rawValue)
+                    WXApi.sendReq(req)
                 }
             )
             
-            colorPanel.addAction(UIAlertAction(
-                title: "蓝",
+            sharePanel.addAction(UIAlertAction(
+                title: "保存到相册",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                    self.handleHandwrittingColorChange(avaiableHandwrittingColors[2])
+                    let savingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    UIImageWriteToSavedPhotosAlbum(savingImage!, nil, nil, nil)
+                    // Notify users saved successfully
+                    let alert = UIAlertController(title: nil, message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    let delay = 1.5 * Double(NSEC_PER_SEC)
+                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(time, dispatch_get_main_queue(), {
+                        alert.dismissViewControllerAnimated(true, completion: nil)
+                    })
                 }
             )
             
-            colorPanel.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
-            self.presentViewController(colorPanel, animated: true, completion: nil)
-        }
-    }
-    
-    func handleHandwrittingColorChange(color: UIColor) {
-        let transpatentImage = SimpleImageProcessor.makeTransparent((self.opencvImage?.CGImage)!, color: color.CGColor)
-        if handwrittingImageView != nil {
-            handwrittingImageView!.image = transpatentImage
+            sharePanel.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+            
+            self.presentViewController(sharePanel, animated: true, completion: nil)
         }
     }
     
@@ -166,8 +202,9 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
             image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }
         if picker.sourceType == .Camera {
+            currentColorIndex = 0
             opencvImage = OpenCV.magicallyExtractChar(image)
-            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, color: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).CGColor)
+            let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, color: Settings.avaiableHandwrittingColors[currentColorIndex].CGColor)
             handwrittingImage = transparentImage
             makeRoomForImage(handwrittingImageView)
         } else {
@@ -199,6 +236,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
     }
     
+    // MARK - gestures handlers
     @IBAction func rotateHandWritting(sender: UIRotationGestureRecognizer) {
         if let imageView = handwrittingImageView {
             switch(sender.state) {
@@ -223,24 +261,16 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
     }
     
-    @IBAction func flipHandwrittingColor(sender: UITapGestureRecognizer) {
+    @IBAction func changeHandwrittingColor(sender: UITapGestureRecognizer) {
         switch sender.state {
         case .Ended: fallthrough
         case .Changed:
             if handwrittingImage != nil {
-                if isBlack {
-                    handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).CGColor)
-                } else {
-                    handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0).CGColor)
-                }
-                isBlack = !isBlack
+                currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
+                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: Settings.avaiableHandwrittingColors[currentColorIndex].CGColor)
             }
         default: break
         }
-    }
-    
-    private struct GestureScaleConstants {
-        static let CharGestureScale: CGFloat = 2
     }
     
     @IBAction func moveHandwritting(sender: UIPanGestureRecognizer) {
@@ -249,7 +279,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
             case .Ended: fallthrough
             case .Changed:
                 let translation = sender.translationInView(imageView)
-                imageView.transform = CGAffineTransformTranslate(imageView.transform, translation.x / GestureScaleConstants.CharGestureScale, translation.y / GestureScaleConstants.CharGestureScale)
+                imageView.transform = CGAffineTransformTranslate(imageView.transform, translation.x / Settings.GestureScaleForMovingHandwritting, translation.y / Settings.GestureScaleForMovingHandwritting)
                 sender.setTranslation(CGPointZero, inView: imageView)
             default: break
             }
@@ -280,7 +310,6 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         return img
     }
-    
 }
 
 extension UIImage {

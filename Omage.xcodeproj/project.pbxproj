@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3121301BE7129000515D86 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A31212D1BE7129000515D86 /* libWeChatSDK.a */; settings = {ASSET_TAGS = (); }; };
+		0A3121321BE7146E00515D86 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3121311BE7146E00515D86 /* CoreTelephony.framework */; };
+		0A3121341BE7151C00515D86 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3121331BE7151C00515D86 /* SystemConfiguration.framework */; };
+		0A3121361BE7157E00515D86 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3121351BE7157E00515D86 /* libsqlite3.tbd */; };
 		0A65CE091BE40CE300BBD286 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A65CE081BE40CE300BBD286 /* AppDelegate.swift */; };
 		0A65CE0E1BE40CE300BBD286 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A65CE0C1BE40CE300BBD286 /* Main.storyboard */; };
 		0A65CE101BE40CE300BBD286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A65CE0F1BE40CE300BBD286 /* Assets.xcassets */; };
@@ -42,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A31212D1BE7129000515D86 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Omage/libWeChatSDK.a; sourceTree = "<group>"; };
+		0A31212E1BE7129000515D86 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		0A31212F1BE7129000515D86 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		0A3121311BE7146E00515D86 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0A3121331BE7151C00515D86 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0A3121351BE7157E00515D86 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0A65CE051BE40CE300BBD286 /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A65CE081BE40CE300BBD286 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A65CE0D1BE40CE300BBD286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3121361BE7157E00515D86 /* libsqlite3.tbd in Frameworks */,
+				0A3121341BE7151C00515D86 /* SystemConfiguration.framework in Frameworks */,
+				0A3121321BE7146E00515D86 /* CoreTelephony.framework in Frameworks */,
+				0A3121301BE7129000515D86 /* libWeChatSDK.a in Frameworks */,
 				0A65CE441BE42C5000BBD286 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +139,8 @@
 				0A65CE3A1BE4162300BBD286 /* Settings.swift */,
 				0A65CE0C1BE40CE300BBD286 /* Main.storyboard */,
 				0A918AE61BE535B900D56A1B /* ColorButton.swift */,
+				0A31212E1BE7129000515D86 /* WXApi.h */,
+				0A31212F1BE7129000515D86 /* WXApiObject.h */,
 				0A918AE81BE5369000D56A1B /* EraserButton.swift */,
 				0A65CE361BE40E4500BBD286 /* OmageViewController.swift */,
 				0A65CE471BE43E8F00BBD286 /* SimpleImageProcessor.swift */,
@@ -157,6 +173,10 @@
 		0A65CE3E1BE4292100BBD286 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				0A31212D1BE7129000515D86 /* libWeChatSDK.a */,
+				0A3121351BE7157E00515D86 /* libsqlite3.tbd */,
+				0A3121331BE7151C00515D86 /* SystemConfiguration.framework */,
+				0A3121311BE7146E00515D86 /* CoreTelephony.framework */,
 				0A65CE431BE42C5000BBD286 /* opencv2.framework */,
 			);
 			name = Framework;
@@ -452,6 +472,10 @@
 				INFOPLIST_FILE = Omage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/Leeyukuang/Developer/Omage/Omage,
+					"$(PROJECT_DIR)/Omage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
@@ -472,6 +496,10 @@
 				INFOPLIST_FILE = Omage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/Leeyukuang/Developer/Omage/Omage,
+					"$(PROJECT_DIR)/Omage",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
