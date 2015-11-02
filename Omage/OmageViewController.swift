@@ -116,28 +116,31 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
             })
         } else {
             let colorPanel = UIAlertController(title: "请选择手写字句的颜色", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
+            let avaiableHandwrittingColors = [UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0),
+                UIColor(red: 0, green: 0.4, blue: 0.6, alpha: 1.0),
+                UIColor(red: 1.0, green: 0.4, blue: 0, alpha: 1.0)]
+            
             colorPanel.addAction(UIAlertAction(
-                title: "brown",
+                title: "红",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                    self.handleHandwrittingColorChange(UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0))
+                    self.handleHandwrittingColorChange(avaiableHandwrittingColors[0])
                 }
             )
             
             colorPanel.addAction(UIAlertAction(
-                title: "brown",
+                title: "绿",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                   self.handleHandwrittingColorChange(UIColor(red: 0, green: 0.4, blue: 0.6, alpha: 1.0))
+                   self.handleHandwrittingColorChange(avaiableHandwrittingColors[1])
                 }
             )
             
             colorPanel.addAction(UIAlertAction(
-                title: "brown",
+                title: "蓝",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                    self.handleHandwrittingColorChange(UIColor(red: 1.0, green: 0.4, blue: 0, alpha: 1.0))
+                    self.handleHandwrittingColorChange(avaiableHandwrittingColors[2])
                 }
             )
             
@@ -148,11 +151,9 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     
     func handleHandwrittingColorChange(color: UIColor) {
         let transpatentImage = SimpleImageProcessor.makeTransparent((self.opencvImage?.CGImage)!, color: color.CGColor)
-        let currentTransform = handwrittingImageView?.transform
-        handwrittingImage = transpatentImage
-        makeRoomForImage(handwrittingImageView)
-        handwrittingImageView?.transform = currentTransform!
-        
+        if handwrittingImageView != nil {
+            handwrittingImageView!.image = transpatentImage
+        }
     }
     
     @IBAction func removeNoise() {
