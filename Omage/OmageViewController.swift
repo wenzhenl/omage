@@ -122,7 +122,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
                     let message = WXMediaMessage()
-                    let postingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    let postingImage = self.saveUIViewAsUIImage(self.imageViewContainer)
                     let imageObject = WXImageObject()
                     imageObject.imageData = UIImagePNGRepresentation(postingImage!)
                     message.mediaObject = imageObject
@@ -148,7 +148,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
                     let message = WXMediaMessage()
-                    let postingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    let postingImage = self.saveUIViewAsUIImage(self.imageViewContainer)
                     let imageObject = WXImageObject()
                     imageObject.imageData = UIImagePNGRepresentation(postingImage!)
                     message.mediaObject = imageObject
@@ -172,7 +172,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                 title: "保存到相册",
                 style: .Default)
                 { (action: UIAlertAction) -> Void in
-                    let savingImage = self.clipImageForRect((self.imageViewContainer.bounds), inView: self.imageViewContainer)
+                    let savingImage = self.saveUIViewAsUIImage(self.imageViewContainer)
                     UIImageWriteToSavedPhotosAlbum(savingImage!, nil, nil, nil)
                     // Notify users saved successfully
                     let alert = UIAlertController(title: nil, message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -286,29 +286,13 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         }
     }
 
-    @IBAction func share() {
-        let savingImage = clipImageForRect((backgroundImageView?.bounds)!, inView: imageViewContainer)
-        UIImageWriteToSavedPhotosAlbum(savingImage!, nil, nil, nil)
-        // Notify users saved successfully
-        let alert = UIAlertController(title: nil, message: "Saved successfully!", preferredStyle: UIAlertControllerStyle.Alert)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-        let delay = 1.5 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        })
-    }
-    
-    // MARK - clip a region of view into an image
-    func clipImageForRect(clipRect: CGRect, inView: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(clipRect.size, false, CGFloat(1.0))
-        let ctx = UIGraphicsGetCurrentContext()
-        CGContextTranslateCTM(ctx, -clipRect.origin.x, -clipRect.origin.y)
-        inView.layer.renderInContext(ctx!)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+    // MARK - save an UIView as an UIImage
+    func saveUIViewAsUIImage(view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, true , CGFloat(0.0))
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return img
+        return image
     }
 }
 
