@@ -44,13 +44,6 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     
     private var opencvImage: UIImage?
     private var currentColorIndex = 0
-    
-    private enum PhotoPickerTarget {
-        case Background
-        case Handwritting
-    }
-    
-    private var currentPhotoPickerTarget = PhotoPickerTarget.Background
 
     // MARK - handwritting image
     private var handwrittingImageView: UIImageView?
@@ -88,7 +81,6 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     
     @IBAction func pickImage() {
         
-        currentPhotoPickerTarget = PhotoPickerTarget.Background
         if UIImagePickerController.isSourceTypeAvailable(.SavedPhotosAlbum) {
             let picker = UIImagePickerController()
             picker.sourceType = .SavedPhotosAlbum
@@ -99,39 +91,17 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
     }
     
     @IBAction func takePhoto() {
-        let handwrittingSourceOptions = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        handwrittingSourceOptions.addAction(UIAlertAction(
-            title: "用相机抓取世界",
-            style: .Default)
-            { (action:UIAlertAction) -> Void in
-                if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-                    let picker = UIImagePickerController()
-                    picker.sourceType = .Camera
-                    picker.delegate = self
-                    picker.allowsEditing = true
-                    picker.cameraFlashMode = .Off
-                    picker.showsCameraControls = true
-                    
-                    self.presentViewController(picker, animated: true, completion: nil)
-                }
-            })
         
-        handwrittingSourceOptions.addAction(UIAlertAction(
-            title: "从相册中选择",
-            style: .Default)
-            { (action:UIAlertAction) -> Void in
-                self.currentPhotoPickerTarget = PhotoPickerTarget.Handwritting
-                if UIImagePickerController.isSourceTypeAvailable(.SavedPhotosAlbum) {
-                    let picker = UIImagePickerController()
-                    picker.sourceType = .SavedPhotosAlbum
-                    picker.delegate = self
-                    picker.allowsEditing = false
-                    self.presentViewController(picker, animated: true, completion: nil)
-                }
-            })
-        handwrittingSourceOptions.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
-        
-        self.presentViewController(handwrittingSourceOptions, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            let picker = UIImagePickerController()
+            picker.sourceType = .Camera
+            picker.delegate = self
+            picker.allowsEditing = true
+            picker.cameraFlashMode = .Off
+            picker.showsCameraControls = true
+            
+            presentViewController(picker, animated: true, completion: nil)
+        }
     }
         
     
@@ -206,7 +176,7 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
                     let savingImage = self.saveUIViewAsUIImage(self.imageViewContainer)
                     UIImageWriteToSavedPhotosAlbum(savingImage!, nil, nil, nil)
                     // Notify users saved successfully
-                    let alert = UIAlertController(title: "保存图片", message: "图片成功保存到相册", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "保存成功", message: "图片已保存到相册", preferredStyle: UIAlertControllerStyle.Alert)
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                     let delay = 1 * Double(NSEC_PER_SEC)
@@ -232,18 +202,15 @@ class OmageViewController: UIViewController , UIImagePickerControllerDelegate, U
         if image == nil {
             image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }
-        if picker.sourceType == .Camera || (picker.sourceType == .SavedPhotosAlbum && currentPhotoPickerTarget == .Handwritting) {
+        if picker.sourceType == .Camera {
             currentColorIndex = 0
             opencvImage = OpenCV.magicallyExtractChar(image)
             let transparentImage = SimpleImageProcessor.makeTransparent(opencvImage!.CGImage!, color: Settings.avaiableHandwrittingColors[currentColorIndex].CGColor)
             handwrittingImage = transparentImage
             makeRoomForImage(handwrittingImageView)
         } else {
-            if currentPhotoPickerTarget == .Background {
-                backgroundImage = image
-                makeRoomForImage(backgroundImageView)
-                
-            }
+            backgroundImage = image
+            makeRoomForImage(backgroundImageView)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
