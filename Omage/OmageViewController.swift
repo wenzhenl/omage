@@ -20,6 +20,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var bushSizeSlider: UISlider!
+    
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @IBOutlet var pinchGesture: UIPinchGestureRecognizer!
@@ -44,6 +46,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var snapshotsOfForegroundImage: [UIImage] = []
     
+    var copyOfBackground: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = Settings.ColorForHeader
@@ -55,6 +59,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.view.bringSubviewToFront(toolBar)
         self.foregroundImageView.multipleTouchEnabled = true
         self.foregroundImageView.exclusiveTouch = true
+        
+        self.bushSizeSlider.hidden = true
     }
     
     // MARK - background image
@@ -158,6 +164,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         } else {
             if photoForBackground {
                 backgroundImage = image
+                copyOfBackground = image
             } else {
                 foregroundImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
                 snapshotsOfForegroundImage = [foregroundImage!]
@@ -227,6 +234,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    @IBAction func bushSizeChanged(sender: UISlider) {
+        brushWidth = CGFloat(sender.value)
+    }
+    
     @IBAction func deleteForeground(sender: UILongPressGestureRecognizer) {
         if foregroundImage != nil {
             let alert = UIAlertController(title: nil, message: "Delete foreground image?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -246,11 +257,24 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if foregroundImage != nil {
             eraserDidSelected = !eraserDidSelected
             foregroundImageView.transform = CGAffineTransformIdentity
+            if eraserDidSelected {
+                backgroundImage = nil
+                self.title = "Editing"
+                self.bushSizeSlider.hidden = false
+                self.imageContainerView.bringSubviewToFront(bushSizeSlider)
+                foregroundImageView.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
+            } else {
+                backgroundImage = copyOfBackground
+                foregroundImageView.backgroundColor = UIColor.clearColor()
+                self.title = "Omage"
+                self.bushSizeSlider.hidden = true
+                self.bushSizeSlider.value = 10
+            }
         }
     }
     
     @IBAction func crop(sender: UIBarButtonItem) {
-        if backgroundImage != nil || foregroundImage != nil {
+        if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected {
             let combinedImage = ImageCutoutFilter.convertSnapshotToImage(saveUIViewAsUIImage(imageContainerView))
             
             let chopper = ImageCropViewController(image: combinedImage)
@@ -263,6 +287,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func ImageCropViewControllerSuccess(controller: UIViewController!, didFinishCroppingImage croppedImage: UIImage!) {
         backgroundImage = croppedImage
+        copyOfBackground = croppedImage
         foregroundImage = nil
         navigationController?.popViewControllerAnimated(true)
     }
@@ -374,13 +399,15 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func undoErase(sender: UIBarButtonItem) {
-        print("count", snapshotsOfForegroundImage.count)
-        if snapshotsOfForegroundImage.count > 1 {
-            foregroundImage = snapshotsOfForegroundImage.last
-            snapshotsOfForegroundImage.removeLast()
-        }
-        else if snapshotsOfForegroundImage.count == 1 {
-            foregroundImage = snapshotsOfForegroundImage.last
+        if eraserDidSelected {
+            print("count", snapshotsOfForegroundImage.count)
+            if snapshotsOfForegroundImage.count > 1 {
+                foregroundImage = snapshotsOfForegroundImage.last
+                snapshotsOfForegroundImage.removeLast()
+            }
+            else if snapshotsOfForegroundImage.count == 1 {
+                foregroundImage = snapshotsOfForegroundImage.last
+            }
         }
     }
     
