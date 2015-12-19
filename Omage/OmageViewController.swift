@@ -28,6 +28,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
+    @IBOutlet var longPressGesture: UILongPressGestureRecognizer!
+    
     var photoForBackground = true
     
     var eraserDidSelected = false {
@@ -36,6 +38,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             pinchGesture.enabled = !eraserDidSelected
             rotationGesture.enabled = !eraserDidSelected
             panGesture.enabled = !eraserDidSelected
+            longPressGesture.enabled = !eraserDidSelected
         }
     }
     
@@ -88,6 +91,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     print("AspectFit")
                     foregroundImageView.contentMode = .ScaleAspectFit
                 }
+            } else {
+                snapshotsOfForegroundImage = []
             }
             
 //            self.imageContainerView.bringSubviewToFront(foregroundImageView)
@@ -222,6 +227,21 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    @IBAction func deleteForeground(sender: UILongPressGestureRecognizer) {
+        if foregroundImage != nil {
+            let alert = UIAlertController(title: nil, message: "Delete foreground image?", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(
+                title: "Delete",
+                style: .Destructive)
+                { (action: UIAlertAction) -> Void in
+                    self.foregroundImage = nil
+                }
+            )
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
         if foregroundImage != nil {
             eraserDidSelected = !eraserDidSelected
@@ -264,7 +284,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     private var red: CGFloat = 1.0
     private var green: CGFloat = 1.0
     private var blue: CGFloat = 1.0
-    private var brushWidth: CGFloat = 5.0
+    private var brushWidth: CGFloat = 9.0
     private var opacity: CGFloat = 1.0
     private var swiped = false
     

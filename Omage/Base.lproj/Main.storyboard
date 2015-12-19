@@ -84,6 +84,7 @@
                                     <outletCollection property="gestureRecognizers" destination="dAf-9l-pXq" appends="YES" id="L0t-Ta-zkm"/>
                                     <outletCollection property="gestureRecognizers" destination="Njz-xu-aKd" appends="YES" id="Xms-Io-oLu"/>
                                     <outletCollection property="gestureRecognizers" destination="xix-Ik-2RU" appends="YES" id="IuO-pz-p1p"/>
+                                    <outletCollection property="gestureRecognizers" destination="xpd-0C-GWr" appends="YES" id="VzQ-Js-RT2"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -115,6 +116,7 @@
                         <outlet property="backgroundImageView" destination="S2Q-M5-MvW" id="jeg-rN-jwC"/>
                         <outlet property="foregroundImageView" destination="pgt-bh-aJl" id="u5J-5g-1qY"/>
                         <outlet property="imageContainerView" destination="cm6-zg-DYx" id="ykP-wD-t91"/>
+                        <outlet property="longPressGesture" destination="xpd-0C-GWr" id="pTj-XE-Wei"/>
                         <outlet property="panGesture" destination="xix-Ik-2RU" id="DMQ-ZZ-Fu8"/>
                         <outlet property="pinchGesture" destination="dAf-9l-pXq" id="jQS-Qe-7YW"/>
                         <outlet property="rotationGesture" destination="Njz-xu-aKd" id="GHq-ge-sUp"/>
@@ -140,6 +142,11 @@
                         <action selector="moveHandwritting:" destination="BYZ-38-t0r" id="Sak-Pj-0AI"/>
                     </connections>
                 </panGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="xpd-0C-GWr">
+                    <connections>
+                        <action selector="deleteForeground:" destination="BYZ-38-t0r" id="omR-9S-x7U"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="971" y="-267"/>
         </scene>
