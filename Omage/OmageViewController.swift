@@ -18,6 +18,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var tempImageView: UIImageView!
     
+    @IBOutlet weak var toolBar: UIToolbar!
+    
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @IBOutlet var pinchGesture: UIPinchGestureRecognizer!
@@ -37,11 +39,19 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    var snapshotsOfForegroundImage: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = Settings.ColorForHeader
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.imageContainerView.bringSubviewToFront(backgroundImageView)
+        self.imageContainerView.bringSubviewToFront(foregroundImageView)
+        self.imageContainerView.bringSubviewToFront(tempImageView)
+        self.view.bringSubviewToFront(toolBar)
+        self.foregroundImageView.multipleTouchEnabled = true
+        self.foregroundImageView.exclusiveTouch = true
     }
     
     // MARK - background image
@@ -49,15 +59,17 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         get { return backgroundImageView?.image }
         set {
             backgroundImageView.image = newValue
-            if backgroundImageView.bounds.width > backgroundImage!.size.width && backgroundImageView.bounds.height > backgroundImage!.size.height {
-                print("Center")
-                backgroundImageView.contentMode = .Center
-            } else {
-                print("AspectFit")
-                backgroundImageView.contentMode = .ScaleAspectFit
+            if backgroundImage != nil {
+                if backgroundImageView.bounds.width > backgroundImage!.size.width && backgroundImageView.bounds.height > backgroundImage!.size.height {
+                    print("Center")
+                    backgroundImageView.contentMode = .Center
+                } else {
+                    print("AspectFit")
+                    backgroundImageView.contentMode = .ScaleAspectFit
+                }
             }
-            imageContainerView.bringSubviewToFront(foregroundImageView)
-            imageContainerView.bringSubviewToFront(tempImageView)
+//            imageContainerView.bringSubviewToFront(foregroundImageView)
+//            imageContainerView.bringSubviewToFront(tempImageView)
         }
     }
     
@@ -68,15 +80,18 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         set {
             foregroundImageView.image = newValue
             foregroundImageView.transform = CGAffineTransformIdentity
-            if foregroundImageView.bounds.width > foregroundImage!.size.width && foregroundImageView.bounds.height > foregroundImage!.size.height {
-                print("Center")
-                foregroundImageView.contentMode = .Center
-            } else {
-                print("AspectFit")
-                foregroundImageView.contentMode = .ScaleAspectFit
+            if foregroundImage != nil {
+                if foregroundImageView.bounds.width > foregroundImage!.size.width && foregroundImageView.bounds.height > foregroundImage!.size.height {
+                    print("Center")
+                    foregroundImageView.contentMode = .Center
+                } else {
+                    print("AspectFit")
+                    foregroundImageView.contentMode = .ScaleAspectFit
+                }
             }
-            self.imageContainerView.bringSubviewToFront(foregroundImageView)
-            self.imageContainerView.bringSubviewToFront(tempImageView)
+            
+//            self.imageContainerView.bringSubviewToFront(foregroundImageView)
+//            self.imageContainerView.bringSubviewToFront(tempImageView)
         }
     }
     
@@ -134,11 +149,13 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         if picker.sourceType == .Camera {
             foregroundImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.CharPickerPrimaryColor)
+            snapshotsOfForegroundImage = [foregroundImage!]
         } else {
             if photoForBackground {
                 backgroundImage = image
             } else {
                 foregroundImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
+                snapshotsOfForegroundImage = [foregroundImage!]
             }
         }
         
@@ -158,7 +175,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 imageView.transform = CGAffineTransformRotate(imageView.transform, sender.rotation)
                 sender.rotation = 0
                 
-                 print(foregroundImageView.frame, foregroundImageView.bounds)
+//                 print(foregroundImageView.frame, foregroundImageView.bounds)
             default: break
             }
         }
@@ -172,7 +189,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 imageView.transform = CGAffineTransformScale(imageView.transform, sender.scale, sender.scale)
                 sender.scale = 1
                 
-                 print(foregroundImageView.frame, foregroundImageView.bounds)
+//                 print(foregroundImageView.frame, foregroundImageView.bounds)
             default: break
             }
         }
@@ -199,7 +216,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 imageView.transform = CGAffineTransformTranslate(imageView.transform, translation.x / Settings.GestureScaleForMovingHandwritting, translation.y / Settings.GestureScaleForMovingHandwritting)
                 sender.setTranslation(CGPointZero, inView: imageView)
                 
-                print(foregroundImageView.frame, foregroundImageView.bounds)
+//                print(foregroundImageView.frame, foregroundImageView.bounds)
             default: break
             }
         }
@@ -285,6 +302,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             foregroundImageView.image = ImageCutoutFilter.cutImageOut(UIGraphicsGetImageFromCurrentImageContext())
             UIGraphicsEndImageContext()
             
+            snapshotsOfForegroundImage.append(foregroundImage!)
+
             tempImageView.image = nil
         }
     }
@@ -333,6 +352,18 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 imageSize.height);
         }
     }
+    
+    @IBAction func undoErase(sender: UIBarButtonItem) {
+        print("count", snapshotsOfForegroundImage.count)
+        if snapshotsOfForegroundImage.count > 1 {
+            foregroundImage = snapshotsOfForegroundImage.last
+            snapshotsOfForegroundImage.removeLast()
+        }
+        else if snapshotsOfForegroundImage.count == 1 {
+            foregroundImage = snapshotsOfForegroundImage.last
+        }
+    }
+    
 }
 
 extension UIImage {
