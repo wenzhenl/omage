@@ -144,7 +144,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     let picker = UIImagePickerController()
                     picker.sourceType = .PhotoLibrary
                     picker.delegate = self
-                    picker.allowsEditing = true
+                    picker.allowsEditing = false
                     self.presentViewController(picker, animated: true, completion: nil)
                 }
             })
