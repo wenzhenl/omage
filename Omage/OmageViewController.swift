@@ -76,6 +76,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var timesShowingCropTip = 0
     
+    var timesShowingUndoTip = 0
+    
     var timesToShow = 3
     
     override func viewDidLoad() {
@@ -109,10 +111,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         firstLauch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLauch")
         if firstLauch {
-            print("Not first lauch")
-        } else {
             print("First lauch")
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "FirstLauch")
+        } else {
+            print("Not first lauch")
         }
     }
     
@@ -489,6 +491,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func undoErase(sender: UIBarButtonItem) {
+        if firstLauch && timesShowingEraserTip++ < timesToShow {
+            EasyTipView.showAnimated(true, forItem: self.undoButtonItem, withinSuperview: nil, text: "Undo the erase operation", preferences: nil, delegate: nil)
+        }
+
         if eraserDidSelected {
             print("count", snapshotsOfForegroundImage.count)
             if snapshotsOfForegroundImage.count > 1 {
