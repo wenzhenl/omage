@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Omage/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body/>
+  </file>
+  <file original="Omage/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="7Ax-6f-okq.text">
+        <source>Omage version 1.0.0</source>
+        <note>Class = "UILabel"; text = "Omage version 1.0.0"; ObjectID = "7Ax-6f-okq";</note>
+      </trans-unit>
+      <trans-unit id="9jt-SZ-FQQ.text">
+        <source>Licenses</source>
+        <target>开源许可</target>
+        <note>Class = "UILabel"; text = "Licenses"; ObjectID = "9jt-SZ-FQQ";</note>
+      </trans-unit>
+      <trans-unit id="Ibn-pf-IgE.title">
+        <source>Save</source>
+        <target>保存</target>
+        <note>Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Ibn-pf-IgE";</note>
+      </trans-unit>
+      <trans-unit id="Khz-5g-QCj.text">
+        <source>Home</source>
+        <target>主页</target>
+        <note>Class = "UILabel"; text = "Home"; ObjectID = "Khz-5g-QCj";</note>
+      </trans-unit>
+      <trans-unit id="MJx-qP-uUX.text">
+        <source>Original Color Inverted</source>
+        <target>反原色</target>
+        <note>Class = "UILabel"; text = "Original Color Inverted"; ObjectID = "MJx-qP-uUX";</note>
+      </trans-unit>
+      <trans-unit id="NhN-4D-Ssk.text">
+        <source>This is my very first try to create an iOS app. I am really happy that I finally made Omage, an amazing product to capture the beauty of writing and drawing. The process is quite tough, but I really enjoyed the journey. I want to thank all the people with me along the journey, specially I want to thank Jing for the best time ever. When I read Steve Jobs by Walter Isaacson, I was so touched by the following words " It's about trying to express something in the only way that most of us know how - because we can't write Bob Dylan songs or Tom Stoppard plays. We try to use the talents we do have to express our deep feelings, to show our appreciation of all the contributions that came before us, and to add something to that flow. " For me, it's the same.</source>
+        <target>这是我个人第一个iOS app 作品。我想起非洲野牛和天使，想起颜料持久的秘密，想到预言性的十四行诗，想到艺术的避难所。这就是你和我所能共享的惟一的不朽的秘密。当乔布斯被问起他人生的驱动力的时候，他说我们竭尽所能，所为的只是表达我们内心深处最深沉，最深沉的情感，用我们唯一所知道的方式，而我也正是这样想的。我常常想起那天早上一起看的日出，那是我无悔的青春。</target>
+        <note>Class = "UILabel"; text = "This is my very first try to create an iOS app. I am really happy that I finally made Omage, an amazing product to capture the beauty of writing and drawing. The process is quite tough, but I really enjoyed the journey. I want to thank all the people with me along the journey, specially I want to thank Jing for the best time ever. When I read Steve Jobs by Walter Isaacson, I was so touched by the following words \" It's about trying to express something in the only way that most of us know how - because we can't write Bob Dylan songs or Tom Stoppard plays. We try to use the talents we do have to express our deep feelings, to show our appreciation of all the contributions that came before us, and to add something to that flow. \" For me, it's the same."; ObjectID = "NhN-4D-Ssk";</note>
+      </trans-unit>
+      <trans-unit id="fn7-Gt-Uw5.text">
+        <source>About</source>
+        <target>关于Omage</target>
+        <note>Class = "UILabel"; text = "About"; ObjectID = "fn7-Gt-Uw5";</note>
+      </trans-unit>
+      <trans-unit id="hVK-pq-oK3.title">
+        <source>Open Source Licenses</source>
+        <target>开源软件许可</target>
+        <note>Class = "UINavigationItem"; title = "Open Source Licenses"; ObjectID = "hVK-pq-oK3";</note>
+      </trans-unit>
+      <trans-unit id="jH6-Mg-AKI.text">
+        <source>a Leeyukuang personal product</source>
+        <target>Leeyukuang 个人作品 </target>
+        <note>Class = "UILabel"; text = "a Leeyukuang personal product"; ObjectID = "jH6-Mg-AKI";</note>
+      </trans-unit>
+      <trans-unit id="jur-l9-XIE.text">
+        <source>Label</source>
+        <target>标签</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "jur-l9-XIE";</note>
+      </trans-unit>
+      <trans-unit id="rFn-0e-w4U.title">
+        <source>Omage</source>
+        <target>Omage</target>
+        <note>Class = "UINavigationItem"; title = "Omage"; ObjectID = "rFn-0e-w4U";</note>
+      </trans-unit>
+      <trans-unit id="yQI-f9-Z6N.title">
+        <source>About</source>
+        <target>关于Omage</target>
+        <note>Class = "UINavigationItem"; title = "About"; ObjectID = "yQI-f9-Z6N";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Localizable.strings" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="After you selected the foreground image, you can remove the noise here">
+        <source>After you selected the foreground image, you can remove the noise here</source>
+        <target>选定前景图片后，可以用橡皮去除污迹</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W">
+        <source>B&amp;W</source>
+        <target>黑白</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W Inverted">
+        <source>B&amp;W Inverted</source>
+        <target>反黑白</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Choose an effect">
+        <source>Choose an effect</source>
+        <target>选择效果</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete foreground image?">
+        <source>Delete foreground image?</source>
+        <target>确定删除前景图片?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Editing">
+        <source>Editing</source>
+        <target>编辑中</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original">
+        <source>Original</source>
+        <target>原图</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color">
+        <source>Original Color</source>
+        <target>原色</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color Inverted">
+        <source>Original Color Inverted</source>
+        <target>反原色</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Select an image from your photo library as the background image">
+        <source>Select an image from your photo library as the background image</source>
+        <target>从照片库中选择图片作为背景图片</target>
+        <note>Tip for background selection</note>
+      </trans-unit>
+      <trans-unit id="Select from photo library">
+        <source>Select from photo library</source>
+        <target>从照片库中选择</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Successfully saved!">
+        <source>Successfully saved!</source>
+        <target>图片保存成功!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Take photo">
+        <source>Take photo</source>
+        <target>拍照</target>
+        <note>take photo</note>
+      </trans-unit>
+      <trans-unit id="Undo the erase operation">
+        <source>Undo the erase operation</source>
+        <target>取消上一次擦除操作</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="When you have both your back- and fore- ground images ready, you can crop into your desired image here">
+        <source>When you have both your back- and fore- ground images ready, you can crop into your desired image here</source>
+        <target>背景和前景图片都选定后，可以截取你最想要的部分</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You can take a photo or select from your exsiting ones as the foreground">
+        <source>You can take a photo or select from your exsiting ones as the foreground</source>
+        <target>你可以拍照或者从照片库中选取图片作为前景</target>
+        <note>Tip for foreground selection</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageTests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageUITests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

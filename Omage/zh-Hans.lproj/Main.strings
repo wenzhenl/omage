@@ -1,12 +1,33 @@
+/* Class = "UILabel"; text = "Licenses"; ObjectID = "9jt-SZ-FQQ"; */
+"9jt-SZ-FQQ.text" = "开源许可";
+
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Ibn-pf-IgE"; */
 "Ibn-pf-IgE.title" = "保存";
 
+/* Class = "UILabel"; text = "Home"; ObjectID = "Khz-5g-QCj"; */
+"Khz-5g-QCj.text" = "主页";
+
 /* Class = "UILabel"; text = "Original Color Inverted"; ObjectID = "MJx-qP-uUX"; */
 "MJx-qP-uUX.text" = "反原色";
+
+/* Class = "UILabel"; text = "This is my very first try to create an iOS app. I am really happy that I finally made Omage, an amazing product to capture the beauty of writing and drawing. The process is quite tough, but I really enjoyed the journey. I want to thank all the people with me along the journey, specially I want to thank Jing for the best time ever. When I read Steve Jobs by Walter Isaacson, I was so touched by the following words \" It's about trying to express something in the only way that most of us know how - because we can't write Bob Dylan songs or Tom Stoppard plays. We try to use the talents we do have to express our deep feelings, to show our appreciation of all the contributions that came before us, and to add something to that flow. \" For me, it's the same."; ObjectID = "NhN-4D-Ssk"; */
+"NhN-4D-Ssk.text" = "这是我个人第一个iOS app 作品。我想起非洲野牛和天使，想起颜料持久的秘密，想到预言性的十四行诗，想到艺术的避难所。这就是你和我所能共享的惟一的不朽的秘密。当乔布斯被问起他人生的驱动力的时候，他说我们竭尽所能，所为的只是表达我们内心深处最深沉，最深沉的情感，用我们唯一所知道的方式，而我也正是这样想的。我常常想起那天早上一起看的日出，那是我无悔的青春。";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "fn7-Gt-Uw5"; */
+"fn7-Gt-Uw5.text" = "关于Omage";
+
+/* Class = "UINavigationItem"; title = "Open Source Licenses"; ObjectID = "hVK-pq-oK3"; */
+"hVK-pq-oK3.title" = "开源软件许可";
+
+/* Class = "UILabel"; text = "a Leeyukuang personal product"; ObjectID = "jH6-Mg-AKI"; */
+"jH6-Mg-AKI.text" = "Leeyukuang 个人作品 ";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "jur-l9-XIE"; */
 "jur-l9-XIE.text" = "标签";
 
 /* Class = "UINavigationItem"; title = "Omage"; ObjectID = "rFn-0e-w4U"; */
 "rFn-0e-w4U.title" = "Omage";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "yQI-f9-Z6N"; */
+"yQI-f9-Z6N.title" = "关于Omage";
 
