@@ -127,6 +127,61 @@ class ImageCutoutFilter {
         return nil
     }
     
+    static func cutImageOutOriginalColorInverted(image: UIImage?) -> UIImage? {
+        if let image = image {
+            var imageRef = image.CGImage
+            
+            // create the ref image by converting the image to grey version with Gaussion blur and Otuz threshold
+            let refImage = OpenCV.magicallyExtractChar(image)
+            
+            // create the working context
+            if let context = createARGBBitmapContext(imageRef!) {
+                
+                let width = CGImageGetWidth(imageRef)
+                let height = CGImageGetHeight(imageRef)
+                
+                // draw image on the context
+                CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), imageRef)
+                let rawdata = UnsafeMutablePointer<UInt8>(CGBitmapContextGetData(context))
+                
+                if let refRawdata = createBitmapRawdataFromRef(refImage) {
+                    if width != CGImageGetWidth(refImage!.CGImage) {
+                        print("serious error, the image and its ref must be consistent")
+                        return nil
+                    }
+                    
+                    if height != CGImageGetHeight(refImage!.CGImage) {
+                        print("serious error, the image and its ref must be consistent")
+                        return nil
+                    }
+                    
+                    // make all white pixels transparent
+                    // keep other pixels their original color
+                    var byteIndex = 0
+                    for _ in 0 ..< width * height {
+                        let componentForClearColor: UInt8 = 0
+                        let red: UInt8 = refRawdata[byteIndex+1]
+                        let green: UInt8 = refRawdata[byteIndex+2]
+                        let blue: UInt8 = refRawdata[byteIndex+3]
+                        if red < 100 && green < 100 && blue < 100 {
+                            rawdata[byteIndex] = componentForClearColor
+                            rawdata[byteIndex+1] = componentForClearColor
+                            rawdata[byteIndex+2] = componentForClearColor
+                            rawdata[byteIndex+3] = componentForClearColor
+                        }
+                        byteIndex += 4
+                    }
+                    free(refRawdata)
+                }
+                
+                imageRef = CGBitmapContextCreateImage(context)
+                free(rawdata)
+                return UIImage(CGImage: imageRef!)
+            }
+        }
+        return nil
+    }
+
     static func cutImageOutWithColor(refImage: UIImage?, color: UIColor?) -> UIImage? {
         
         if color != nil {
@@ -190,6 +245,69 @@ class ImageCutoutFilter {
         return nil
     }
     
+    static func cutImageOutWithColorInverted(refImage: UIImage?, color: UIColor?) -> UIImage? {
+        
+        if color != nil {
+            if CGColorGetNumberOfComponents(color!.CGColor) != 4 {
+                print("Cannot handle non-RGBA color")
+                return refImage
+            }
+        }
+        
+        if var image = refImage {
+            // create the ref image by converting the image to grey version with Gaussion blur and Otuz threshold
+            image = OpenCV.magicallyExtractChar(image)
+            
+            var imageRef = image.CGImage
+            
+            // create the working context
+            if let context = createARGBBitmapContext(imageRef!) {
+                
+                let width = CGImageGetWidth(imageRef)
+                let height = CGImageGetHeight(imageRef)
+                
+                // draw image on the context
+                CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), imageRef)
+                let rawdata = UnsafeMutablePointer<UInt8>(CGBitmapContextGetData(context))
+                
+                // make all white pixels transparent
+                // keep other pixels based on designated color
+                var byteIndex = 0
+                
+                let componentForClearColor: UInt8 = 0
+                
+                for _ in 0 ..< width * height {
+                    //                    let alpha: UInt8 = rawdata[byteIndex]
+                    let red: UInt8 = rawdata[byteIndex+1]
+                    let green: UInt8 = rawdata[byteIndex+2]
+                    let blue: UInt8 = rawdata[byteIndex+3]
+                    
+                    if red < 100 && green < 100 && blue < 100 {
+                        rawdata[byteIndex] = componentForClearColor
+                        rawdata[byteIndex+1] = componentForClearColor
+                        rawdata[byteIndex+2] = componentForClearColor
+                        rawdata[byteIndex+3] = componentForClearColor
+                    } else {
+                        if let color = color {
+                            // color should be in RGBA format
+                            let colorData = CGColorGetComponents(color.CGColor)
+                            rawdata[byteIndex] = UInt8(colorData[3] * 255) // alpha
+                            rawdata[byteIndex+1] = UInt8(colorData[0] * 255) // red
+                            rawdata[byteIndex+2] = UInt8(colorData[1] * 255) // green
+                            rawdata[byteIndex+3] = UInt8(colorData[2] * 255) // blue
+                        }
+                    }
+                    byteIndex += 4
+                }
+                
+                imageRef = CGBitmapContextCreateImage(context)
+                free(rawdata)
+                return UIImage(CGImage: imageRef!)
+            }
+        }
+        return nil
+    }
+
     static func cutImageOut(refImage: UIImage?) -> UIImage? {
         
         if let image = refImage {
@@ -218,7 +336,7 @@ class ImageCutoutFilter {
                     let green: UInt8 = rawdata[byteIndex+2]
                     let blue: UInt8 = rawdata[byteIndex+3]
                     
-                    if red > 10 && green > 10 && blue > 10 {
+                    if red == 255 && green == 255 && blue == 255 {
                         rawdata[byteIndex] = componentForClearColor
                         rawdata[byteIndex+1] = componentForClearColor
                         rawdata[byteIndex+2] = componentForClearColor

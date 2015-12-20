@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate {
+class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var imageContainerView: UIView!
     
@@ -21,6 +21,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var toolBar: UIToolbar!
     
     @IBOutlet weak var bushSizeSlider: UISlider!
+    
+    @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
@@ -44,6 +46,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    var thumbnailViewDidAppear: Bool { return !thumbnailCollectionView.hidden}
+    
     var snapshotsOfForegroundImage: [UIImage] = []
     
     var copyOfBackground: UIImage?
@@ -61,6 +65,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.foregroundImageView.exclusiveTouch = true
         
         self.bushSizeSlider.hidden = true
+        self.thumbnailCollectionView.hidden = true
     }
     
     // MARK - background image
@@ -159,15 +164,13 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             image = info[UIImagePickerControllerOriginalImage] as? UIImage
         }
         if picker.sourceType == .Camera {
-            foregroundImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.CharPickerPrimaryColor)
-            snapshotsOfForegroundImage = [foregroundImage!]
+            prepareThumbnailsForForegroundEffects(image!)
         } else {
             if photoForBackground {
                 backgroundImage = image
                 copyOfBackground = image
             } else {
-                foregroundImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
-                snapshotsOfForegroundImage = [foregroundImage!]
+                prepareThumbnailsForForegroundEffects(image!)
             }
         }
         
@@ -207,17 +210,24 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-//    @IBAction func changeHandwrittingColor(sender: UITapGestureRecognizer) {
-//        switch sender.state {
-//        case .Ended: fallthrough
-//        case .Changed:
-//            if handwrittingImage != nil {
-//                currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
-//                handwrittingImageView!.image = SimpleImageProcessor.makeTransparent((opencvImage?.CGImage)!, color: Settings.avaiableHandwrittingColors[currentColorIndex].CGColor)
-//            }
-//        default: break
-//        }
-//    }
+    var currentColorIndex = 0
+    
+    @IBAction func changeHandwrittingColor(sender: UITapGestureRecognizer) {
+        switch sender.state {
+        case .Ended: fallthrough
+        case .Changed:
+            if foregroundImage != nil && (effectOfForeground == .DesignateColor || effectOfForeground == .DesignateColorInvert) {
+                currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
+                if effectOfForeground == .DesignateColor {
+                    foregroundImage = ImageCutoutFilter.cutImageOutWithColor(thumbnailsOfForegroundEffects[0], color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                }
+                else if effectOfForeground == .DesignateColorInvert {
+                    foregroundImage = ImageCutoutFilter.cutImageOutWithColorInverted(thumbnailsOfForegroundEffects[0], color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                }
+            }
+        default: break
+        }
+    }
     
     @IBAction func moveHandwritting(sender: UIPanGestureRecognizer) {
         if let imageView = foregroundImageView {
@@ -254,7 +264,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
-        if foregroundImage != nil {
+        if foregroundImage != nil && !thumbnailViewDidAppear {
             eraserDidSelected = !eraserDidSelected
             foregroundImageView.transform = CGAffineTransformIdentity
             if eraserDidSelected {
@@ -274,7 +284,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func crop(sender: UIBarButtonItem) {
-        if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected {
+        if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected && !thumbnailViewDidAppear {
             let combinedImage = ImageCutoutFilter.convertSnapshotToImage(saveUIViewAsUIImage(imageContainerView))
             
             let chopper = ImageCropViewController(image: combinedImage)
@@ -364,10 +374,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
         
         // 3
-        CGContextSetLineCap(context, .Round)
+        CGContextSetLineCap(context, .Square)
         CGContextSetLineWidth(context, brushWidth)
         CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
         CGContextSetBlendMode(context, .Normal)
+        CGContextSetShouldAntialias(context, false)
         
         // 4
         CGContextStrokePath(context)
@@ -411,6 +422,71 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    // MARK - delegate for UICollectionView
+    var thumbnailsOfForegroundEffects: [UIImage] = []
+    var effectsForForeground: [ForegroundEffect] = []
+    var effectOfForeground: ForegroundEffect = .DesignateColor
+
+    enum ForegroundEffect {
+        case Original
+        case OriginalColor
+        case OriginalColorInvert
+        case DesignateColor
+        case DesignateColorInvert
+    }
+    
+    func prepareThumbnailsForForegroundEffects(image: UIImage) {
+        thumbnailsOfForegroundEffects = []
+        effectsForForeground = []
+        
+        let originalImage = image
+        thumbnailsOfForegroundEffects.append(originalImage)
+        effectsForForeground.append(.Original)
+        
+        let originalColorImage = ImageCutoutFilter.cutImageOutOriginalColor(image)
+        thumbnailsOfForegroundEffects.append(originalColorImage!)
+        effectsForForeground.append(.OriginalColor)
+        
+        let originalColorInvertImage = ImageCutoutFilter.cutImageOutOriginalColorInverted(image)
+        thumbnailsOfForegroundEffects.append(originalColorInvertImage!)
+        effectsForForeground.append(.OriginalColorInvert)
+        
+        let designateColorImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
+        thumbnailsOfForegroundEffects.append(designateColorImage!)
+        effectsForForeground.append(.DesignateColor)
+        
+        let designateColorInvertImage = ImageCutoutFilter.cutImageOutWithColorInverted(image, color: Settings.avaiableHandwrittingColors[0])
+        thumbnailsOfForegroundEffects.append(designateColorInvertImage!)
+        effectsForForeground.append(.DesignateColorInvert)
+        
+        self.imageContainerView.bringSubviewToFront(thumbnailCollectionView)
+        self.thumbnailCollectionView.hidden = false
+        self.thumbnailCollectionView.reloadData()
+    }
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row, " Selected")
+        foregroundImage = thumbnailsOfForegroundEffects[indexPath.row]
+        snapshotsOfForegroundImage = [foregroundImage!]
+        self.thumbnailCollectionView.hidden = true
+        effectOfForeground = effectsForForeground[indexPath.row]
+//        snapshotsOfForegroundImage = []
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return thumbnailsOfForegroundEffects.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Thumbnail collection cell", forIndexPath: indexPath) as! ThumbnailCollectionViewCell
+        cell.thumbnail = thumbnailsOfForegroundEffects[indexPath.row]
+        cell.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
+        return cell
+    }
 }
 
 extension UIImage {

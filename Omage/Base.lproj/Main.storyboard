@@ -72,13 +72,54 @@
                                             <action selector="bushSizeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="AbT-W5-YVh"/>
                                         </connections>
                                     </slider>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zQf-Xc-n5q">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VaD-JT-web">
+                                            <size key="itemSize" width="168" height="132"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Thumbnail collection cell" id="Ptz-xm-vqv" customClass="ThumbnailCollectionViewCell" customModule="Omage" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UNz-4T-fOw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="height" secondItem="Ptz-xm-vqv" secondAttribute="height" id="1wl-Nm-fc0"/>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="width" secondItem="Ptz-xm-vqv" secondAttribute="width" id="6Kc-bH-VSm"/>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="centerX" secondItem="Ptz-xm-vqv" secondAttribute="centerX" id="QPz-dz-AMj"/>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="centerY" secondItem="Ptz-xm-vqv" secondAttribute="centerY" id="RHp-Ax-Ha2"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="thumbnailImageView" destination="UNz-4T-fOw" id="XSC-Ts-dZV"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="NaY-yx-gsK"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="gkE-32-7oo"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="S2Q-M5-MvW" firstAttribute="centerY" secondItem="cm6-zg-DYx" secondAttribute="centerY" id="2sk-16-b8r"/>
+                                    <constraint firstItem="zQf-Xc-n5q" firstAttribute="top" secondItem="cm6-zg-DYx" secondAttribute="top" id="578-ne-7MN"/>
                                     <constraint firstItem="kr2-TR-zoa" firstAttribute="centerX" secondItem="cm6-zg-DYx" secondAttribute="centerX" id="BKJ-7p-lbn"/>
                                     <constraint firstItem="7KZ-2R-MFJ" firstAttribute="width" secondItem="cm6-zg-DYx" secondAttribute="width" id="F0O-SR-39W"/>
+                                    <constraint firstItem="zQf-Xc-n5q" firstAttribute="leading" secondItem="cm6-zg-DYx" secondAttribute="leading" id="FCw-gL-pCg"/>
                                     <constraint firstItem="pgt-bh-aJl" firstAttribute="height" secondItem="cm6-zg-DYx" secondAttribute="height" id="G5I-j4-juE"/>
                                     <constraint firstItem="7KZ-2R-MFJ" firstAttribute="centerY" secondItem="cm6-zg-DYx" secondAttribute="centerY" id="H6w-ce-zEd"/>
                                     <constraint firstItem="7KZ-2R-MFJ" firstAttribute="centerX" secondItem="cm6-zg-DYx" secondAttribute="centerX" id="Jaa-l0-v9A"/>
@@ -87,6 +128,8 @@
                                     <constraint firstItem="S2Q-M5-MvW" firstAttribute="centerX" secondItem="cm6-zg-DYx" secondAttribute="centerX" id="Tyr-dH-C07"/>
                                     <constraint firstItem="S2Q-M5-MvW" firstAttribute="height" secondItem="cm6-zg-DYx" secondAttribute="height" id="VYM-FX-533"/>
                                     <constraint firstItem="pgt-bh-aJl" firstAttribute="centerY" secondItem="cm6-zg-DYx" secondAttribute="centerY" id="WS9-o9-S5n"/>
+                                    <constraint firstAttribute="bottom" secondItem="zQf-Xc-n5q" secondAttribute="bottom" id="XlJ-dv-deh"/>
+                                    <constraint firstAttribute="trailing" secondItem="zQf-Xc-n5q" secondAttribute="trailing" id="aD7-lK-oJr"/>
                                     <constraint firstItem="pgt-bh-aJl" firstAttribute="width" secondItem="cm6-zg-DYx" secondAttribute="width" id="dg1-A0-zMq"/>
                                     <constraint firstAttribute="bottom" secondItem="kr2-TR-zoa" secondAttribute="bottom" constant="20" symbolic="YES" id="icj-tg-2RC"/>
                                     <constraint firstItem="S2Q-M5-MvW" firstAttribute="width" secondItem="cm6-zg-DYx" secondAttribute="width" id="vdQ-0P-OrQ"/>
@@ -135,11 +178,16 @@
                         <outlet property="rotationGesture" destination="Njz-xu-aKd" id="GHq-ge-sUp"/>
                         <outlet property="tapGesture" destination="qH3-X7-2cg" id="2i4-Af-0pz"/>
                         <outlet property="tempImageView" destination="7KZ-2R-MFJ" id="qJp-Za-yPb"/>
+                        <outlet property="thumbnailCollectionView" destination="zQf-Xc-n5q" id="odk-s0-WTl"/>
                         <outlet property="toolBar" destination="3Rb-bj-ciQ" id="I4p-No-Vys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="qH3-X7-2cg"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="qH3-X7-2cg">
+                    <connections>
+                        <action selector="changeHandwrittingColor:" destination="BYZ-38-t0r" id="hBi-bL-GLt"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <pinchGestureRecognizer id="dAf-9l-pXq">
                     <connections>
                         <action selector="scaleHandwritting:" destination="BYZ-38-t0r" id="Ty6-ym-poN"/>
