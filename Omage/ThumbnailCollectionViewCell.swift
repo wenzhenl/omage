@@ -12,6 +12,8 @@ class ThumbnailCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
+    @IBOutlet weak var effectLabel: UILabel!
+    
     var thumbnail: UIImage? {
         get {
             return thumbnailImageView.image

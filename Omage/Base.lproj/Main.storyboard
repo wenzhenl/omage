@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -76,36 +77,80 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VaD-JT-web">
-                                            <size key="itemSize" width="168" height="132"/>
+                                            <size key="itemSize" width="170" height="170"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="50" height="50"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Thumbnail collection cell" id="Ptz-xm-vqv" customClass="ThumbnailCollectionViewCell" customModule="Omage" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UNz-4T-fOw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="168" height="132"/>
+                                                            <rect key="frame" x="35" y="35" width="100" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="100" id="Sbw-yS-P6h"/>
+                                                                <constraint firstAttribute="width" constant="100" id="kUt-6l-R92"/>
+                                                            </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original Color Inverted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJx-qP-uUX">
+                                                            <rect key="frame" x="8" y="143" width="154" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="UNz-4T-fOw" firstAttribute="height" secondItem="Ptz-xm-vqv" secondAttribute="height" id="1wl-Nm-fc0"/>
                                                     <constraint firstItem="UNz-4T-fOw" firstAttribute="width" secondItem="Ptz-xm-vqv" secondAttribute="width" id="6Kc-bH-VSm"/>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="centerY" secondItem="Ptz-xm-vqv" secondAttribute="centerY" id="6ON-g9-NQH"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="MJx-qP-uUX" secondAttribute="trailing" id="A3s-kj-nXL"/>
                                                     <constraint firstItem="UNz-4T-fOw" firstAttribute="centerX" secondItem="Ptz-xm-vqv" secondAttribute="centerX" id="QPz-dz-AMj"/>
                                                     <constraint firstItem="UNz-4T-fOw" firstAttribute="centerY" secondItem="Ptz-xm-vqv" secondAttribute="centerY" id="RHp-Ax-Ha2"/>
+                                                    <constraint firstItem="MJx-qP-uUX" firstAttribute="leading" secondItem="Ptz-xm-vqv" secondAttribute="leadingMargin" id="Wmk-aM-av8"/>
+                                                    <constraint firstItem="UNz-4T-fOw" firstAttribute="centerX" secondItem="Ptz-xm-vqv" secondAttribute="centerX" id="xKJ-Kt-c2A"/>
+                                                    <constraint firstItem="MJx-qP-uUX" firstAttribute="top" secondItem="UNz-4T-fOw" secondAttribute="bottom" constant="8" symbolic="YES" id="yHh-Eh-cd7"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="1wl-Nm-fc0"/>
+                                                        <exclude reference="6Kc-bH-VSm"/>
+                                                        <exclude reference="QPz-dz-AMj"/>
+                                                        <exclude reference="RHp-Ax-Ha2"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
+                                                    <outlet property="effectLabel" destination="MJx-qP-uUX" id="saZ-Tm-sSd"/>
                                                     <outlet property="thumbnailImageView" destination="UNz-4T-fOw" id="XSC-Ts-dZV"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Thumbnail collection footer" id="hcP-dH-6NS" customClass="ThumbnailFooterCollectionReusableView" customModule="Omage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="170" width="600" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jur-l9-XIE">
+                                                    <rect key="frame" x="0.0" y="13" width="600" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jur-l9-XIE" firstAttribute="width" secondItem="hcP-dH-6NS" secondAttribute="width" id="Tt4-GP-pc3"/>
+                                                <constraint firstItem="jur-l9-XIE" firstAttribute="centerY" secondItem="hcP-dH-6NS" secondAttribute="centerY" id="lb0-tL-T8Y"/>
+                                                <constraint firstItem="jur-l9-XIE" firstAttribute="centerX" secondItem="hcP-dH-6NS" secondAttribute="centerX" id="tS2-BB-fSf"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="footerLabel" destination="jur-l9-XIE" id="jXj-Yg-5nl"/>
+                                            </connections>
+                                        </collectionReusableView>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="NaY-yx-gsK"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="gkE-32-7oo"/>
@@ -164,7 +209,11 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" image="upload" id="Ibn-pf-IgE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ibn-pf-IgE">
+                            <connections>
+                                <action selector="saveAndShare:" destination="BYZ-38-t0r" id="jOy-hc-yge"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -176,6 +225,7 @@
                         <outlet property="panGesture" destination="xix-Ik-2RU" id="DMQ-ZZ-Fu8"/>
                         <outlet property="pinchGesture" destination="dAf-9l-pXq" id="jQS-Qe-7YW"/>
                         <outlet property="rotationGesture" destination="Njz-xu-aKd" id="GHq-ge-sUp"/>
+                        <outlet property="saveOrShareButton" destination="Ibn-pf-IgE" id="CN0-uQ-13c"/>
                         <outlet property="tapGesture" destination="qH3-X7-2cg" id="2i4-Af-0pz"/>
                         <outlet property="tempImageView" destination="7KZ-2R-MFJ" id="qJp-Za-yPb"/>
                         <outlet property="thumbnailCollectionView" destination="zQf-Xc-n5q" id="odk-s0-WTl"/>
@@ -237,6 +287,5 @@
         <image name="pic_fields_albums" width="22" height="22"/>
         <image name="top_charts" width="22" height="22"/>
         <image name="undo" width="32" height="32"/>
-        <image name="upload" width="22" height="22"/>
     </resources>
 </document>

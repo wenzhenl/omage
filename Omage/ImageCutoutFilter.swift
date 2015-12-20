@@ -308,6 +308,53 @@ class ImageCutoutFilter {
         return nil
     }
 
+    static func changeImageColor(refImage: UIImage?, color: UIColor?) -> UIImage? {
+    
+        if let image = refImage {
+            
+            var imageRef = image.CGImage
+            
+            // create the working context
+            if let context = createARGBBitmapContext(imageRef!) {
+                
+                let width = CGImageGetWidth(imageRef)
+                let height = CGImageGetHeight(imageRef)
+                
+                // draw image on the context
+                CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), imageRef)
+                let rawdata = UnsafeMutablePointer<UInt8>(CGBitmapContextGetData(context))
+                
+                // make all white pixels transparent
+                // keep other pixels based on designated color
+                var byteIndex = 0
+                
+                for _ in 0 ..< width * height {
+                    let alpha: UInt8 = rawdata[byteIndex]
+//                    let red: UInt8 = rawdata[byteIndex+1]
+//                    let green: UInt8 = rawdata[byteIndex+2]
+//                    let blue: UInt8 = rawdata[byteIndex+3]
+//                    
+                    if alpha != 0 {
+                        if let color = color {
+                            // color should be in RGBA format
+                            let colorData = CGColorGetComponents(color.CGColor)
+                            rawdata[byteIndex] = UInt8(colorData[3] * 255) // alpha
+                            rawdata[byteIndex+1] = UInt8(colorData[0] * 255) // red
+                            rawdata[byteIndex+2] = UInt8(colorData[1] * 255) // green
+                            rawdata[byteIndex+3] = UInt8(colorData[2] * 255) // blue
+                        }
+                    }
+                    byteIndex += 4
+                }
+                
+                imageRef = CGBitmapContextCreateImage(context)
+                free(rawdata)
+                return UIImage(CGImage: imageRef!)
+            }
+        }
+        return nil
+    }
+    
     static func cutImageOut(refImage: UIImage?) -> UIImage? {
         
         if let image = refImage {

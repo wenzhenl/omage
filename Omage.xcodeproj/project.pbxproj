@@ -21,6 +21,7 @@
 		0A77B2EE1C2505CF00CD23B1 /* ImageCutoutFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2EC1C2505CF00CD23B1 /* ImageCutoutFilter.swift */; };
 		0A77B2F01C2505D600CD23B1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2EF1C2505D600CD23B1 /* Settings.swift */; };
 		0A77B3311C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3301C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift */; };
+		0A77B3331C26550000CD23B1 /* ThumbnailFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0A77B2EF1C2505D600CD23B1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0A77B2F11C2505E500CD23B1 /* Omage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omage-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A77B3301C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				0A77B2AC1C25042A00CD23B1 /* AppDelegate.swift */,
 				0A77B2AE1C25042A00CD23B1 /* OmageViewController.swift */,
+				0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */,
 				0A77B2EA1C2505CF00CD23B1 /* ImageCropView.h */,
 				0A77B2EF1C2505D600CD23B1 /* Settings.swift */,
 				0A77B2EB1C2505CF00CD23B1 /* ImageCropView.m */,
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A77B3331C26550000CD23B1 /* ThumbnailFooterCollectionReusableView.swift in Sources */,
 				0A77B2E81C2505B600CD23B1 /* OpenCV.mm in Sources */,
 				0A77B2ED1C2505CF00CD23B1 /* ImageCropView.m in Sources */,
 				0A77B2AF1C25042A00CD23B1 /* OmageViewController.swift in Sources */,

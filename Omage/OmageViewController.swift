@@ -24,6 +24,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
+    @IBOutlet weak var saveOrShareButton: UIBarButtonItem!
+    
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @IBOutlet var pinchGesture: UIPinchGestureRecognizer!
@@ -43,6 +45,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             rotationGesture.enabled = !eraserDidSelected
             panGesture.enabled = !eraserDidSelected
             longPressGesture.enabled = !eraserDidSelected
+            saveOrShareButton.enabled = !eraserDidSelected
         }
     }
     
@@ -66,6 +69,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.bushSizeSlider.hidden = true
         self.thumbnailCollectionView.hidden = true
+        
+        self.saveOrShareButton.enabled = false
     }
     
     // MARK - background image
@@ -80,7 +85,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 } else {
                     print("AspectFit")
                     backgroundImageView.contentMode = .ScaleAspectFit
+                    saveOrShareButton.enabled = true
                 }
+            } else {
+                saveOrShareButton.enabled = false
             }
 //            imageContainerView.bringSubviewToFront(foregroundImageView)
 //            imageContainerView.bringSubviewToFront(tempImageView)
@@ -218,12 +226,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case .Changed:
             if foregroundImage != nil && (effectOfForeground == .DesignateColor || effectOfForeground == .DesignateColorInvert) {
                 currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
-                if effectOfForeground == .DesignateColor {
-                    foregroundImage = ImageCutoutFilter.cutImageOutWithColor(thumbnailsOfForegroundEffects[0], color: Settings.avaiableHandwrittingColors[currentColorIndex])
-                }
-                else if effectOfForeground == .DesignateColorInvert {
-                    foregroundImage = ImageCutoutFilter.cutImageOutWithColorInverted(thumbnailsOfForegroundEffects[0], color: Settings.avaiableHandwrittingColors[currentColorIndex])
-                }
+                foregroundImage = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
             }
         default: break
         }
@@ -315,6 +318,17 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         return image
     }
 
+    // MARK - clip a region of view into an image
+    func clipImageForRect(clipRect: CGRect, inView: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(clipRect.size, false, CGFloat(0.0))
+        let ctx = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(ctx, -clipRect.origin.x, -clipRect.origin.y)
+        inView.layer.renderInContext(ctx!)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
+    
     private var lastPoint = CGPoint.zero
     private var red: CGFloat = 1.0
     private var green: CGFloat = 1.0
@@ -425,6 +439,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     // MARK - delegate for UICollectionView
     var thumbnailsOfForegroundEffects: [UIImage] = []
     var effectsForForeground: [ForegroundEffect] = []
+    var effectDescriptions: [String] = []
+    
     var effectOfForeground: ForegroundEffect = .DesignateColor
 
     enum ForegroundEffect {
@@ -442,22 +458,27 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let originalImage = image
         thumbnailsOfForegroundEffects.append(originalImage)
         effectsForForeground.append(.Original)
-        
-        let originalColorImage = ImageCutoutFilter.cutImageOutOriginalColor(image)
-        thumbnailsOfForegroundEffects.append(originalColorImage!)
-        effectsForForeground.append(.OriginalColor)
-        
-        let originalColorInvertImage = ImageCutoutFilter.cutImageOutOriginalColorInverted(image)
-        thumbnailsOfForegroundEffects.append(originalColorInvertImage!)
-        effectsForForeground.append(.OriginalColorInvert)
+        effectDescriptions.append("Original")
         
         let designateColorImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
         thumbnailsOfForegroundEffects.append(designateColorImage!)
         effectsForForeground.append(.DesignateColor)
+        effectDescriptions.append("B&W")
         
         let designateColorInvertImage = ImageCutoutFilter.cutImageOutWithColorInverted(image, color: Settings.avaiableHandwrittingColors[0])
         thumbnailsOfForegroundEffects.append(designateColorInvertImage!)
         effectsForForeground.append(.DesignateColorInvert)
+        effectDescriptions.append("B&W Inverted")
+        
+        let originalColorImage = ImageCutoutFilter.cutImageOutOriginalColor(image)
+        thumbnailsOfForegroundEffects.append(originalColorImage!)
+        effectsForForeground.append(.OriginalColor)
+        effectDescriptions.append("Original Color")
+        
+        let originalColorInvertImage = ImageCutoutFilter.cutImageOutOriginalColorInverted(image)
+        thumbnailsOfForegroundEffects.append(originalColorInvertImage!)
+        effectsForForeground.append(.OriginalColorInvert)
+        effectDescriptions.append("Original Color Inverted")
         
         self.imageContainerView.bringSubviewToFront(thumbnailCollectionView)
         self.thumbnailCollectionView.hidden = false
@@ -474,7 +495,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         snapshotsOfForegroundImage = [foregroundImage!]
         self.thumbnailCollectionView.hidden = true
         effectOfForeground = effectsForForeground[indexPath.row]
-//        snapshotsOfForegroundImage = []
+        snapshotsOfForegroundImage = []
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -485,7 +506,38 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Thumbnail collection cell", forIndexPath: indexPath) as! ThumbnailCollectionViewCell
         cell.thumbnail = thumbnailsOfForegroundEffects[indexPath.row]
         cell.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
+        cell.effectLabel.text = effectDescriptions[indexPath.row]
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Thumbnail collection footer", forIndexPath: indexPath) as! ThumbnailFooterCollectionReusableView
+            footerView.footerLabel.text = "Choose an effect"
+            return footerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
+    @IBAction func saveAndShare(sender: UIBarButtonItem) {
+        if backgroundImage != nil {
+            if foregroundImage != nil {
+                let snapshotToSave = clipImageForRect(backgroundImageView.frame, inView: imageContainerView)
+                UIImageWriteToSavedPhotosAlbum(snapshotToSave!, nil, nil, nil)
+            } else {
+                UIImageWriteToSavedPhotosAlbum(backgroundImage!, nil, nil, nil)
+            }
+            let alert = UIAlertController(title: nil, message: "Photo saved", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            let delay = 1 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue(), {
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
     }
 }
 
