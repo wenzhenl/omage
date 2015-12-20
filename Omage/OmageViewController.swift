@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import EasyTipView
 
-class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, EasyTipViewDelegate {
 
     @IBOutlet weak var imageContainerView: UIView!
     
@@ -24,7 +25,17 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
-    @IBOutlet weak var saveOrShareButton: UIBarButtonItem!
+    @IBOutlet weak var backgroundButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var foregroundButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var eraserButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var cropperButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var saveOrShareButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var undoButtonItem: UIBarButtonItem!
     
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
@@ -45,7 +56,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             rotationGesture.enabled = !eraserDidSelected
             panGesture.enabled = !eraserDidSelected
             longPressGesture.enabled = !eraserDidSelected
-            saveOrShareButton.enabled = !eraserDidSelected
+            saveOrShareButtonItem.enabled = !eraserDidSelected
         }
     }
     
@@ -55,11 +66,25 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var copyOfBackground: UIImage?
     
+    var firstLauch: Bool = true
+    
+    var timesShowingBackTip = 0
+    
+    var timesShowingForeTip = 0
+    
+    var timesShowingEraserTip = 0
+    
+    var timesShowingCropTip = 0
+    
+    var timesToShow = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = Settings.ColorForHeader
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.toolBar.tintColor = Settings.ColorForHeader
+        
         self.imageContainerView.bringSubviewToFront(backgroundImageView)
         self.imageContainerView.bringSubviewToFront(foregroundImageView)
         self.imageContainerView.bringSubviewToFront(tempImageView)
@@ -70,7 +95,25 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.bushSizeSlider.hidden = true
         self.thumbnailCollectionView.hidden = true
         
-        self.saveOrShareButton.enabled = false
+        self.saveOrShareButtonItem.enabled = false
+        
+        // MARK - easy tip configuration
+        var preferences = EasyTipView.Preferences()
+        
+        preferences.font = UIFont(name: "Futura-Medium", size: 13)
+        preferences.textColor = UIColor.whiteColor()
+        preferences.bubbleColor = UIColor(hue:0.46, saturation:0.99, brightness:0.6, alpha:1)
+        preferences.arrowPosition = EasyTipView.ArrowPosition.Top
+        
+        EasyTipView.setGlobalPreferences(preferences)
+        
+        firstLauch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLauch")
+        if firstLauch {
+            print("Not first lauch")
+        } else {
+            print("First lauch")
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "FirstLauch")
+        }
     }
     
     // MARK - background image
@@ -85,10 +128,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 } else {
                     print("AspectFit")
                     backgroundImageView.contentMode = .ScaleAspectFit
-                    saveOrShareButton.enabled = true
+                    saveOrShareButtonItem.enabled = true
                 }
             } else {
-                saveOrShareButton.enabled = false
+                saveOrShareButtonItem.enabled = false
             }
 //            imageContainerView.bringSubviewToFront(foregroundImageView)
 //            imageContainerView.bringSubviewToFront(tempImageView)
@@ -119,7 +162,16 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    // MARK - easy tip view delegate functions
+    func easyTipViewDidDismiss(tipView: EasyTipView) {
+        print("\(tipView) did dismiss!")
+    }
+    
     @IBAction func pickBackground(sender: UIBarButtonItem) {
+        if firstLauch && timesShowingBackTip++ < timesToShow {
+            EasyTipView.showAnimated(true, forItem: self.backgroundButtonItem, withinSuperview: nil, text: "Select an image from your photo library as the background image", preferences: nil, delegate: nil)
+        }
+        
         photoForBackground = true
         if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
             let picker = UIImagePickerController()
@@ -131,6 +183,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func pickForeground(sender: UIBarButtonItem) {
+       
+        if firstLauch && timesShowingForeTip++ < timesToShow {
+            EasyTipView.showAnimated(true, forItem: self.foregroundButtonItem, withinSuperview: nil, text: "You can take a photo or select from your exsiting ones as the foreground", preferences: nil, delegate: nil)
+        }
+        
         let foregroundSourceOptions = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         foregroundSourceOptions.addAction(UIAlertAction(
             title: "Take photo",
@@ -226,7 +283,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case .Changed:
             if foregroundImage != nil && (effectOfForeground == .DesignateColor || effectOfForeground == .DesignateColorInvert) {
                 currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
-                foregroundImage = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                foregroundImageView.image = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
             }
         default: break
         }
@@ -267,6 +324,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
+        
+        if firstLauch && timesShowingEraserTip++ < timesToShow {
+            EasyTipView.showAnimated(true, forItem: self.eraserButtonItem, withinSuperview: nil, text: "After you selected the foreground image, you can remove the noise here", preferences: nil, delegate: nil)
+        }
+        
         if foregroundImage != nil && !thumbnailViewDidAppear {
             eraserDidSelected = !eraserDidSelected
             foregroundImageView.transform = CGAffineTransformIdentity
@@ -287,6 +349,9 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func crop(sender: UIBarButtonItem) {
+        if firstLauch && timesShowingCropTip++ < timesToShow {
+            EasyTipView.showAnimated(true, forItem: self.cropperButtonItem, withinSuperview: nil, text: "When you have both your back- and fore- ground images ready, you can crop into your desired image here", preferences: nil, delegate: nil)
+        }
         if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected && !thumbnailViewDidAppear {
             let combinedImage = ImageCutoutFilter.convertSnapshotToImage(saveUIViewAsUIImage(imageContainerView))
             
@@ -529,14 +594,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             } else {
                 UIImageWriteToSavedPhotosAlbum(backgroundImage!, nil, nil, nil)
             }
-            let alert = UIAlertController(title: nil, message: "Photo saved", preferredStyle: UIAlertControllerStyle.Alert)
-            self.presentViewController(alert, animated: true, completion: nil)
             
-            let delay = 1 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue(), {
-                alert.dismissViewControllerAnimated(true, completion: nil)
-            })
+            EasyTipView.showAnimated(true, forItem: self.saveOrShareButtonItem, withinSuperview: nil, text: "Successfully saved!", preferences: nil, delegate: nil)
         }
     }
 }

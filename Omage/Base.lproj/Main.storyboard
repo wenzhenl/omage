@@ -217,19 +217,24 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundButtonItem" destination="hPH-aU-wB8" id="qm0-N2-aMc"/>
                         <outlet property="backgroundImageView" destination="S2Q-M5-MvW" id="jeg-rN-jwC"/>
                         <outlet property="bushSizeSlider" destination="kr2-TR-zoa" id="8ap-yv-Set"/>
+                        <outlet property="cropperButtonItem" destination="SyN-tc-OsW" id="7cQ-je-hGF"/>
+                        <outlet property="eraserButtonItem" destination="hmW-ni-dUn" id="Xnp-vi-1nk"/>
+                        <outlet property="foregroundButtonItem" destination="6qj-kQ-rDj" id="jIR-gp-0xr"/>
                         <outlet property="foregroundImageView" destination="pgt-bh-aJl" id="u5J-5g-1qY"/>
                         <outlet property="imageContainerView" destination="cm6-zg-DYx" id="ykP-wD-t91"/>
                         <outlet property="longPressGesture" destination="xpd-0C-GWr" id="pTj-XE-Wei"/>
                         <outlet property="panGesture" destination="xix-Ik-2RU" id="DMQ-ZZ-Fu8"/>
                         <outlet property="pinchGesture" destination="dAf-9l-pXq" id="jQS-Qe-7YW"/>
                         <outlet property="rotationGesture" destination="Njz-xu-aKd" id="GHq-ge-sUp"/>
-                        <outlet property="saveOrShareButton" destination="Ibn-pf-IgE" id="CN0-uQ-13c"/>
+                        <outlet property="saveOrShareButtonItem" destination="Ibn-pf-IgE" id="zvv-sP-Oxd"/>
                         <outlet property="tapGesture" destination="qH3-X7-2cg" id="2i4-Af-0pz"/>
                         <outlet property="tempImageView" destination="7KZ-2R-MFJ" id="qJp-Za-yPb"/>
                         <outlet property="thumbnailCollectionView" destination="zQf-Xc-n5q" id="odk-s0-WTl"/>
                         <outlet property="toolBar" destination="3Rb-bj-ciQ" id="I4p-No-Vys"/>
+                        <outlet property="undoButtonItem" destination="an7-IR-MPi" id="L90-rG-cAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

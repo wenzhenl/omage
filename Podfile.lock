@@ -1,0 +1,10 @@
+PODS:
+  - EasyTipView (0.1.2)
+
+DEPENDENCIES:
+  - EasyTipView (~> 0.1.0)
+
+SPEC CHECKSUMS:
+  EasyTipView: bd2b9a11c0b7908d29db3527c35058ddc24299f5
+
+COCOAPODS: 0.39.0
