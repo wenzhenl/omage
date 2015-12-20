@@ -37,6 +37,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var undoButtonItem: UIBarButtonItem!
     
+    @IBOutlet weak var menuButtonItem: UIBarButtonItem!
+    
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     @IBOutlet var pinchGesture: UIPinchGestureRecognizer!
@@ -84,7 +86,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = Settings.ColorForHeader
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(20)]
         self.toolBar.tintColor = Settings.ColorForHeader
         
         self.imageContainerView.bringSubviewToFront(backgroundImageView)
@@ -117,6 +119,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             print("Not first lauch")
         }
         firstLauch = true
+        
+        if self.revealViewController() != nil {
+            menuButtonItem.target = self.revealViewController()
+            menuButtonItem.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     // MARK - background image

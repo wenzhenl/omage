@@ -26,6 +26,11 @@
 		0A77B3801C26A5A400CD23B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B3821C26A5A400CD23B1 /* InfoPlist.strings */; };
 		0A77B3851C26A5A400CD23B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B3871C26A5A400CD23B1 /* InfoPlist.strings */; };
 		0A77B38A1C26A5A500CD23B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B38C1C26A5A500CD23B1 /* Localizable.strings */; };
+		0A77B3901C26B51A00CD23B1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B38F1C26B51A00CD23B1 /* SWRevealViewController.m */; };
+		0A77B3921C26B62E00CD23B1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3911C26B62E00CD23B1 /* MenuTableViewController.swift */; };
+		0A77B3941C26C22500CD23B1 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3931C26C22500CD23B1 /* AboutTableViewController.swift */; };
+		0A77B3961C26D0D400CD23B1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3951C26D0D400CD23B1 /* WebViewController.swift */; };
+		0A77B39C1C26DCF700CD23B1 /* ThirdPartyLicenses.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B39B1C26DCF700CD23B1 /* ThirdPartyLicenses.html */; };
 		4F8EC83ACB92DFEAE71E9600 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C98E5063B6E771C9F6066E1 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +83,12 @@
 		0A77B3811C26A5A400CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A77B3861C26A5A400CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A77B38B1C26A5A500CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0A77B38E1C26B51A00CD23B1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0A77B38F1C26B51A00CD23B1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0A77B3911C26B62E00CD23B1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		0A77B3931C26C22500CD23B1 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		0A77B3951C26D0D400CD23B1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0A77B39B1C26DCF700CD23B1 /* ThirdPartyLicenses.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ThirdPartyLicenses.html; sourceTree = "<group>"; };
 		2AAFD8D4571FAE900FB6AB33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3C98E5063B6E771C9F6066E1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E78183BC50BA4712D153BBF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,8 +160,13 @@
 				0A77B2E91C2505BE00CD23B1 /* OpenCV.h */,
 				0A77B3301C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift */,
 				0A77B2F11C2505E500CD23B1 /* Omage-Bridging-Header.h */,
+				0A77B3951C26D0D400CD23B1 /* WebViewController.swift */,
+				0A77B3911C26B62E00CD23B1 /* MenuTableViewController.swift */,
+				0A77B38D1C26B51A00CD23B1 /* SWRevealViewController */,
 				0A77B2DE1C25053600CD23B1 /* FXBlurView */,
 				0A77B2B01C25042A00CD23B1 /* Main.storyboard */,
+				0A77B39B1C26DCF700CD23B1 /* ThirdPartyLicenses.html */,
+				0A77B3931C26C22500CD23B1 /* AboutTableViewController.swift */,
 				0A77B2B31C25042A00CD23B1 /* Assets.xcassets */,
 				0A77B2B51C25042A00CD23B1 /* LaunchScreen.storyboard */,
 				0A77B2B81C25042A00CD23B1 /* Info.plist */,
@@ -193,6 +209,15 @@
 				0A77B2E01C25053600CD23B1 /* FXBlurView.m */,
 			);
 			path = FXBlurView;
+			sourceTree = "<group>";
+		};
+		0A77B38D1C26B51A00CD23B1 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0A77B38E1C26B51A00CD23B1 /* SWRevealViewController.h */,
+				0A77B38F1C26B51A00CD23B1 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		14AE3604083724091CC9B60C /* Frameworks */ = {
@@ -324,6 +349,7 @@
 				0A77B37B1C26A5A100CD23B1 /* InfoPlist.strings in Resources */,
 				0A77B2B41C25042A00CD23B1 /* Assets.xcassets in Resources */,
 				0A77B2B21C25042A00CD23B1 /* Main.storyboard in Resources */,
+				0A77B39C1C26DCF700CD23B1 /* ThirdPartyLicenses.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,13 +426,17 @@
 			files = (
 				0A77B3331C26550000CD23B1 /* ThumbnailFooterCollectionReusableView.swift in Sources */,
 				0A77B2E81C2505B600CD23B1 /* OpenCV.mm in Sources */,
+				0A77B3921C26B62E00CD23B1 /* MenuTableViewController.swift in Sources */,
 				0A77B2ED1C2505CF00CD23B1 /* ImageCropView.m in Sources */,
 				0A77B2AF1C25042A00CD23B1 /* OmageViewController.swift in Sources */,
 				0A77B2AD1C25042A00CD23B1 /* AppDelegate.swift in Sources */,
 				0A77B2F01C2505D600CD23B1 /* Settings.swift in Sources */,
 				0A77B3311C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift in Sources */,
+				0A77B3901C26B51A00CD23B1 /* SWRevealViewController.m in Sources */,
 				0A77B2E11C25053600CD23B1 /* FXBlurView.m in Sources */,
 				0A77B2EE1C2505CF00CD23B1 /* ImageCutoutFilter.swift in Sources */,
+				0A77B3961C26D0D400CD23B1 /* WebViewController.swift in Sources */,
+				0A77B3941C26C22500CD23B1 /* AboutTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

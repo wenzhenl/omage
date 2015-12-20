@@ -3,4 +3,5 @@
 //
 #import "ImageCropView.h"
 #import "OpenCV.h"
+#import "SWRevealViewController.h"
 
