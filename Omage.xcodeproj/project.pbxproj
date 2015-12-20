@@ -22,6 +22,10 @@
 		0A77B2F01C2505D600CD23B1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2EF1C2505D600CD23B1 /* Settings.swift */; };
 		0A77B3311C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3301C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift */; };
 		0A77B3331C26550000CD23B1 /* ThumbnailFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */; };
+		0A77B37B1C26A5A100CD23B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B37D1C26A5A100CD23B1 /* InfoPlist.strings */; };
+		0A77B3801C26A5A400CD23B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B3821C26A5A400CD23B1 /* InfoPlist.strings */; };
+		0A77B3851C26A5A400CD23B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B3871C26A5A400CD23B1 /* InfoPlist.strings */; };
+		0A77B38A1C26A5A500CD23B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B38C1C26A5A500CD23B1 /* Localizable.strings */; };
 		4F8EC83ACB92DFEAE71E9600 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C98E5063B6E771C9F6066E1 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,12 @@
 		0A77B2F11C2505E500CD23B1 /* Omage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omage-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A77B3301C26374F00CD23B1 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		0A77B3751C269C9100CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0A77B3761C269C9100CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0A77B37C1C26A5A100CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A77B3811C26A5A400CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A77B3861C26A5A400CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A77B38B1C26A5A500CD23B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2AAFD8D4571FAE900FB6AB33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3C98E5063B6E771C9F6066E1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E78183BC50BA4712D153BBF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +136,8 @@
 		0A77B2AB1C25042A00CD23B1 /* Omage */ = {
 			isa = PBXGroup;
 			children = (
+				0A77B38C1C26A5A500CD23B1 /* Localizable.strings */,
+				0A77B37D1C26A5A100CD23B1 /* InfoPlist.strings */,
 				0A77B2AC1C25042A00CD23B1 /* AppDelegate.swift */,
 				0A77B2AE1C25042A00CD23B1 /* OmageViewController.swift */,
 				0A77B3321C2654FF00CD23B1 /* ThumbnailFooterCollectionReusableView.swift */,
@@ -149,6 +161,7 @@
 		0A77B2C01C25042A00CD23B1 /* OmageTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A77B3871C26A5A400CD23B1 /* InfoPlist.strings */,
 				0A77B2C11C25042A00CD23B1 /* OmageTests.swift */,
 				0A77B2C31C25042A00CD23B1 /* Info.plist */,
 			);
@@ -158,6 +171,7 @@
 		0A77B2CB1C25042A00CD23B1 /* OmageUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0A77B3821C26A5A400CD23B1 /* InfoPlist.strings */,
 				0A77B2CC1C25042A00CD23B1 /* OmageUITests.swift */,
 				0A77B2CE1C25042A00CD23B1 /* Info.plist */,
 			);
@@ -305,7 +319,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A77B38A1C26A5A500CD23B1 /* Localizable.strings in Resources */,
 				0A77B2B71C25042A00CD23B1 /* LaunchScreen.storyboard in Resources */,
+				0A77B37B1C26A5A100CD23B1 /* InfoPlist.strings in Resources */,
 				0A77B2B41C25042A00CD23B1 /* Assets.xcassets in Resources */,
 				0A77B2B21C25042A00CD23B1 /* Main.storyboard in Resources */,
 			);
@@ -315,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A77B3851C26A5A400CD23B1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A77B3801C26A5A400CD23B1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +446,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A77B2B11C25042A00CD23B1 /* Base */,
+				0A77B3751C269C9100CD23B1 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -436,8 +455,41 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A77B2B61C25042A00CD23B1 /* Base */,
+				0A77B3761C269C9100CD23B1 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0A77B37D1C26A5A100CD23B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A77B37C1C26A5A100CD23B1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A77B3821C26A5A400CD23B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A77B3811C26A5A400CD23B1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A77B3871C26A5A400CD23B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A77B3861C26A5A400CD23B1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A77B38C1C26A5A500CD23B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A77B38B1C26A5A500CD23B1 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

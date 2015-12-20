@@ -116,6 +116,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         } else {
             print("Not first lauch")
         }
+        firstLauch = true
     }
     
     // MARK - background image
@@ -171,7 +172,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func pickBackground(sender: UIBarButtonItem) {
         if firstLauch && timesShowingBackTip++ < timesToShow {
-            EasyTipView.showAnimated(true, forItem: self.backgroundButtonItem, withinSuperview: nil, text: "Select an image from your photo library as the background image", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.backgroundButtonItem, withinSuperview: nil, text: NSLocalizedString("Select an image from your photo library as the background image", comment: "Tip for background selection"), preferences: nil, delegate: nil)
         }
         
         photoForBackground = true
@@ -187,12 +188,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func pickForeground(sender: UIBarButtonItem) {
        
         if firstLauch && timesShowingForeTip++ < timesToShow {
-            EasyTipView.showAnimated(true, forItem: self.foregroundButtonItem, withinSuperview: nil, text: "You can take a photo or select from your exsiting ones as the foreground", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.foregroundButtonItem, withinSuperview: nil, text: NSLocalizedString("You can take a photo or select from your exsiting ones as the foreground", comment: "Tip for foreground selection"), preferences: nil, delegate: nil)
         }
         
         let foregroundSourceOptions = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         foregroundSourceOptions.addAction(UIAlertAction(
-            title: "Take photo",
+            title: NSLocalizedString("Take photo", comment: "take photo"),
             style: .Default)
             { (action:UIAlertAction) -> Void in
                 if UIImagePickerController.isSourceTypeAvailable(.Camera) {
@@ -208,7 +209,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             })
         
         foregroundSourceOptions.addAction(UIAlertAction(
-            title: "Select from photo library",
+            title: NSLocalizedString("Select from photo library", comment: ""),
             style: .Default)
             { (action:UIAlertAction) -> Void in
                 self.photoForBackground = false
@@ -220,7 +221,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     self.presentViewController(picker, animated: true, completion: nil)
                 }
             })
-        foregroundSourceOptions.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        foregroundSourceOptions.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
         
         self.presentViewController(foregroundSourceOptions, animated: true, completion: nil)
     }
@@ -312,10 +313,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func deleteForeground(sender: UILongPressGestureRecognizer) {
         if foregroundImage != nil {
-            let alert = UIAlertController(title: nil, message: "Delete foreground image?", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            let alert = UIAlertController(title: nil, message: NSLocalizedString("Delete foreground image?", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
             alert.addAction(UIAlertAction(
-                title: "Delete",
+                title: NSLocalizedString("Delete", comment: ""),
                 style: .Destructive)
                 { (action: UIAlertAction) -> Void in
                     self.foregroundImage = nil
@@ -328,7 +329,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
         
         if firstLauch && timesShowingEraserTip++ < timesToShow {
-            EasyTipView.showAnimated(true, forItem: self.eraserButtonItem, withinSuperview: nil, text: "After you selected the foreground image, you can remove the noise here", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.eraserButtonItem, withinSuperview: nil, text: NSLocalizedString("After you selected the foreground image, you can remove the noise here", comment: ""), preferences: nil, delegate: nil)
         }
         
         if foregroundImage != nil && !thumbnailViewDidAppear {
@@ -336,7 +337,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             foregroundImageView.transform = CGAffineTransformIdentity
             if eraserDidSelected {
                 backgroundImage = nil
-                self.title = "Editing"
+                self.title = NSLocalizedString("Editing", comment: "")
                 self.bushSizeSlider.hidden = false
                 self.imageContainerView.bringSubviewToFront(bushSizeSlider)
                 foregroundImageView.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
@@ -352,7 +353,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func crop(sender: UIBarButtonItem) {
         if firstLauch && timesShowingCropTip++ < timesToShow {
-            EasyTipView.showAnimated(true, forItem: self.cropperButtonItem, withinSuperview: nil, text: "When you have both your back- and fore- ground images ready, you can crop into your desired image here", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.cropperButtonItem, withinSuperview: nil, text: NSLocalizedString("When you have both your back- and fore- ground images ready, you can crop into your desired image here", comment:""), preferences: nil, delegate: nil)
         }
         if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected && !thumbnailViewDidAppear {
             let combinedImage = ImageCutoutFilter.convertSnapshotToImage(saveUIViewAsUIImage(imageContainerView))
@@ -492,7 +493,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func undoErase(sender: UIBarButtonItem) {
         if firstLauch && timesShowingEraserTip++ < timesToShow {
-            EasyTipView.showAnimated(true, forItem: self.undoButtonItem, withinSuperview: nil, text: "Undo the erase operation", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.undoButtonItem, withinSuperview: nil, text: NSLocalizedString("Undo the erase operation", comment: ""), preferences: nil, delegate: nil)
         }
 
         if eraserDidSelected {
@@ -529,27 +530,27 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let originalImage = image
         thumbnailsOfForegroundEffects.append(originalImage)
         effectsForForeground.append(.Original)
-        effectDescriptions.append("Original")
+        effectDescriptions.append(NSLocalizedString("Original", comment: ""))
         
         let designateColorImage = ImageCutoutFilter.cutImageOutWithColor(image, color: Settings.avaiableHandwrittingColors[0])
         thumbnailsOfForegroundEffects.append(designateColorImage!)
         effectsForForeground.append(.DesignateColor)
-        effectDescriptions.append("B&W")
+        effectDescriptions.append(NSLocalizedString("B&W", comment: ""))
         
         let designateColorInvertImage = ImageCutoutFilter.cutImageOutWithColorInverted(image, color: Settings.avaiableHandwrittingColors[0])
         thumbnailsOfForegroundEffects.append(designateColorInvertImage!)
         effectsForForeground.append(.DesignateColorInvert)
-        effectDescriptions.append("B&W Inverted")
+        effectDescriptions.append(NSLocalizedString("B&W Inverted", comment: ""))
         
         let originalColorImage = ImageCutoutFilter.cutImageOutOriginalColor(image)
         thumbnailsOfForegroundEffects.append(originalColorImage!)
         effectsForForeground.append(.OriginalColor)
-        effectDescriptions.append("Original Color")
+        effectDescriptions.append(NSLocalizedString("Original Color", comment: ""))
         
         let originalColorInvertImage = ImageCutoutFilter.cutImageOutOriginalColorInverted(image)
         thumbnailsOfForegroundEffects.append(originalColorInvertImage!)
         effectsForForeground.append(.OriginalColorInvert)
-        effectDescriptions.append("Original Color Inverted")
+        effectDescriptions.append(NSLocalizedString("Original Color Inverted", comment: ""))
         
         self.imageContainerView.bringSubviewToFront(thumbnailCollectionView)
         self.thumbnailCollectionView.hidden = false
@@ -585,7 +586,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         switch kind {
         case UICollectionElementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Thumbnail collection footer", forIndexPath: indexPath) as! ThumbnailFooterCollectionReusableView
-            footerView.footerLabel.text = "Choose an effect"
+            footerView.footerLabel.text = NSLocalizedString("Choose an effect", comment: "")
             return footerView
         default:
             assert(false, "Unexpected element kind")
@@ -601,7 +602,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 UIImageWriteToSavedPhotosAlbum(backgroundImage!, nil, nil, nil)
             }
             
-            EasyTipView.showAnimated(true, forItem: self.saveOrShareButtonItem, withinSuperview: nil, text: "Successfully saved!", preferences: nil, delegate: nil)
+            EasyTipView.showAnimated(true, forItem: self.saveOrShareButtonItem, withinSuperview: nil, text: NSLocalizedString("Successfully saved!", comment: ""), preferences: nil, delegate: nil)
         }
     }
 }

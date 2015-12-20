@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Omage/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body/>
+  </file>
+  <file original="Omage/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="Ibn-pf-IgE.title">
+        <source>Save</source>
+        <target>保存</target>
+        <note>Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Ibn-pf-IgE";</note>
+      </trans-unit>
+      <trans-unit id="MJx-qP-uUX.text">
+        <source>Original Color Inverted</source>
+        <target>反原色</target>
+        <note>Class = "UILabel"; text = "Original Color Inverted"; ObjectID = "MJx-qP-uUX";</note>
+      </trans-unit>
+      <trans-unit id="jur-l9-XIE.text">
+        <source>Label</source>
+        <target>標籤</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "jur-l9-XIE";</note>
+      </trans-unit>
+      <trans-unit id="rFn-0e-w4U.title">
+        <source>Omage</source>
+        <target>Omage</target>
+        <note>Class = "UINavigationItem"; title = "Omage"; ObjectID = "rFn-0e-w4U";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Localizable.strings" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="After you selected the foreground image, you can remove the noise here">
+        <source>After you selected the foreground image, you can remove the noise here</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W">
+        <source>B&amp;W</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W Inverted">
+        <source>B&amp;W Inverted</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Choose an effect">
+        <source>Choose an effect</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete foreground image?">
+        <source>Delete foreground image?</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Editing">
+        <source>Editing</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original">
+        <source>Original</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color">
+        <source>Original Color</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color Inverted">
+        <source>Original Color Inverted</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Select an image from your photo library as the background image">
+        <source>Select an image from your photo library as the background image</source>
+        <note>Tip for background selection</note>
+      </trans-unit>
+      <trans-unit id="Select from photo library">
+        <source>Select from photo library</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Successfully saved!">
+        <source>Successfully saved!</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Take photo">
+        <source>Take photo</source>
+        <note>take photo</note>
+      </trans-unit>
+      <trans-unit id="Undo the erase operation">
+        <source>Undo the erase operation</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="When you have both your back- and fore- ground images ready, you can crop into your desired image here">
+        <source>When you have both your back- and fore- ground images ready, you can crop into your desired image here</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You can take a photo or select from your exsiting ones as the foreground">
+        <source>You can take a photo or select from your exsiting ones as the foreground</source>
+        <note>Tip for foreground selection</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageTests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageUITests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hant">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

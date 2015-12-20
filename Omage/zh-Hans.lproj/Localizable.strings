@@ -1,0 +1,54 @@
+/* No comment provided by engineer. */
+"After you selected the foreground image, you can remove the noise here" = "选定前景图片后，可以用橡皮去除污迹";
+
+/* No comment provided by engineer. */
+"B&W" = "黑白";
+
+/* No comment provided by engineer. */
+"B&W Inverted" = "反黑白";
+
+/* No comment provided by engineer. */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Choose an effect" = "选择效果";
+
+/* No comment provided by engineer. */
+"Delete" = "删除";
+
+/* No comment provided by engineer. */
+"Delete foreground image?" = "确定删除前景图片?";
+
+/* No comment provided by engineer. */
+"Editing" = "编辑中";
+
+/* No comment provided by engineer. */
+"Original" = "原图";
+
+/* No comment provided by engineer. */
+"Original Color" = "原色";
+
+/* No comment provided by engineer. */
+"Original Color Inverted" = "反原色";
+
+/* Tip for background selection */
+"Select an image from your photo library as the background image" = "从照片库中选择图片作为背景图片";
+
+/* No comment provided by engineer. */
+"Select from photo library" = "从照片库中选择";
+
+/* No comment provided by engineer. */
+"Successfully saved!" = "图片保存成功!";
+
+/* take photo */
+"Take photo" = "拍照";
+
+/* No comment provided by engineer. */
+"Undo the erase operation" = "取消上一次擦除操作";
+
+/* No comment provided by engineer. */
+"When you have both your back- and fore- ground images ready, you can crop into your desired image here" = "背景和前景图片都选定后，可以截取你最想要的部分";
+
+/* Tip for foreground selection */
+"You can take a photo or select from your exsiting ones as the foreground" = "你可以拍照或者从照片库中选取图片作为前景";
+
