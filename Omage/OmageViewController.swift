@@ -123,7 +123,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if self.revealViewController() != nil {
             menuButtonItem.target = self.revealViewController()
             menuButtonItem.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
@@ -334,24 +334,32 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    var foregroundOldTransform: CGAffineTransform = CGAffineTransformIdentity
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
         
-        if firstLauch && timesShowingEraserTip++ < timesToShow {
+        if firstLauch && !eraserDidSelected && timesShowingEraserTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.eraserButtonItem, withinSuperview: nil, text: NSLocalizedString("After you selected the foreground image, you can remove the noise here", comment: ""), preferences: nil, delegate: nil)
         }
         
         if foregroundImage != nil && !thumbnailViewDidAppear {
             eraserDidSelected = !eraserDidSelected
-            foregroundImageView.transform = CGAffineTransformIdentity
+            
             if eraserDidSelected {
+                
+                foregroundOldTransform = foregroundImageView.transform
+                foregroundImageView.transform = CGAffineTransformIdentity
                 backgroundImage = nil
                 self.title = NSLocalizedString("Editing", comment: "")
                 self.bushSizeSlider.hidden = false
+                self.brushWidth = CGFloat(bushSizeSlider.value)
                 self.imageContainerView.bringSubviewToFront(bushSizeSlider)
                 foregroundImageView.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
+                
             } else {
+                
                 backgroundImage = copyOfBackground
                 foregroundImageView.backgroundColor = UIColor.clearColor()
+                foregroundImageView.transform = foregroundOldTransform
                 self.title = "Omage"
                 self.bushSizeSlider.hidden = true
                 self.bushSizeSlider.value = 10
@@ -371,7 +379,6 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             chopper.delegate = self
             self.navigationController?.pushViewController(chopper, animated: true)
         }
-
     }
     
     func ImageCropViewControllerSuccess(controller: UIViewController!, didFinishCroppingImage croppedImage: UIImage!) {
