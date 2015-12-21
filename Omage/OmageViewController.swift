@@ -21,7 +21,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var toolBar: UIToolbar!
     
-    @IBOutlet weak var bushSizeSlider: UISlider!
+    @IBOutlet weak var brushSizeSlider: UISlider!
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     
@@ -92,11 +92,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.imageContainerView.bringSubviewToFront(backgroundImageView)
         self.imageContainerView.bringSubviewToFront(foregroundImageView)
         self.imageContainerView.bringSubviewToFront(tempImageView)
-        self.view.bringSubviewToFront(toolBar)
+        view.bringSubviewToFront(toolBar)
+        
         self.foregroundImageView.multipleTouchEnabled = true
         self.foregroundImageView.exclusiveTouch = true
         
-        self.bushSizeSlider.hidden = true
+        self.brushSizeSlider.hidden = true
         self.thumbnailCollectionView.hidden = true
         
         self.saveOrShareButtonItem.enabled = false
@@ -124,6 +125,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             menuButtonItem.target = self.revealViewController()
             menuButtonItem.action = "revealToggle:"
 //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.revealViewController().rearViewRevealWidth = 150
         }
     }
     
@@ -315,7 +317,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-    @IBAction func bushSizeChanged(sender: UISlider) {
+    @IBAction func brushSizeChanged(sender: UISlider) {
         brushWidth = CGFloat(sender.value)
     }
     
@@ -335,6 +337,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     var foregroundOldTransform: CGAffineTransform = CGAffineTransformIdentity
+    
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
         
         if firstLauch && !eraserDidSelected && timesShowingEraserTip++ < timesToShow {
@@ -350,9 +353,9 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 foregroundImageView.transform = CGAffineTransformIdentity
                 backgroundImage = nil
                 self.title = NSLocalizedString("Editing", comment: "")
-                self.bushSizeSlider.hidden = false
-                self.brushWidth = CGFloat(bushSizeSlider.value)
-                self.imageContainerView.bringSubviewToFront(bushSizeSlider)
+                self.brushSizeSlider.hidden = false
+                self.brushWidth = CGFloat(brushSizeSlider.value)
+                self.imageContainerView.bringSubviewToFront(brushSizeSlider)
                 foregroundImageView.backgroundColor = UIColor(patternImage: UIImage(named: "transparent")!)
                 
             } else {
@@ -361,8 +364,8 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 foregroundImageView.backgroundColor = UIColor.clearColor()
                 foregroundImageView.transform = foregroundOldTransform
                 self.title = "Omage"
-                self.bushSizeSlider.hidden = true
-                self.bushSizeSlider.value = 10
+                self.brushSizeSlider.hidden = true
+                self.brushSizeSlider.value = 10
             }
         }
     }

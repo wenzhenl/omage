@@ -12,11 +12,11 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet var menuTableView: UITableView!
     
+    @IBOutlet weak var homeTableViewCell: UITableViewCell!
+    
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
     
     @IBOutlet weak var licensesTableViewCell: UITableViewCell!
-    
-    @IBOutlet weak var homeTableViewCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
