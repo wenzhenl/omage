@@ -585,7 +585,9 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         snapshotsOfForegroundImage = [foregroundImage!]
         self.thumbnailCollectionView.hidden = true
         effectOfForeground = effectsForForeground[indexPath.row]
-        snapshotsOfForegroundImage = []
+        if foregroundImage != nil {
+            snapshotsOfForegroundImage = [foregroundImage!]
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
