@@ -12,13 +12,18 @@ class AboutTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButtonItem: UIBarButtonItem!
     
+    
     @IBOutlet var aboutTableView: UITableView!
+    
+    @IBOutlet weak var emptyCell: UITableViewCell!
     
     @IBOutlet weak var productCell: UITableViewCell!
     
     @IBOutlet weak var versionCell: UITableViewCell!
     
     @IBOutlet weak var introCell: UITableViewCell!
+    
+    @IBOutlet weak var jingCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +38,17 @@ class AboutTableViewController: UITableViewController {
         }
         
         aboutTableView.backgroundColor = Settings.ColorForHeader
+        emptyCell.backgroundColor = Settings.ColorForHeader
         productCell.backgroundColor = Settings.ColorForHeader
         versionCell.backgroundColor = Settings.ColorForHeader
         introCell.backgroundColor = Settings.ColorForHeader
+        jingCell.backgroundColor = Settings.ColorForHeader
         
+        emptyCell.selectionStyle = .None
         productCell.selectionStyle = .None
         versionCell.selectionStyle = .None
         introCell.selectionStyle = .None
+        jingCell.selectionStyle = .None
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,14 +65,18 @@ class AboutTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 5
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 2 {
-            return 2000
-        } else {
-            return 50
+        if indexPath.row == 0 {
+            return 200
+        }
+        else if indexPath.row == 4 {
+            return 1000
+        }
+        else {
+            return 100
         }
     }
     /*

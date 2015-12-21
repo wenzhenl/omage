@@ -47,10 +47,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a Leeyukuang personal product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-Mg-AKI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-Mg-AKI">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -69,10 +69,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omage version 1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-6f-okq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a Leeyukuang personal product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-6f-okq">
                                                     <rect key="frame" x="8" y="-1" width="584" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -91,11 +91,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhN-4D-Ssk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omage version 1.0.0" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhN-4D-Ssk">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="44"/>
-                                                    <string key="text">This is my very first try to create an iOS app. I am really happy that I finally made Omage, an amazing product to capture the beauty of writing and drawing. The process is quite tough, but I really enjoyed the journey. I want to thank all the people with me along the journey, specially I want to thank Jing for the best time ever. When I read Steve Jobs by Walter Isaacson, I was so touched by the following words " It's about trying to express something in the only way that most of us know how - because we can't write Bob Dylan songs or Tom Stoppard plays. We try to use the talents we do have to express our deep feelings, to show our appreciation of all the contributions that came before us, and to add something to that flow. " For me, it's the same.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -105,6 +104,66 @@
                                                 <constraint firstItem="NhN-4D-Ssk" firstAttribute="height" secondItem="HD2-hw-Qr2" secondAttribute="height" id="QUI-F7-dqA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NhN-4D-Ssk" secondAttribute="trailing" id="uF4-Qz-z84"/>
                                             </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8wC-NV-NtB">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8wC-NV-NtB" id="4uO-6o-OZB">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created on Dec 21, 2015 at USC Los Angeles, USA" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oR-xn-3gX">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4oR-xn-3gX" secondAttribute="trailing" id="5Ib-nS-LBy"/>
+                                                <constraint firstItem="4oR-xn-3gX" firstAttribute="leading" secondItem="4uO-6o-OZB" secondAttribute="leadingMargin" id="N5a-fA-Oqi"/>
+                                                <constraint firstItem="4oR-xn-3gX" firstAttribute="centerY" secondItem="4uO-6o-OZB" secondAttribute="centerY" id="U1P-q5-2KX"/>
+                                                <constraint firstItem="4oR-xn-3gX" firstAttribute="height" secondItem="4uO-6o-OZB" secondAttribute="height" id="ZCR-Vb-DWJ"/>
+                                                <constraint firstItem="4oR-xn-3gX" firstAttribute="centerX" secondItem="4uO-6o-OZB" secondAttribute="centerX" id="enS-SY-5px"/>
+                                                <constraint firstItem="4oR-xn-3gX" firstAttribute="centerX" secondItem="4uO-6o-OZB" secondAttribute="centerX" id="x1W-4m-wHa"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="enS-SY-5px"/>
+                                                    <exclude reference="x1W-4m-wHa"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wCR-Gf-Lic">
+                                        <rect key="frame" x="0.0" y="240" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wCR-Gf-Lic" id="Esh-zY-5LV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Jing Li: the sunrise that day and the smile on your face are the most beautiful things I've ever seen. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOx-02-yIu">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mOx-02-yIu" firstAttribute="centerX" secondItem="Esh-zY-5LV" secondAttribute="centerX" id="G45-sO-CfM"/>
+                                                <constraint firstItem="mOx-02-yIu" firstAttribute="centerY" secondItem="Esh-zY-5LV" secondAttribute="centerY" id="J4O-Og-c8E"/>
+                                                <constraint firstItem="mOx-02-yIu" firstAttribute="height" secondItem="Esh-zY-5LV" secondAttribute="height" id="MRY-ZJ-gVF"/>
+                                                <constraint firstItem="mOx-02-yIu" firstAttribute="leading" secondItem="Esh-zY-5LV" secondAttribute="leadingMargin" id="NVM-Gr-7Jv"/>
+                                                <constraint firstItem="mOx-02-yIu" firstAttribute="centerX" secondItem="Esh-zY-5LV" secondAttribute="centerX" id="PN2-RR-gi3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mOx-02-yIu" secondAttribute="trailing" id="UMi-BV-c7K"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="G45-sO-CfM"/>
+                                                    <exclude reference="PN2-RR-gi3"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -120,10 +179,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="aboutTableView" destination="qQB-bi-wJI" id="lcz-Ja-6GM"/>
-                        <outlet property="introCell" destination="VZc-7d-Lja" id="g8q-F3-Wqh"/>
+                        <outlet property="emptyCell" destination="9BQ-uH-fU1" id="O3e-8d-4Bh"/>
+                        <outlet property="introCell" destination="8wC-NV-NtB" id="zuX-2B-WvY"/>
+                        <outlet property="jingCell" destination="wCR-Gf-Lic" id="cgh-H0-fcD"/>
                         <outlet property="menuButtonItem" destination="Hvw-1R-yqj" id="93J-aG-jVh"/>
-                        <outlet property="productCell" destination="9BQ-uH-fU1" id="MvI-qw-ndC"/>
-                        <outlet property="versionCell" destination="NlH-J7-2DI" id="jVN-YU-UuC"/>
+                        <outlet property="productCell" destination="NlH-J7-2DI" id="ntV-KX-NhW"/>
+                        <outlet property="versionCell" destination="VZc-7d-Lja" id="qfU-n3-kQD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="um2-8y-jd7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -143,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yCT-3p-MJf">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <rect key="frame" x="290" y="322" width="20" height="20"/>
                             </activityIndicatorView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-hP-TBs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
@@ -157,7 +218,9 @@
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="height" secondItem="TaJ-Kr-tr1" secondAttribute="height" id="Jg1-8g-dv8"/>
                             <constraint firstItem="yCT-3p-MJf" firstAttribute="centerX" secondItem="TaJ-Kr-tr1" secondAttribute="centerX" id="MWE-pZ-ebn"/>
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="width" secondItem="TaJ-Kr-tr1" secondAttribute="width" id="ONf-sg-Ckb"/>
+                            <constraint firstItem="yCT-3p-MJf" firstAttribute="centerY" secondItem="LIe-hP-TBs" secondAttribute="centerY" id="ROF-jc-Bk7"/>
                             <constraint firstItem="UrG-6s-eKl" firstAttribute="top" secondItem="LIe-hP-TBs" secondAttribute="bottom" id="gdi-YN-oGH"/>
+                            <constraint firstItem="yCT-3p-MJf" firstAttribute="centerX" secondItem="LIe-hP-TBs" secondAttribute="centerX" id="lIu-aD-012"/>
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="centerY" secondItem="TaJ-Kr-tr1" secondAttribute="centerY" id="lex-AD-zaV"/>
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="top" secondItem="p1h-3J-hKl" secondAttribute="bottom" id="qpB-93-0th"/>
                         </constraints>
@@ -165,6 +228,8 @@
                             <mask key="constraints">
                                 <exclude reference="Jg1-8g-dv8"/>
                                 <exclude reference="lex-AD-zaV"/>
+                                <exclude reference="BGN-rj-woe"/>
+                                <exclude reference="MWE-pZ-ebn"/>
                             </mask>
                         </variation>
                     </view>

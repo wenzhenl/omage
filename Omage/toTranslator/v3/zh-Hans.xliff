@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Omage/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body/>
+  </file>
+  <file original="Omage/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="4oR-xn-3gX.text">
+        <source>Created on Dec 21, 2015 at USC Los Angeles, USA</source>
+        <target>完成于2015年12月21日，于美国洛杉矶南加州大学</target>
+        <note>Class = "UILabel"; text = "Created on Dec 21, Los Angeles, USA"; ObjectID = "4oR-xn-3gX";</note>
+      </trans-unit>
+      <trans-unit id="7Ax-6f-okq.text">
+        <source>a Leeyukuang personal product</source>
+        <target>Leeyukuang 作品</target>
+        <note>Class = "UILabel"; text = "a Leeyukuang personal product"; ObjectID = "7Ax-6f-okq";</note>
+      </trans-unit>
+      <trans-unit id="9jt-SZ-FQQ.text">
+        <source>Licenses</source>
+        <target>开源许可</target>
+        <note>Class = "UILabel"; text = "Licenses"; ObjectID = "9jt-SZ-FQQ";</note>
+      </trans-unit>
+      <trans-unit id="Khz-5g-QCj.text">
+        <source>Home</source>
+        <target>主页</target>
+        <note>Class = "UILabel"; text = "Home"; ObjectID = "Khz-5g-QCj";</note>
+      </trans-unit>
+      <trans-unit id="MJx-qP-uUX.text">
+        <source>Original Color Inverted</source>
+        <target>反原色</target>
+        <note>Class = "UILabel"; text = "Original Color Inverted"; ObjectID = "MJx-qP-uUX";</note>
+      </trans-unit>
+      <trans-unit id="NhN-4D-Ssk.text">
+        <source>Omage version 1.0.0</source>
+        <target>Omage version 1.0.0</target>
+        <note>Class = "UILabel"; text = "Omage version 1.0.0"; ObjectID = "NhN-4D-Ssk";</note>
+      </trans-unit>
+      <trans-unit id="X3Z-Wu-zEP.title">
+        <source>Save</source>
+        <target>保存</target>
+        <note>Class = "UIBarButtonItem"; title = "Save"; ObjectID = "X3Z-Wu-zEP";</note>
+      </trans-unit>
+      <trans-unit id="fn7-Gt-Uw5.text">
+        <source>About</source>
+        <target>关于Omage</target>
+        <note>Class = "UILabel"; text = "About"; ObjectID = "fn7-Gt-Uw5";</note>
+      </trans-unit>
+      <trans-unit id="hVK-pq-oK3.title">
+        <source>Open Source Licenses</source>
+        <target>开源软件许可</target>
+        <note>Class = "UINavigationItem"; title = "Open Source Licenses"; ObjectID = "hVK-pq-oK3";</note>
+      </trans-unit>
+      <trans-unit id="jur-l9-XIE.text">
+        <source>Label</source>
+        <target>标签</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "jur-l9-XIE";</note>
+      </trans-unit>
+      <trans-unit id="mOx-02-yIu.text">
+        <source>To Jing Li: the sunrise that day and the smile on your face are the most beautiful things I've ever seen. </source>
+        <target>献给李晶，那天的日出还有你的笑容是我见过的最美的风景。</target>
+        <note>Class = "UILabel"; text = "To Jing Li: the sunrise that day and the smile on your face are the most beautiful things I've ever seen. "; ObjectID = "mOx-02-yIu";</note>
+      </trans-unit>
+      <trans-unit id="rQd-Fr-4xw.title">
+        <source>Omage</source>
+        <note>Class = "UINavigationItem"; title = "Omage"; ObjectID = "rQd-Fr-4xw";</note>
+      </trans-unit>
+      <trans-unit id="yQI-f9-Z6N.title">
+        <source>About</source>
+        <target>关于Omage</target>
+        <note>Class = "UINavigationItem"; title = "About"; ObjectID = "yQI-f9-Z6N";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Omage/Localizable.strings" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="After you selected the foreground image, you can remove the noise here">
+        <source>After you selected the foreground image, you can remove the noise here</source>
+        <target>选定前景图片后，可以用橡皮去除污迹</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W">
+        <source>B&amp;W</source>
+        <target>黑白</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="B&amp;W Inverted">
+        <source>B&amp;W Inverted</source>
+        <target>反黑白</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Choose an effect">
+        <source>Choose an effect</source>
+        <target>选择效果</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete foreground image?">
+        <source>Delete foreground image?</source>
+        <target>确定删除前景图片?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Editing">
+        <source>Editing</source>
+        <target>编辑中</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original">
+        <source>Original</source>
+        <target>原图</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color">
+        <source>Original Color</source>
+        <target>原色</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Original Color Inverted">
+        <source>Original Color Inverted</source>
+        <target>反原色</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Select an image from your photo library as the background image">
+        <source>Select an image from your photo library as the background image</source>
+        <target>从照片库中选择图片作为背景图片</target>
+        <note>Tip for background selection</note>
+      </trans-unit>
+      <trans-unit id="Select from photo library">
+        <source>Select from photo library</source>
+        <target>从照片库中选择</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Successfully saved!">
+        <source>Successfully saved!</source>
+        <target>图片保存成功!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Take photo">
+        <source>Take photo</source>
+        <target>拍照</target>
+        <note>take photo</note>
+      </trans-unit>
+      <trans-unit id="Undo the erase operation">
+        <source>Undo the erase operation</source>
+        <target>取消上一次擦除操作</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="When you have both your back- and fore- ground images ready, you can crop into your desired image here">
+        <source>When you have both your back- and fore- ground images ready, you can crop into your desired image here</source>
+        <target>背景和前景图片都选定后，可以截取你最想要的部分</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You can take a photo or select from your exsiting ones as the foreground">
+        <source>You can take a photo or select from your exsiting ones as the foreground</source>
+        <target>你可以拍照或者从照片库中选取图片作为前景</target>
+        <note>Tip for foreground selection</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageTests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="OmageUITests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2" build-num="7C68"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -36,6 +36,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(20)]
         
+//        self.view.bringSubviewToFront(spinner)
+        
         if self.revealViewController() != nil {
             menuButtonItem.target = self.revealViewController()
             menuButtonItem.action = "revealToggle:"
@@ -68,6 +70,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         activeDownloads--
         if activeDownloads < 1 {
             spinner.stopAnimating()
+//            spinner.removeFromSuperview()
         }
     }
 }
