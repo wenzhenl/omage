@@ -402,13 +402,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-hP-TBs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yCT-3p-MJf">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-hP-TBs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -417,8 +417,16 @@
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="height" secondItem="TaJ-Kr-tr1" secondAttribute="height" id="Jg1-8g-dv8"/>
                             <constraint firstItem="yCT-3p-MJf" firstAttribute="centerX" secondItem="TaJ-Kr-tr1" secondAttribute="centerX" id="MWE-pZ-ebn"/>
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="width" secondItem="TaJ-Kr-tr1" secondAttribute="width" id="ONf-sg-Ckb"/>
+                            <constraint firstItem="UrG-6s-eKl" firstAttribute="top" secondItem="LIe-hP-TBs" secondAttribute="bottom" id="gdi-YN-oGH"/>
                             <constraint firstItem="LIe-hP-TBs" firstAttribute="centerY" secondItem="TaJ-Kr-tr1" secondAttribute="centerY" id="lex-AD-zaV"/>
+                            <constraint firstItem="LIe-hP-TBs" firstAttribute="top" secondItem="p1h-3J-hKl" secondAttribute="bottom" id="qpB-93-0th"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Jg1-8g-dv8"/>
+                                <exclude reference="lex-AD-zaV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Open Source Licenses" id="hVK-pq-oK3">
                         <barButtonItem key="leftBarButtonItem" image="top_charts" id="P6j-4Z-J3o"/>
