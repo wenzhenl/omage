@@ -296,7 +296,13 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case .Changed:
             if foregroundImage != nil && (effectOfForeground == .DesignateColor || effectOfForeground == .DesignateColorInvert) {
                 currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
-                foregroundImageView.image = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
+//                foregroundImageView.image = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                if effectOfForeground == .DesignateColor {
+                    foregroundImageView.image = ImageCutoutFilter.cutImageOutWithColor(originalImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                }
+                else if effectOfForeground == .DesignateColorInvert {
+                    foregroundImageView.image = ImageCutoutFilter.cutImageOutWithColorInverted(originalImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
+                }
             }
         default: break
         }
@@ -541,12 +547,14 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case DesignateColorInvert
     }
     
+    var originalImage: UIImage?
+    
     func prepareThumbnailsForForegroundEffects(image: UIImage) {
         thumbnailsOfForegroundEffects = []
         effectsForForeground = []
         
-        let originalImage = image
-        thumbnailsOfForegroundEffects.append(originalImage)
+        originalImage = image
+        thumbnailsOfForegroundEffects.append(originalImage!)
         effectsForForeground.append(.Original)
         effectDescriptions.append(NSLocalizedString("Original", comment: ""))
         
