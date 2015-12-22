@@ -102,6 +102,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.saveOrShareButtonItem.enabled = false
         
+        // set exampls for back and fore ground
+        
+        self.backgroundImage = UIImage(named: "background")
+        self.foregroundImage = ImageCutoutFilter.cutImageOutWithColor(UIImage(named: "foreground"),  color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        
         // MARK - easy tip configuration
         var preferences = EasyTipView.Preferences()
         
@@ -114,12 +119,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         firstLauch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLauch")
         if firstLauch {
-            print("First lauch")
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "FirstLauch")
+            firstLauch = false
         } else {
-            print("Not first lauch")
+            firstLauch = true
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLauch")
+            print("First lauch")
         }
-        firstLauch = true
         
         if self.revealViewController() != nil {
             menuButtonItem.target = self.revealViewController()
