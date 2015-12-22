@@ -28,7 +28,8 @@ class Settings {
     
     // MARK - parameters for color
     static let avaiableHandwrittingColors =
-    [   UIColor(red: 0, green: 0, blue: 0, alpha: 1.0),
+    [   UIColor(red: 1.0, green: 153.0/255.0, blue: 51/255.0, alpha: 1.0),
+        UIColor(red: 0, green: 0, blue: 0, alpha: 1.0),
         UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0),
         UIColor(red: 0, green: 0.4, blue: 0.6, alpha: 1.0),

@@ -451,7 +451,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             }
             
             // Merge tempImageView into foregroundImageView
-            UIGraphicsBeginImageContext(foregroundImageView.frame.size)
+            UIGraphicsBeginImageContextWithOptions(foregroundImageView.frame.size, false, 0.0)
             foregroundImageView.image?.drawInRect(getImageRectForImageView(foregroundImageView), blendMode: .Normal, alpha: 1.0)
             tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: foregroundImageView.frame.size.width, height: foregroundImageView.frame.size.height), blendMode: .Normal, alpha: opacity)
             foregroundImageView.image = ImageCutoutFilter.cutImageOut(UIGraphicsGetImageFromCurrentImageContext())
@@ -464,7 +464,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        UIGraphicsBeginImageContext(tempImageView.frame.size)
+        UIGraphicsBeginImageContextWithOptions(tempImageView.frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: tempImageView.frame.size.width, height: tempImageView.frame.size.height))
