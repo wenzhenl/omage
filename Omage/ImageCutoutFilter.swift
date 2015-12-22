@@ -308,7 +308,7 @@ class ImageCutoutFilter {
         return nil
     }
 
-    static func changeImageColor(refImage: UIImage?, color: UIColor?) -> UIImage? {
+    static func changeImageFromOldColorToNewColor(refImage: UIImage?, oldColor: UIColor?, newColor: UIColor?) -> UIImage? {
     
         if let image = refImage {
             
@@ -329,21 +329,21 @@ class ImageCutoutFilter {
                 var byteIndex = 0
                 
                 for _ in 0 ..< width * height {
-                    let alpha: UInt8 = rawdata[byteIndex]
-//                    let red: UInt8 = rawdata[byteIndex+1]
-//                    let green: UInt8 = rawdata[byteIndex+2]
-//                    let blue: UInt8 = rawdata[byteIndex+3]
-//                    
-                    if alpha != 0 {
-                        if let color = color {
+                    
+                    if let newColor = newColor {
+                        if let oldColor = oldColor {
                             // color should be in RGBA format
-                            let colorData = CGColorGetComponents(color.CGColor)
-                            rawdata[byteIndex] = UInt8(colorData[3] * 255) // alpha
-                            rawdata[byteIndex+1] = UInt8(colorData[0] * 255) // red
-                            rawdata[byteIndex+2] = UInt8(colorData[1] * 255) // green
-                            rawdata[byteIndex+3] = UInt8(colorData[2] * 255) // blue
+                            let oldColorData = CGColorGetComponents(oldColor.CGColor)
+                            let newColorData = CGColorGetComponents(newColor.CGColor)
+                            if rawdata[byteIndex+1] == UInt8(oldColorData[0] * 255) && rawdata[byteIndex+2] == UInt8(oldColorData[1] * 255) && rawdata[byteIndex+3] == UInt8(oldColorData[2] * 255) {
+                            
+                                rawdata[byteIndex+1] = UInt8(newColorData[0] * 255) // red
+                                rawdata[byteIndex+2] = UInt8(newColorData[1] * 255) // green
+                                rawdata[byteIndex+3] = UInt8(newColorData[2] * 255) // blue
+                            }
                         }
                     }
+                    
                     byteIndex += 4
                 }
                 

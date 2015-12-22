@@ -295,14 +295,9 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case .Ended: fallthrough
         case .Changed:
             if foregroundImage != nil && (effectOfForeground == .DesignateColor || effectOfForeground == .DesignateColorInvert) {
-                currentColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
-//                foregroundImageView.image = ImageCutoutFilter.changeImageColor(foregroundImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
-                if effectOfForeground == .DesignateColor {
-                    foregroundImageView.image = ImageCutoutFilter.cutImageOutWithColor(originalImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
-                }
-                else if effectOfForeground == .DesignateColorInvert {
-                    foregroundImageView.image = ImageCutoutFilter.cutImageOutWithColorInverted(originalImage, color: Settings.avaiableHandwrittingColors[currentColorIndex])
-                }
+                let nextColorIndex = (currentColorIndex + 1) % Settings.avaiableHandwrittingColors.count
+                foregroundImageView.image = ImageCutoutFilter.changeImageFromOldColorToNewColor(foregroundImage, oldColor: Settings.avaiableHandwrittingColors[currentColorIndex], newColor: Settings.avaiableHandwrittingColors[nextColorIndex])
+                currentColorIndex = nextColorIndex
             }
         default: break
         }
