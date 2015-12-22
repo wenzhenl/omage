@@ -532,7 +532,7 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func undoErase(sender: UIBarButtonItem) {
         let finishedUndoTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedUndoTip")
 
-        if !finishedUndoTip && timesShowingEraserTip++ < timesToShow {
+        if !finishedUndoTip && timesShowingUndoTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.undoButtonItem, withinSuperview: nil, text: NSLocalizedString("Undo the erase operation", comment: ""), preferences: nil, delegate: nil)
         } else {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedUndoTip")
