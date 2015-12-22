@@ -10,18 +10,6 @@ import Foundation
 import UIKit
 
 class Settings {
-    // MARK - paramenters for drawing customized buttons
-    static let RatioOfBorderAndWidth = CGFloat(0.1)
-    static let CharPickerPrimaryColor = UIColor(red: 0.39, green: 0.61, blue: 0.96, alpha: 0.9)
-    static let RatioInnerCircleAndHeightForCameraButton = CGFloat(0.7)
-    static let RatioOuterCircleAndHeightForCameraButton = CGFloat(0.9)
-    static let CornerRadiusForPhotoButton = CGFloat(4)
-    static let RatioOuterRectAndHeightForPhotoButton = CGFloat(0.9)
-    static let RatioInnerRectAndHeightForPhotoButton = CGFloat(0.8)
-    static let RatioOuterRectAndHeightForEraserButton = CGFloat(0.8)
-    static let RatioInnerRectAndHeightForEraserButton = CGFloat(0.6)
-    static let RatioInnerCircleAndHeightForColorButton = CGFloat(0.7)
-    static let RatioOuterCircleAndHeightForColorButton = CGFloat(0.9)
     
     // MARK - parameters for gestures
     static let GestureScaleForMovingHandwritting = CGFloat(2.0)
