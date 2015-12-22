@@ -106,6 +106,10 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.backgroundImage = UIImage(named: "background")
         self.foregroundImage = ImageCutoutFilter.cutImageOutWithColor(UIImage(named: "foreground"),  color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        self.copyOfBackground = self.backgroundImage
+        
+        self.snapshotsOfForegroundImage = [foregroundImage!]
+        self.effectOfForeground = .DesignateColor
         
         // MARK - easy tip configuration
         var preferences = EasyTipView.Preferences()
@@ -590,9 +594,6 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         snapshotsOfForegroundImage = [foregroundImage!]
         self.thumbnailCollectionView.hidden = true
         effectOfForeground = effectsForForeground[indexPath.row]
-        if foregroundImage != nil {
-            snapshotsOfForegroundImage = [foregroundImage!]
-        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
