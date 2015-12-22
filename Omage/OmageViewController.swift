@@ -68,18 +68,13 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var copyOfBackground: UIImage?
     
-    var firstLauch: Bool = true
+//    var firstLauch: Bool = true
     
     var timesShowingBackTip = 0
-    
     var timesShowingForeTip = 0
-    
     var timesShowingEraserTip = 0
-    
     var timesShowingCropTip = 0
-    
     var timesShowingUndoTip = 0
-    
     var timesToShow = 3
     
     override func viewDidLoad() {
@@ -104,12 +99,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         // set exampls for back and fore ground
         
-        self.backgroundImage = UIImage(named: "background")
-        self.foregroundImage = ImageCutoutFilter.cutImageOutWithColor(UIImage(named: "foreground"),  color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-        self.copyOfBackground = self.backgroundImage
-        
-        self.snapshotsOfForegroundImage = [foregroundImage!]
-        self.effectOfForeground = .DesignateColor
+//        self.backgroundImage = UIImage(named: "background")
+//        self.foregroundImage = ImageCutoutFilter.cutImageOutWithColor(UIImage(named: "foreground"),  color: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+//        self.copyOfBackground = self.backgroundImage
+//        
+//        self.snapshotsOfForegroundImage = [foregroundImage!]
+//        self.effectOfForeground = .DesignateColor
         
         // MARK - easy tip configuration
         var preferences = EasyTipView.Preferences()
@@ -121,14 +116,14 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         EasyTipView.setGlobalPreferences(preferences)
         
-        firstLauch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLauch")
-        if firstLauch {
-            firstLauch = false
-        } else {
-            firstLauch = true
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLauch")
-            print("First lauch")
-        }
+//        firstLauch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLauch")
+//        if firstLauch {
+//            firstLauch = false
+//        } else {
+//            firstLauch = true
+//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLauch")
+//            print("First lauch")
+//        }
         
         if self.revealViewController() != nil {
             menuButtonItem.target = self.revealViewController()
@@ -190,8 +185,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func pickBackground(sender: UIBarButtonItem) {
-        if firstLauch && timesShowingBackTip++ < timesToShow {
+        let finishedBackgroundTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedBackgroundTip")
+        if !finishedBackgroundTip && timesShowingBackTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.backgroundButtonItem, withinSuperview: nil, text: NSLocalizedString("Select an image from your photo library as the background image", comment: "Tip for background selection"), preferences: nil, delegate: nil)
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedBackgroundTip")
         }
         
         photoForBackground = true
@@ -206,8 +204,11 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func pickForeground(sender: UIBarButtonItem) {
        
-        if firstLauch && timesShowingForeTip++ < timesToShow {
+        let finishedForegroundTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedForegroundTip")
+        if  !finishedForegroundTip && timesShowingForeTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.foregroundButtonItem, withinSuperview: nil, text: NSLocalizedString("You can take a photo or select from your exsiting ones as the foreground", comment: "Tip for foreground selection"), preferences: nil, delegate: nil)
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedForegroundTip")
         }
         
         let foregroundSourceOptions = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -349,8 +350,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func eraserDidSelected(sender: UIBarButtonItem) {
         
-        if firstLauch && !eraserDidSelected && timesShowingEraserTip++ < timesToShow {
+        let finishedEraserTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedEraserTip")
+
+        if !finishedEraserTip && !eraserDidSelected && timesShowingEraserTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.eraserButtonItem, withinSuperview: nil, text: NSLocalizedString("After you selected the foreground image, you can remove the noise here", comment: ""), preferences: nil, delegate: nil)
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedEraserTip")
         }
         
         if foregroundImage != nil && !thumbnailViewDidAppear {
@@ -380,9 +385,15 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func crop(sender: UIBarButtonItem) {
-        if firstLauch && timesShowingCropTip++ < timesToShow {
+        let finishedCropTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedCropTip")
+        
+        if !finishedCropTip && timesShowingCropTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.cropperButtonItem, withinSuperview: nil, text: NSLocalizedString("When you have both your back- and fore- ground images ready, you can crop into your desired image here", comment:""), preferences: nil, delegate: nil)
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedCropTip")
         }
+        
+        
         if (backgroundImage != nil || foregroundImage != nil) && !eraserDidSelected && !thumbnailViewDidAppear {
             let combinedImage = ImageCutoutFilter.convertSnapshotToImage(saveUIViewAsUIImage(imageContainerView))
             
@@ -519,8 +530,12 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func undoErase(sender: UIBarButtonItem) {
-        if firstLauch && timesShowingEraserTip++ < timesToShow {
+        let finishedUndoTip = NSUserDefaults.standardUserDefaults().boolForKey("FinishedUndoTip")
+
+        if !finishedUndoTip && timesShowingEraserTip++ < timesToShow {
             EasyTipView.showAnimated(true, forItem: self.undoButtonItem, withinSuperview: nil, text: NSLocalizedString("Undo the erase operation", comment: ""), preferences: nil, delegate: nil)
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FinishedUndoTip")
         }
 
         if eraserDidSelected {
