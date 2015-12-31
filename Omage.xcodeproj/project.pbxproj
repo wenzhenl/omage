@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0DDEBC1C3519BB004AB088 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0DDEBB1C3519BA004AB088 /* opencv2.framework */; };
 		0A77B2AD1C25042A00CD23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2AC1C25042A00CD23B1 /* AppDelegate.swift */; };
 		0A77B2AF1C25042A00CD23B1 /* OmageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2AE1C25042A00CD23B1 /* OmageViewController.swift */; };
 		0A77B2B21C25042A00CD23B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B2B01C25042A00CD23B1 /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		0A77B2B71C25042A00CD23B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A77B2B51C25042A00CD23B1 /* LaunchScreen.storyboard */; };
 		0A77B2C21C25042A00CD23B1 /* OmageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2C11C25042A00CD23B1 /* OmageTests.swift */; };
 		0A77B2CD1C25042A00CD23B1 /* OmageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2CC1C25042A00CD23B1 /* OmageUITests.swift */; };
-		0A77B2DC1C2504A100CD23B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A77B2DB1C2504A100CD23B1 /* opencv2.framework */; };
 		0A77B2E11C25053600CD23B1 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2E01C25053600CD23B1 /* FXBlurView.m */; };
 		0A77B2E81C2505B600CD23B1 /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2E71C2505B600CD23B1 /* OpenCV.mm */; };
 		0A77B2ED1C2505CF00CD23B1 /* ImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77B2EB1C2505CF00CD23B1 /* ImageCropView.m */; };
@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0DDEBB1C3519BA004AB088 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		0A77B2A91C25042A00CD23B1 /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A77B2AC1C25042A00CD23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A77B2AE1C25042A00CD23B1 /* OmageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmageViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		0A77B2C81C25042A00CD23B1 /* OmageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A77B2CC1C25042A00CD23B1 /* OmageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmageUITests.swift; sourceTree = "<group>"; };
 		0A77B2CE1C25042A00CD23B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A77B2DB1C2504A100CD23B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		0A77B2DF1C25053600CD23B1 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		0A77B2E01C25053600CD23B1 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		0A77B2E71C2505B600CD23B1 /* OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCV.mm; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A77B2DC1C2504A100CD23B1 /* opencv2.framework in Frameworks */,
+				0A0DDEBC1C3519BB004AB088 /* opencv2.framework in Frameworks */,
 				4F8EC83ACB92DFEAE71E9600 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +197,7 @@
 		0A77B2DA1C25048000CD23B1 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				0A77B2DB1C2504A100CD23B1 /* opencv2.framework */,
+				0A0DDEBB1C3519BA004AB088 /* opencv2.framework */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -613,7 +613,7 @@
 			baseConfigurationReference = 3E78183BC50BA4712D153BBF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -624,6 +624,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -632,7 +633,7 @@
 			baseConfigurationReference = 2AAFD8D4571FAE900FB6AB33 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -643,6 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

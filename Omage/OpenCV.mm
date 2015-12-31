@@ -9,7 +9,7 @@
 // Put OpenCV include files at the top. Otherwise an error happens.
 #import <vector>
 #import <opencv2/opencv.hpp>
-#import <opencv2/imgproc.hpp>
+//#import <opencv2/imgproc.hpp>
 
 #import <Foundation/Foundation.h>
 #import "OpenCV.h"
