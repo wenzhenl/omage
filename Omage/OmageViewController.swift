@@ -631,6 +631,9 @@ class OmageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return footerView
         default:
             assert(false, "Unexpected element kind")
+            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "Thumbnail collection footer", forIndexPath: indexPath) as! ThumbnailFooterCollectionReusableView
+            footerView.footerLabel.text = NSLocalizedString("Choose an effect", comment: "")
+            return footerView
         }
     }
     
