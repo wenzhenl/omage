@@ -14,7 +14,7 @@ class ImageData {
     static let GestureScaleForMovingHandwritting = CGFloat(2.0)
     
     static var bgImage : UIImage? = UIImage(named: "example_bg")
-    static var fgImage : UIImage? = UIImage(named: "example_fg")
+    static var fgImage : UIImage? = ImageCutoutFilter.cutImageOutWithColor(UIImage(named: "example_fg"), color: UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
     static var vectorized: Bool = false
     static var hasRequested: Bool = false
     
@@ -22,7 +22,6 @@ class ImageData {
     static let segueIdentifierToPosition = "go to position"
     
     static var fgTransform: CGAffineTransform = CGAffineTransformIdentity
-    static var fgColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 
     // MARK - parameters for color
     static let avaiableHandwrittingColors =
@@ -34,7 +33,7 @@ class ImageData {
             UIColor(red: 1.0, green: 0.4, blue: 0, alpha: 1.0)
     ]
     
-    static let ColorOfAlertView = UIColor(red: 0.0078, green: 0.517647, blue: 0.5098039, alpha: 1.0)
+    static let ColorOfAlertView = UIColor(red: 72.0/255, green: 151.0/255, blue: 103.0/255, alpha: 0.8)
     static let WidthOfCustomizedAlertView = CGFloat(280.0)
     static let HeightOfCustomizedAlertView = CGFloat(50.0)
     static let VerticalOffsetOfCustomizedAlertView = CGFloat(200.0)

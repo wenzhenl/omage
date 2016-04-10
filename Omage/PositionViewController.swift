@@ -41,12 +41,12 @@ class PositionViewController: UIViewController {
         
         bgImage = ImageData.bgImage
         
-        if !ImageData.vectorized && !ImageData.hasRequested {
-            sendHandwriting()
-            ImageData.hasRequested = true
-        }
+//        if !ImageData.vectorized && !ImageData.hasRequested {
+//            sendHandwriting()
+//            ImageData.hasRequested = true
+//        }
         
-        fgImage = ImageCutoutFilter.cutImageOutWithColor(ImageData.fgImage, color: ImageData.fgColor)
+        fgImage = ImageData.fgImage
         fgImageView.transform = ImageData.fgTransform
     }
     
@@ -77,10 +77,9 @@ class PositionViewController: UIViewController {
                     if success {
                         if let imageString = parseJSON["image"] as? String {
                             if let imageData = NSData(base64EncodedString: imageString, options: []) {
-//                                if let imageData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0)) {
 
                                 let vectorImage = UIImage(data: imageData)
-                                self.fgImage = ImageCutoutFilter.cutImageOutWithColor(vectorImage, color: ImageData.fgColor)
+                                self.fgImage = vectorImage
                                 ImageData.vectorized = true
                                 ImageData.fgImage = vectorImage
                                 print("new image here")

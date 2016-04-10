@@ -35,7 +35,7 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         // Do any additional setup after loading the view.
         bgImage = ImageData.bgImage
-        fgImage = ImageCutoutFilter.cutImageOutWithColor(ImageData.fgImage, color: ImageData.fgColor)
+        fgImage = ImageData.fgImage
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,9 +72,8 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         let opencvImage = OpenCV.magicallyExtractChar(image)
         let black = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         self.fgImage = ImageCutoutFilter.cutImageOutWithColor(opencvImage, color: black)
-        ImageData.fgImage = opencvImage
+        ImageData.fgImage = self.fgImage
         ImageData.fgTransform = CGAffineTransformIdentity
-        ImageData.fgColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         ImageData.vectorized = false
         ImageData.hasRequested = false
         dismissViewControllerAnimated(true) {

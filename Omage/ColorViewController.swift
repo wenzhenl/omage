@@ -42,13 +42,15 @@ class ColorViewController: UIViewController {
         fgImageView.exclusiveTouch = true
         
         bgImage = ImageData.bgImage
-        fgImage = ImageCutoutFilter.cutImageOutWithColor(ImageData.fgImage, color: ImageData.fgColor)
+        fgImage = ImageData.fgImage
         
         fgImageView.transform = ImageData.fgTransform
         
         let colorViewWidth = colorPanelView.frame.width
+        let offsetToTop = CGFloat(40)
+        
         for i in 0..<ImageData.avaiableHandwrittingColors.count {
-            let colorViewRect = CGRectMake(0, colorViewWidth * CGFloat(i), colorViewWidth, colorViewWidth)
+            let colorViewRect = CGRectMake(0, offsetToTop + colorViewWidth * CGFloat(i), colorViewWidth, colorViewWidth)
             let colorView = UIButton(frame: colorViewRect)
             colorView.backgroundColor = ImageData.avaiableHandwrittingColors[i]
             colorView.layer.borderWidth = 4
@@ -79,8 +81,8 @@ class ColorViewController: UIViewController {
     
     func setColor(sender: UIButton) {
         print(sender.backgroundColor)
-        fgImage = ImageCutoutFilter.cutImageOutWithColor(ImageData.fgImage, color: sender.backgroundColor)
-        ImageData.fgColor = sender.backgroundColor!
+        fgImage = ImageCutoutFilter.changeImageColor(ImageData.fgImage, color: sender.backgroundColor)
+        ImageData.fgImage = self.fgImage
     }
     /*
      // MARK: - Navigation

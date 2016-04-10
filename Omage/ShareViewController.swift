@@ -42,7 +42,7 @@ class ShareViewController: UIViewController {
         fgImageView.exclusiveTouch = true
         
         bgImage = ImageData.bgImage
-        fgImage = ImageCutoutFilter.cutImageOutWithColor(ImageData.fgImage, color: ImageData.fgColor)
+        fgImage = ImageData.fgImage
         
         fgImageView.transform = ImageData.fgTransform
     }
