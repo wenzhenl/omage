@@ -8,22 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		0A7F29B11CB9AA7C0090315E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */; };
-		0A7F29B31CB9AA7C0090315E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B21CB9AA7C0090315E /* ViewController.swift */; };
+		0A7F29B31CB9AA7C0090315E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */; };
 		0A7F29B61CB9AA7C0090315E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F29B41CB9AA7C0090315E /* Main.storyboard */; };
-		0A7F29B91CB9AA7D0090315E /* Omage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B71CB9AA7D0090315E /* Omage.xcdatamodeld */; };
 		0A7F29BB1CB9AA7D0090315E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F29BA1CB9AA7D0090315E /* Assets.xcassets */; };
 		0A7F29BE1CB9AA7D0090315E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F29BC1CB9AA7D0090315E /* LaunchScreen.storyboard */; };
+		0A7F29C61CB9ADFF0090315E /* BGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29C51CB9ADFF0090315E /* BGViewController.swift */; };
+		0A7F29C81CB9AE1A0090315E /* FGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29C71CB9AE1A0090315E /* FGViewController.swift */; };
+		0A7F29CA1CB9AE2D0090315E /* PositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29C91CB9AE2D0090315E /* PositionViewController.swift */; };
+		0A7F29CC1CB9AE3D0090315E /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29CB1CB9AE3D0090315E /* ColorViewController.swift */; };
+		0A7F29CE1CB9B2520090315E /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29CD1CB9B2520090315E /* ImageData.swift */; };
+		0A7F29D11CB9B9440090315E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7F29D01CB9B9440090315E /* opencv2.framework */; };
+		0A7F29D41CB9B94B0090315E /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29D31CB9B94B0090315E /* OpenCV.mm */; };
+		0A7F29D71CB9B95D0090315E /* ImageCutoutFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29D61CB9B95D0090315E /* ImageCutoutFilter.swift */; };
+		0A7F29D91CBA21F90090315E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29D81CBA21F90090315E /* ShareViewController.swift */; };
+		0A7F29DB1CBA2EC90090315E /* CustomizedAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29DA1CBA2EC90090315E /* CustomizedAlertViewController.swift */; };
+		0A7F29DD1CBA364C0090315E /* NetworkAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29DC1CBA364C0090315E /* NetworkAvailability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A7F29AD1CB9AA7C0090315E /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A7F29B21CB9AA7C0090315E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		0A7F29B51CB9AA7C0090315E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A7F29B81CB9AA7D0090315E /* Omage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Omage.xcdatamodel; sourceTree = "<group>"; };
 		0A7F29BA1CB9AA7D0090315E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A7F29BD1CB9AA7D0090315E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A7F29BF1CB9AA7D0090315E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A7F29C51CB9ADFF0090315E /* BGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGViewController.swift; sourceTree = "<group>"; };
+		0A7F29C71CB9AE1A0090315E /* FGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGViewController.swift; sourceTree = "<group>"; };
+		0A7F29C91CB9AE2D0090315E /* PositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionViewController.swift; sourceTree = "<group>"; };
+		0A7F29CB1CB9AE3D0090315E /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		0A7F29CD1CB9B2520090315E /* ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		0A7F29D01CB9B9440090315E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		0A7F29D21CB9B94A0090315E /* Omage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Omage-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A7F29D31CB9B94B0090315E /* OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCV.mm; sourceTree = "<group>"; };
+		0A7F29D51CB9B9540090315E /* OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
+		0A7F29D61CB9B95D0090315E /* ImageCutoutFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCutoutFilter.swift; sourceTree = "<group>"; };
+		0A7F29D81CBA21F90090315E /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		0A7F29DA1CBA2EC90090315E /* CustomizedAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedAlertViewController.swift; sourceTree = "<group>"; };
+		0A7F29DC1CBA364C0090315E /* NetworkAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAvailability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7F29D11CB9B9440090315E /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +63,7 @@
 		0A7F29A41CB9AA7C0090315E = {
 			isa = PBXGroup;
 			children = (
+				0A7F29CF1CB9B92A0090315E /* Framework */,
 				0A7F29AF1CB9AA7C0090315E /* Omage */,
 				0A7F29AE1CB9AA7C0090315E /* Products */,
 			);
@@ -57,14 +81,33 @@
 			isa = PBXGroup;
 			children = (
 				0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */,
-				0A7F29B21CB9AA7C0090315E /* ViewController.swift */,
+				0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */,
 				0A7F29B41CB9AA7C0090315E /* Main.storyboard */,
 				0A7F29BA1CB9AA7D0090315E /* Assets.xcassets */,
 				0A7F29BC1CB9AA7D0090315E /* LaunchScreen.storyboard */,
 				0A7F29BF1CB9AA7D0090315E /* Info.plist */,
-				0A7F29B71CB9AA7D0090315E /* Omage.xcdatamodeld */,
+				0A7F29C51CB9ADFF0090315E /* BGViewController.swift */,
+				0A7F29C71CB9AE1A0090315E /* FGViewController.swift */,
+				0A7F29C91CB9AE2D0090315E /* PositionViewController.swift */,
+				0A7F29CB1CB9AE3D0090315E /* ColorViewController.swift */,
+				0A7F29D81CBA21F90090315E /* ShareViewController.swift */,
+				0A7F29CD1CB9B2520090315E /* ImageData.swift */,
+				0A7F29D31CB9B94B0090315E /* OpenCV.mm */,
+				0A7F29D51CB9B9540090315E /* OpenCV.h */,
+				0A7F29D61CB9B95D0090315E /* ImageCutoutFilter.swift */,
+				0A7F29D21CB9B94A0090315E /* Omage-Bridging-Header.h */,
+				0A7F29DA1CBA2EC90090315E /* CustomizedAlertViewController.swift */,
+				0A7F29DC1CBA364C0090315E /* NetworkAvailability.swift */,
 			);
 			path = Omage;
+			sourceTree = "<group>";
+		};
+		0A7F29CF1CB9B92A0090315E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				0A7F29D01CB9B9440090315E /* opencv2.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +181,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7F29B91CB9AA7D0090315E /* Omage.xcdatamodeld in Sources */,
-				0A7F29B31CB9AA7C0090315E /* ViewController.swift in Sources */,
+				0A7F29C61CB9ADFF0090315E /* BGViewController.swift in Sources */,
+				0A7F29C81CB9AE1A0090315E /* FGViewController.swift in Sources */,
+				0A7F29D91CBA21F90090315E /* ShareViewController.swift in Sources */,
+				0A7F29DB1CBA2EC90090315E /* CustomizedAlertViewController.swift in Sources */,
+				0A7F29CA1CB9AE2D0090315E /* PositionViewController.swift in Sources */,
+				0A7F29DD1CBA364C0090315E /* NetworkAvailability.swift in Sources */,
+				0A7F29B31CB9AA7C0090315E /* WelcomeViewController.swift in Sources */,
+				0A7F29D41CB9B94B0090315E /* OpenCV.mm in Sources */,
+				0A7F29D71CB9B95D0090315E /* ImageCutoutFilter.swift in Sources */,
+				0A7F29CC1CB9AE3D0090315E /* ColorViewController.swift in Sources */,
 				0A7F29B11CB9AA7C0090315E /* AppDelegate.swift in Sources */,
+				0A7F29CE1CB9B2520090315E /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +305,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Omage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -264,10 +324,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Omage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -292,19 +359,6 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0A7F29B71CB9AA7D0090315E /* Omage.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0A7F29B81CB9AA7D0090315E /* Omage.xcdatamodel */,
-			);
-			currentVersion = 0A7F29B81CB9AA7D0090315E /* Omage.xcdatamodel */;
-			path = Omage.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0A7F29A51CB9AA7C0090315E /* Project object */;
 }
