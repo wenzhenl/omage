@@ -20,6 +20,13 @@ class WelcomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func begin(sender: UIButton) {
+        ImageData.hasSeenWelcomeTutorial = true
+        let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
+        let initialViewController = self.storyboard!.instantiateViewControllerWithIdentifier(ImageData.IdentifierForBGViewController)
+        appDelegate.window?.rootViewController = initialViewController
+        appDelegate.window?.makeKeyAndVisible()
+    }
 
 }
 

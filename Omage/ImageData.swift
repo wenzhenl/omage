@@ -82,6 +82,17 @@ class ImageData {
         }
     }
 
+    static var hasSeenWelcomeTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenWelcomeTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenWelcomeTutorial")
+        }
+    }
+    
+    static let IdentifierForBGViewController = "bg view controller"
+    static let IdentifierForWelcomeViewController = "welcome view controller"
     static let IdentifierForCustomizedAlertViewController = "Customized Alert View Controller"
     
     static func popupCustomizedAlert(viewController: UIViewController, message: String) {

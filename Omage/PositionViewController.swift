@@ -43,10 +43,10 @@ class PositionViewController: UIViewController {
         
         bgImage = ImageData.bgImage
         
-//        if !ImageData.vectorized && !ImageData.hasRequested {
-//            sendHandwriting()
-//            ImageData.hasRequested = true
-//        }
+        if !ImageData.vectorized && !ImageData.hasRequested {
+            sendHandwriting()
+            ImageData.hasRequested = true
+        }
         
         fgImage = ImageData.fgImage
         fgImageView.transform = ImageData.fgTransform
