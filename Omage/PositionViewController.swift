@@ -15,6 +15,8 @@ class PositionViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    var blurView: UIView!
+
     var bgImage: UIImage? {
         get {
             return bgImageView.image
@@ -48,6 +50,14 @@ class PositionViewController: UIViewController {
         
         fgImage = ImageData.fgImage
         fgImageView.transform = ImageData.fgTransform
+        
+        if !ImageData.hasSeenPosTutorial {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = view.bounds
+            view.addSubview(blurView)
+            view.bringSubviewToFront(blurView)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,6 +65,30 @@ class PositionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if !ImageData.hasSeenPosTutorial {
+            let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
+            tip.message = "Now you can adjust the position of your handwriting. You can move, scale or rotate it with your fingers."
+            tip.modalPresentationStyle = .OverFullScreen
+            
+            let center = NSNotificationCenter.defaultCenter()
+            
+            center.addObserver(self, selector: #selector(BGViewController.userKnows(_:)), name: ImageData.NameOfNotificationUserKnows, object: nil)
+            
+            self.presentViewController(tip, animated: true, completion: nil)
+        }
+    }
+    
+    func userKnows(notification: NSNotification) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ImageData.NameOfNotificationUserKnows, object: nil)
+        self.dismissViewControllerAnimated(true) {
+            ImageData.hasSeenPosTutorial = true
+            self.blurView.removeFromSuperview()
+        }
+    }
+
     func sendHandwriting() {
         let params = NSMutableDictionary()
 

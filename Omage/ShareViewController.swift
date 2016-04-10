@@ -17,6 +17,8 @@ class ShareViewController: UIViewController {
     
     @IBOutlet weak var mergedImageView: UIView!
     
+    var blurView: UIView!
+
     var bgImage: UIImage? {
         get {
             return bgImageView.image
@@ -45,6 +47,14 @@ class ShareViewController: UIViewController {
         fgImage = ImageData.fgImage
         
         fgImageView.transform = ImageData.fgTransform
+        
+        if !ImageData.hasSeenShareTutorial {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = view.bounds
+            view.addSubview(blurView)
+            view.bringSubviewToFront(blurView)
+        }
     }
     
     @IBAction func saveImage(sender: UIButton) {
@@ -60,6 +70,30 @@ class ShareViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if !ImageData.hasSeenShareTutorial {
+            let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
+            tip.message = "Congratulations! You just create an image with your particular handwriting. You can save it to your photo library and share it to whereever you want."
+            tip.modalPresentationStyle = .OverFullScreen
+            
+            let center = NSNotificationCenter.defaultCenter()
+            
+            center.addObserver(self, selector: #selector(BGViewController.userKnows(_:)), name: ImageData.NameOfNotificationUserKnows, object: nil)
+            
+            self.presentViewController(tip, animated: true, completion: nil)
+        }
+    }
+    
+    func userKnows(notification: NSNotification) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ImageData.NameOfNotificationUserKnows, object: nil)
+        self.dismissViewControllerAnimated(true) {
+            ImageData.hasSeenShareTutorial = true
+            self.blurView.removeFromSuperview()
+        }
+    }
+
     // MARK - clip a region of view into an image
     func clipImageForRect(clipRect: CGRect, inView: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(clipRect.size, false, CGFloat(0.0))

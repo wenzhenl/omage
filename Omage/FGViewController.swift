@@ -13,6 +13,8 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var fgImageView: UIImageView!
     
+    var blurView: UIView!
+
     var bgImage: UIImage? {
         get {
             return bgImageView.image
@@ -36,6 +38,14 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         // Do any additional setup after loading the view.
         bgImage = ImageData.bgImage
         fgImage = ImageData.fgImage
+        
+        if !ImageData.hasSeenFGTutorial {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = view.bounds
+            view.addSubview(blurView)
+            view.bringSubviewToFront(blurView)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +53,29 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if !ImageData.hasSeenFGTutorial {
+            let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
+            tip.message = "Take a photo of your handwriting on the paper, pay attention to the lighting to make sure the shadow is smooth. Of course, you will try beautiful illustrations beyond your handwriting!"
+            tip.modalPresentationStyle = .OverFullScreen
+            
+            let center = NSNotificationCenter.defaultCenter()
+            
+            center.addObserver(self, selector: #selector(BGViewController.userKnows(_:)), name: ImageData.NameOfNotificationUserKnows, object: nil)
+            
+            self.presentViewController(tip, animated: true, completion: nil)
+        }
+    }
+    
+    func userKnows(notification: NSNotification) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ImageData.NameOfNotificationUserKnows, object: nil)
+        self.dismissViewControllerAnimated(true) {
+            ImageData.hasSeenFGTutorial = true
+            self.blurView.removeFromSuperview()
+        }
+    }
     
     @IBAction func showCamera(sender: UIButton) {
         print("show camera")

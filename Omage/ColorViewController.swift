@@ -16,7 +16,9 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var colorPanelView: UIView!
-    
+
+    var blurView: UIView!
+
     var bgImage: UIImage? {
         get {
             return bgImageView.image
@@ -59,6 +61,14 @@ class ColorViewController: UIViewController {
             self.colorPanelView.addSubview(colorView)
         }
         self.view.bringSubviewToFront(self.colorPanelView)
+        
+        if !ImageData.hasSeenColorTutorial {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = view.bounds
+            view.addSubview(blurView)
+            view.bringSubviewToFront(blurView)
+        }
     }
     
     @IBAction func moveColorPanel(sender: UIPanGestureRecognizer) {
@@ -79,6 +89,30 @@ class ColorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if !ImageData.hasSeenColorTutorial {
+            let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
+            tip.message = "You can also choose your favoriate color of your handwriting to best fit your background image. Move the color panel if it blocks your sight. "
+            tip.modalPresentationStyle = .OverFullScreen
+            
+            let center = NSNotificationCenter.defaultCenter()
+            
+            center.addObserver(self, selector: #selector(BGViewController.userKnows(_:)), name: ImageData.NameOfNotificationUserKnows, object: nil)
+            
+            self.presentViewController(tip, animated: true, completion: nil)
+        }
+    }
+    
+    func userKnows(notification: NSNotification) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ImageData.NameOfNotificationUserKnows, object: nil)
+        self.dismissViewControllerAnimated(true) {
+            ImageData.hasSeenColorTutorial = true
+            self.blurView.removeFromSuperview()
+        }
+    }
+
     func setColor(sender: UIButton) {
         print(sender.backgroundColor)
         fgImage = ImageCutoutFilter.changeImageColor(ImageData.fgImage, color: sender.backgroundColor)

@@ -21,11 +21,20 @@ class BGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         }
     }
     
+    var blurView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         image = ImageData.bgImage
+        if !ImageData.hasSeenBGTutorial {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = view.bounds
+            view.addSubview(blurView)
+            view.bringSubviewToFront(blurView)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +42,30 @@ class BGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if !ImageData.hasSeenBGTutorial {
+            let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
+            tip.message = "As the first step, please choose a background image you want to add your handwriting on. You can choose from photo library or take a fresh image now. If you just want to use the demo image, click Next."
+            tip.modalPresentationStyle = .OverFullScreen
+            
+            let center = NSNotificationCenter.defaultCenter()
+            
+            center.addObserver(self, selector: #selector(BGViewController.userKnows(_:)), name: ImageData.NameOfNotificationUserKnows, object: nil)
+            
+            self.presentViewController(tip, animated: true, completion: nil)
+        }
+    }
 
+    func userKnows(notification: NSNotification) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ImageData.NameOfNotificationUserKnows, object: nil)
+        self.dismissViewControllerAnimated(true) {
+            ImageData.hasSeenBGTutorial = true
+            self.blurView.removeFromSuperview()
+        }
+    }
+    
     @IBAction func showCamera(sender: UIButton) {
         print("show camera")
         let picker = UIImagePickerController()

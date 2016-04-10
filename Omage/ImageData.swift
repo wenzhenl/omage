@@ -38,6 +38,50 @@ class ImageData {
     static let HeightOfCustomizedAlertView = CGFloat(50.0)
     static let VerticalOffsetOfCustomizedAlertView = CGFloat(200.0)
     
+    static var hasSeenBGTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenBGTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenBGTutorial")
+        }
+    }
+    
+    static var hasSeenFGTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenFGTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenFGTutorial")
+        }
+    }
+    
+    static var hasSeenPosTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenPosTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenPosTutorial")
+        }
+    }
+    static var hasSeenColorTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenColorTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenColorTutorial")
+        }
+    }
+
+    static var hasSeenShareTutorial: Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey("HasSeenShareTutorial")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "HasSeenShareTutorial")
+        }
+    }
+
     static let IdentifierForCustomizedAlertViewController = "Customized Alert View Controller"
     
     static func popupCustomizedAlert(viewController: UIViewController, message: String) {
@@ -54,6 +98,22 @@ class ImageData {
             viewController.dismissViewControllerAnimated(true, completion: nil)
         })
     }
+    
+    static let IdentifierForTipViewController = "Tip View Controller"
+    static let NameOfNotificationUserKnows = "User says I see"
+    
+//    static func popupTip(viewController: UIViewController, message: String) {
+//        let tip = viewController.storyboard?.instantiateViewControllerWithIdentifier(IdentifierForTipViewController) as! TipViewController
+//        tip.message = message
+//        tip.modalPresentationStyle = .OverFullScreen
+//        
+//        let center = NSNotificationCenter.defaultCenter()
+//        
+//        center.addObserver(viewController, selector: Selector("userKnows:"), name: NameOfNotificationUserKnows, object: nil)
+//        
+//        viewController.presentViewController(tip, animated: true, completion: nil)
+//    }
+
     
     // MARK - interaction with the server
     static let serverIP = "http://ec2-52-69-172-155.ap-northeast-1.compute.amazonaws.com/Handsome/"

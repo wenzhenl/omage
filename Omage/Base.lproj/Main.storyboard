@@ -23,6 +23,98 @@
             </objects>
             <point key="canvasLocation" x="-59" y="303"/>
         </scene>
+        <!--Tip View Controller-->
+        <scene sceneID="ae1-j6-jpJ">
+            <objects>
+                <viewController storyboardIdentifier="Tip View Controller" id="qmb-7G-yTp" customClass="TipViewController" customModule="Omage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ICf-LJ-nYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mnl-zQ-WiB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5lk-Kd-4u8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd3-UV-dM9">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3Ij-3U-9aa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="I see">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirm:" destination="qmb-7G-yTp" eventType="touchUpInside" id="nrv-gk-PDc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-xJ-YcT">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ZF6-om-bIb"/>
+                                    <constraint firstAttribute="height" constant="300" id="kfQ-za-lo2"/>
+                                </constraints>
+                                <mutableString key="text">import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var secondImageView: UIImageView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        view.bringSubviewToFront(secondImageView)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+    @IBAction func blurIt() {
+        
+        var ctl: CInt = 0;
+        getInput(0, &amp;ctl)
+        
+        if ctl == 1 {
+            let blurEffect = UIBlurEffect(style: .ExtraLight)
+            let blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = imageView.bounds
+            imageView.addSubview(blurView)
+        }
+    }
+}
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DGY-xJ-YcT" firstAttribute="centerY" secondItem="5lk-Kd-4u8" secondAttribute="centerY" id="2DG-le-2TX"/>
+                            <constraint firstItem="xd3-UV-dM9" firstAttribute="centerX" secondItem="5lk-Kd-4u8" secondAttribute="centerX" id="9AQ-38-zDc"/>
+                            <constraint firstItem="DGY-xJ-YcT" firstAttribute="width" secondItem="5lk-Kd-4u8" secondAttribute="width" id="Au9-yw-Vg8"/>
+                            <constraint firstItem="Mnl-zQ-WiB" firstAttribute="top" secondItem="xd3-UV-dM9" secondAttribute="bottom" id="Vt3-od-sQu"/>
+                            <constraint firstItem="DGY-xJ-YcT" firstAttribute="centerX" secondItem="5lk-Kd-4u8" secondAttribute="centerX" id="Xyh-rA-vL7"/>
+                            <constraint firstItem="xd3-UV-dM9" firstAttribute="width" secondItem="5lk-Kd-4u8" secondAttribute="width" id="nBu-5p-ixL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Au9-yw-Vg8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tipLabel" destination="DGY-xJ-YcT" id="5T7-S3-mJ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kx6-dV-WVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="-661"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="hmS-fJ-FaJ">
             <objects>
@@ -723,9 +815,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xm8-1q-QIH"/>
+        <segue reference="Gza-eY-TqH"/>
+        <segue reference="0lc-4B-fGm"/>
         <segue reference="lwX-Pf-SdU"/>
         <segue reference="svj-Ia-uET"/>
-        <segue reference="0lc-4B-fGm"/>
     </inferredMetricsTieBreakers>
 </document>

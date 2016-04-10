@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4FF32A1CBAE7DF0036CD75 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4FF3291CBAE7DF0036CD75 /* TipViewController.swift */; };
 		0A7F29B11CB9AA7C0090315E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */; };
 		0A7F29B31CB9AA7C0090315E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */; };
 		0A7F29B61CB9AA7C0090315E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F29B41CB9AA7C0090315E /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A4FF3291CBAE7DF0036CD75 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		0A7F29AD1CB9AA7C0090315E /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				0A7F29D21CB9B94A0090315E /* Omage-Bridging-Header.h */,
 				0A7F29DA1CBA2EC90090315E /* CustomizedAlertViewController.swift */,
 				0A7F29DC1CBA364C0090315E /* NetworkAvailability.swift */,
+				0A4FF3291CBAE7DF0036CD75 /* TipViewController.swift */,
 			);
 			path = Omage;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				0A7F29D41CB9B94B0090315E /* OpenCV.mm in Sources */,
 				0A7F29D71CB9B95D0090315E /* ImageCutoutFilter.swift in Sources */,
 				0A7F29CC1CB9AE3D0090315E /* ColorViewController.swift in Sources */,
+				0A4FF32A1CBAE7DF0036CD75 /* TipViewController.swift in Sources */,
 				0A7F29B11CB9AA7C0090315E /* AppDelegate.swift in Sources */,
 				0A7F29CE1CB9B2520090315E /* ImageData.swift in Sources */,
 			);
@@ -357,6 +361,7 @@
 				0A7F29C41CB9AA7D0090315E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
