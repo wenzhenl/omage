@@ -215,7 +215,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="u68-cS-wde"/>
                                         </constraints>
                                         <state key="normal" title="Next">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="5fp-Dl-lr9" kind="show" id="lwX-Pf-SdU"/>
@@ -362,7 +362,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="1uo-cy-gNv"/>
                                         </constraints>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="1EB-Cz-sXg" kind="show" id="xm8-1q-QIH"/>
@@ -374,7 +374,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="Nbd-XT-mxS"/>
                                         </constraints>
                                         <state key="normal" title="Next">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="eGx-bx-j5u" kind="show" id="m3c-Wx-90d"/>
@@ -471,7 +471,7 @@ class ViewController: UIViewController {
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="eGx-bx-j5u" kind="show" id="jav-zu-HQH"/>
@@ -483,7 +483,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="gUD-c7-WHm"/>
                                         </constraints>
                                         <state key="normal" title="Next">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="VDp-K7-ZzV" kind="show" id="DR5-1C-Qiy"/>
@@ -617,7 +617,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="7TG-nj-FpU"/>
                                         </constraints>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="VIQ-5N-RU6" kind="show" id="0lc-4B-fGm"/>
@@ -629,7 +629,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="ZQY-9n-5kb"/>
                                         </constraints>
                                         <state key="normal" title="Save">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="saveImage:" destination="VDp-K7-ZzV" eventType="touchUpInside" id="UTl-Hs-3Ns"/>
@@ -730,7 +730,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="hm7-Fu-Gqr"/>
                                         </constraints>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="5fp-Dl-lr9" kind="show" id="uGG-7U-77p"/>
@@ -742,7 +742,7 @@ class ViewController: UIViewController {
                                             <constraint firstAttribute="width" constant="55" id="u1O-TD-wya"/>
                                         </constraints>
                                         <state key="normal" title="Next">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="VIQ-5N-RU6" kind="show" id="kzn-8M-JHB"/>
@@ -817,7 +817,7 @@ class ViewController: UIViewController {
     <inferredMetricsTieBreakers>
         <segue reference="Gza-eY-TqH"/>
         <segue reference="0lc-4B-fGm"/>
-        <segue reference="lwX-Pf-SdU"/>
-        <segue reference="svj-Ia-uET"/>
+        <segue reference="jav-zu-HQH"/>
+        <segue reference="uGG-7U-77p"/>
     </inferredMetricsTieBreakers>
 </document>
