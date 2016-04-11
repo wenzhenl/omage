@@ -62,7 +62,7 @@ class ShareViewController: UIViewController {
         let pngImage = UIImagePNGRepresentation(mergedImage)
         let savedImage = UIImage(data: pngImage!)
         UIImageWriteToSavedPhotosAlbum(savedImage!, nil, nil, nil)
-        ImageData.popupCustomizedAlert(self, message: "Saved!")
+        ImageData.popupCustomizedAlert(self, message: NSLocalizedString("Saved!", comment: ""))
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,7 +74,7 @@ class ShareViewController: UIViewController {
         super.viewDidAppear(true)
         if !ImageData.hasSeenShareTutorial {
             let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
-            tip.message = "Congratulations! You just create an image with your particular handwriting. You can save it to your photo library and share it to whereever you want."
+            tip.message = NSLocalizedString("Congratulations! You just create an image with your particular handwriting. You can save it to your photo library and share it to whereever you want.", comment:"")
             tip.modalPresentationStyle = .OverFullScreen
             
             let center = NSNotificationCenter.defaultCenter()

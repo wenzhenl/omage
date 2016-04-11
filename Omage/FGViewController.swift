@@ -57,7 +57,7 @@ class FGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         super.viewDidAppear(true)
         if !ImageData.hasSeenFGTutorial {
             let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
-            tip.message = "Take a photo of your handwriting on the paper, pay attention to the lighting to make sure the shadow is smooth. Of course, you will try beautiful illustrations beyond your handwriting!"
+            tip.message = NSLocalizedString("Take a photo of your handwriting on the paper, pay attention to the lighting to make sure the shadow is smooth. Of course, you will try beautiful illustrations beyond your handwriting!", comment: "")
             tip.modalPresentationStyle = .OverFullScreen
             
             let center = NSNotificationCenter.defaultCenter()

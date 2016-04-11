@@ -93,7 +93,7 @@ class ColorViewController: UIViewController {
         super.viewDidAppear(true)
         if !ImageData.hasSeenColorTutorial {
             let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
-            tip.message = "You can also choose your favoriate color of your handwriting to best fit your background image. Move the color panel if it blocks your sight. "
+            tip.message = NSLocalizedString("You can also choose your favoriate color of your handwriting to best fit your background image. Move the color panel if it blocks your sight. ", comment:"")
             tip.modalPresentationStyle = .OverFullScreen
             
             let center = NSNotificationCenter.defaultCenter()

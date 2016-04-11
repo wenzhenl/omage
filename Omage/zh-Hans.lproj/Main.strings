@@ -1,0 +1,66 @@
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "0F1-ym-Pad"; */
+"0F1-ym-Pad.normalTitle" = "上回";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "D4C-ud-1N5"; */
+"D4C-ud-1N5.normalTitle" = "下回";
+
+/* Class = "UILabel"; text = "haha"; ObjectID = "DGY-xJ-YcT"; */
+"DGY-xJ-YcT.text" = "哈哈";
+
+/* Class = "UIButton"; normalTitle = "Experience Alyssa"; ObjectID = "ETu-xp-q2s"; */
+"ETu-xp-q2s.normalTitle" = "开始使用初笔";
+
+/* Class = "UIButton"; normalTitle = "Photo Library"; ObjectID = "JuT-jG-1w3"; */
+"JuT-jG-1w3.normalTitle" = "相册";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "KUA-Ep-ge9"; */
+"KUA-Ep-ge9.normalTitle" = "下回";
+
+/* Class = "UIButton"; normalTitle = "Make another picture"; ObjectID = "TXo-9X-x8c"; */
+"TXo-9X-x8c.normalTitle" = "制作新的图片";
+
+/* Class = "UIButton"; normalTitle = "Image"; ObjectID = "WkL-Lk-llW"; */
+"WkL-Lk-llW.normalTitle" = "从相片";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "axN-pO-fYG"; */
+"axN-pO-fYG.normalTitle" = "上回";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "cIf-pM-rpC"; */
+"cIf-pM-rpC.normalTitle" = "下回";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "erj-iE-re2"; */
+"erj-iE-re2.normalTitle" = "下回";
+
+/* Class = "UIButton"; normalTitle = "Paper"; ObjectID = "fzN-t5-Y1Q"; */
+"fzN-t5-Y1Q.normalTitle" = "从纸上";
+
+/* Class = "UILabel"; text = "Select background image"; ObjectID = "gG2-ET-icA"; */
+"gG2-ET-icA.text" = "选择背景图片";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "h3D-dO-SAY"; */
+"h3D-dO-SAY.normalTitle" = "上回";
+
+/* Class = "UILabel"; text = "Add handwriting"; ObjectID = "j0F-Bk-0QY"; */
+"j0F-Bk-0QY.text" = "添加手写";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "kIx-1M-AIK"; */
+"kIx-1M-AIK.normalTitle" = "上回";
+
+/* Class = "UILabel"; text = "Congratulations"; ObjectID = "lik-se-xB8"; */
+"lik-se-xB8.text" = "恭喜";
+
+/* Class = "UIButton"; normalTitle = "Camera"; ObjectID = "n64-Zg-gEr"; */
+"n64-Zg-gEr.normalTitle" = "拍照";
+
+/* Class = "UILabel"; text = "Adjust position"; ObjectID = "pTU-PE-Qqu"; */
+"pTU-PE-Qqu.text" = "调整位置";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "syu-up-vaP"; */
+"syu-up-vaP.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "Choose color"; ObjectID = "u0P-0B-u0M"; */
+"u0P-0B-u0M.text" = "选择颜色";
+
+/* Class = "UIButton"; normalTitle = "I see"; ObjectID = "xd3-UV-dM9"; */
+"xd3-UV-dM9.normalTitle" = "知道啦";
+

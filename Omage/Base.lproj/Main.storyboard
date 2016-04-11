@@ -77,44 +77,12 @@
                                     <action selector="confirm:" destination="qmb-7G-yTp" eventType="touchUpInside" id="nrv-gk-PDc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-xJ-YcT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="haha" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-xJ-YcT">
                                 <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ZF6-om-bIb"/>
                                     <constraint firstAttribute="height" constant="300" id="kfQ-za-lo2"/>
                                 </constraints>
-                                <string key="text">import UIKit
-
-class ViewController: UIViewController {
-
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var secondImageView: UIImageView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        view.bringSubviewToFront(secondImageView)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-    @IBAction func blurIt() {
-        
-        var ctl: CInt = 0;
-        getInput(0, &amp;ctl)
-        
-        if ctl == 1 {
-            let blurEffect = UIBlurEffect(style: .ExtraLight)
-            let blurView = UIVisualEffectView(effect: blurEffect)
-            blurView.frame = imageView.bounds
-            imageView.addSubview(blurView)
-        }
-    }
-}
-</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="1" green="0.70595824289999998" blue="0.1072664972" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

@@ -43,10 +43,10 @@ class PositionViewController: UIViewController {
         
         bgImage = ImageData.bgImage
         
-        if !ImageData.vectorized && !ImageData.hasRequested {
-            sendHandwriting()
-            ImageData.hasRequested = true
-        }
+//        if !ImageData.vectorized && !ImageData.hasRequested {
+//            sendHandwriting()
+//            ImageData.hasRequested = true
+//        }
         
         fgImage = ImageData.fgImage
         fgImageView.transform = ImageData.fgTransform
@@ -69,7 +69,7 @@ class PositionViewController: UIViewController {
         super.viewDidAppear(true)
         if !ImageData.hasSeenPosTutorial {
             let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
-            tip.message = "Now you can adjust the position of your handwriting. You can move, scale or rotate it with your fingers."
+            tip.message = NSLocalizedString("Now you can adjust the position of your handwriting. You can move, scale or rotate it with your fingers.", comment: "")
             tip.modalPresentationStyle = .OverFullScreen
             
             let center = NSNotificationCenter.defaultCenter()

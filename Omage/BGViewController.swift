@@ -46,7 +46,7 @@ class BGViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         super.viewDidAppear(true)
         if !ImageData.hasSeenBGTutorial {
             let tip = self.storyboard?.instantiateViewControllerWithIdentifier(ImageData.IdentifierForTipViewController) as! TipViewController
-            tip.message = "As the first step, please choose a background image you want to add your handwriting on. You can choose from photo library or take a fresh image now. If you just want to use the demo image, click Next."
+            tip.message = NSLocalizedString("As the first step, please choose a background image you want to add your handwriting on. You can choose from photo library or take a fresh image now. If you just want to use the demo image, click Next.", comment: "")
             tip.modalPresentationStyle = .OverFullScreen
             
             let center = NSNotificationCenter.defaultCenter()

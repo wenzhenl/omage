@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A4FF32A1CBAE7DF0036CD75 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4FF3291CBAE7DF0036CD75 /* TipViewController.swift */; };
+		0A63E3D21CBB1B1800A2FE63 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A63E3D41CBB1B1800A2FE63 /* Localizable.strings */; };
+		0A63E3D71CBB1B1800A2FE63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A63E3D91CBB1B1800A2FE63 /* InfoPlist.strings */; };
 		0A7F29B11CB9AA7C0090315E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */; };
 		0A7F29B31CB9AA7C0090315E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */; };
 		0A7F29B61CB9AA7C0090315E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F29B41CB9AA7C0090315E /* Main.storyboard */; };
@@ -28,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		0A4FF3291CBAE7DF0036CD75 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		0A6241CA1CBB169100565E3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0A6241CB1CBB169100565E3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0A63E3D31CBB1B1800A2FE63 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0A63E3D81CBB1B1800A2FE63 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A7F29AD1CB9AA7C0090315E /* Omage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		0A7F29AF1CB9AA7C0090315E /* Omage */ = {
 			isa = PBXGroup;
 			children = (
+				0A63E3D91CBB1B1800A2FE63 /* InfoPlist.strings */,
+				0A63E3D41CBB1B1800A2FE63 /* Localizable.strings */,
 				0A7F29B01CB9AA7C0090315E /* AppDelegate.swift */,
 				0A7F29B21CB9AA7C0090315E /* WelcomeViewController.swift */,
 				0A7F29B41CB9AA7C0090315E /* Main.storyboard */,
@@ -172,8 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7F29BE1CB9AA7D0090315E /* LaunchScreen.storyboard in Resources */,
+				0A63E3D21CBB1B1800A2FE63 /* Localizable.strings in Resources */,
 				0A7F29BB1CB9AA7D0090315E /* Assets.xcassets in Resources */,
 				0A7F29B61CB9AA7C0090315E /* Main.storyboard in Resources */,
+				0A63E3D71CBB1B1800A2FE63 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,10 +213,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0A63E3D41CBB1B1800A2FE63 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A63E3D31CBB1B1800A2FE63 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0A63E3D91CBB1B1800A2FE63 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A63E3D81CBB1B1800A2FE63 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		0A7F29B41CB9AA7C0090315E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0A7F29B51CB9AA7C0090315E /* Base */,
+				0A6241CA1CBB169100565E3C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -215,6 +242,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A7F29BD1CB9AA7D0090315E /* Base */,
+				0A6241CB1CBB169100565E3C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -310,6 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -317,7 +346,7 @@
 				INFOPLIST_FILE = Omage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Leeyukuang.Omage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -336,7 +365,7 @@
 				INFOPLIST_FILE = Omage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Leeyukuang.Omage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeyukuang.Omage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Omage/Omage-Bridging-Header.h";
 			};
